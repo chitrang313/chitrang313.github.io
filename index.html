@@ -1,57 +1,169 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chitrang Patel | Software Engineer</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- CSS Variables & Globals -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/global.css">
+    <!-- Section Specific CSS -->
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/skills.css">
+    <link rel="stylesheet" href="css/projects.css">
+    <link rel="stylesheet" href="css/experience.css">
+    <link rel="stylesheet" href="css/achievements.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/footer.css">
 </head>
 
 <body>
-
     <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+        <div class="nav-content container">
+            <div class="logo">[Logo Placeholder]</div>
+            <ul class="nav-links">
+                <li><a href="#hero">Hero</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li>
+                    <button id="theme-toggle" aria-label="Toggle theme">
+                        🌙
+                    </button>
+                </li>
+            </ul>
+        </div>
     </nav>
 
-    <section id="home">
-        <h1>Hi, I'm Chitrang Patel.</h1>
-        <p>Software Engineer | Unity Developer transitioning into AI & Web Development</p>
-    </section>
+    <main>
+        <section id="hero" class="hero-section sticker-theme">
+            <div class="container hero-container">
+                <!-- LEFT SIDE (Intro Card) -->
+                <div class="hero-card sticker-element">
+                    <p class="greeting">Hi, I'm</p>
+                    <h1 class="developer-name">Chitrang Patel</h1>
+                    <h2 class="professional-title">Senior Software Engineer | Unity & Full-Stack Developer</h2>
+                    <p class="description">
+                        I build immersive games, AR/VR experiences, and scalable web applications using Unity, C#, and
+                        modern web technologies.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="sticker-btn">View Projects</a>
+                        <a href="#" class="sticker-btn">Download Resume</a>
+                        <a href="#contact" class="sticker-btn btn-accent">Contact Me</a>
+                    </div>
+                </div>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I am a Software Engineer based in Gujarat with years of experience building immersive experiences using
-            Unity, C#, and AR/VR. Currently, I am expanding my horizons into Artificial Intelligence and Python.</p>
-        <p>When I'm not coding, you can usually find me painting, drawing, or exploring custom PC builds.</p>
-    </section>
+                <!-- RIGHT SIDE (Playful Visuals) -->
+                <div class="hero-visuals">
+                    <div class="profile-sticker sticker-element rotating-slight">
+                        <!-- Sticker shape for the profile image -->
+                        <img src="images/profile.png" alt="Chitrang Patel"
+                            onerror="this.src='https://via.placeholder.com/300x300.png?text=Profile+Pic'"
+                            class="profile-img">
+                    </div>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <h3>Project 1</h3>
-                <p>A multiplayer Unity game utilizing LiDAR technology for environmental mapping.</p>
+                    <!-- Floating Tech Stickers -->
+                    <div class="tech-sticker sticker-element float-1 icon-unity">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Unity_2021.svg" alt="Unity"
+                            style="width:60%;" onerror="this.style.display='none'; this.parentNode.innerHTML='Unity'">
+                    </div>
+                    <div class="tech-sticker sticker-element float-2 icon-csharp">C#</div>
+                    <div class="tech-sticker sticker-element float-3 icon-laptop">💻</div>
+                    <div class="tech-sticker sticker-element float-4 icon-js">JS</div>
+                </div>
             </div>
-            <div class="project-card">
-                <h3>Project 2</h3>
-                <p>AI/Python learning project exploring machine learning basics.</p>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2>About Me</h2>
+                <div class="about-content">
+                    <div class="about-image">[Image Placeholder]</div>
+                    <div class="about-text">
+                        <p>[About text placeholder paragraph 1]</p>
+                        <p>[About text placeholder paragraph 2]</p>
+                    </div>
+                </div>
             </div>
+        </section>
+
+        <section id="skills" class="section">
+            <div class="container">
+                <h2>Skills / Tech Stack</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">[Skill Placeholder 1]</div>
+                    <div class="skill-item">[Skill Placeholder 2]</div>
+                    <div class="skill-item">[Skill Placeholder 3]</div>
+                    <div class="skill-item">[Skill Placeholder 4]</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <div class="container">
+                <h2>Projects Showcase</h2>
+                <div class="project-list">
+                    <div class="project-card">[Project Placeholder 1]</div>
+                    <div class="project-card">[Project Placeholder 2]</div>
+                    <div class="project-card">[Project Placeholder 3]</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="section">
+            <div class="container">
+                <h2>Experience Timeline</h2>
+                <div class="timeline">
+                    <div class="timeline-item">[Experience Placeholder 1]</div>
+                    <div class="timeline-item">[Experience Placeholder 2]</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="achievements" class="section">
+            <div class="container">
+                <h2>Achievements / Stats</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">[Stat Placeholder 1]</div>
+                    <div class="stat-item">[Stat Placeholder 2]</div>
+                    <div class="stat-item">[Stat Placeholder 3]</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <h2>Contact</h2>
+                <div class="contact-form">
+                    <p>[Form or Contact details Placeholder]</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>[Footer Content Placeholder]</p>
         </div>
-    </section>
+    </footer>
 
-    <section id="contact">
-        <h2>Let's Connect</h2>
-        <p>Email: <a href="mailto:chitrang313@gmail.com">chitrang313@gmail.com</a></p>
-        <p>GitHub: <a href="https://github.com/chitrang313" target="_blank">github.com/chitrang313</a></p>
-    </section>
-
-    <script src="script.js"></script>
+    <!-- Scripts -->
+    <script src="js/theme.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/hero.js"></script>
+    <script src="js/about.js"></script>
+    <script src="js/skills.js"></script>
+    <script src="js/projects.js"></script>
+    <script src="js/experience.js"></script>
+    <script src="js/achievements.js"></script>
+    <script src="js/contact.js"></script>
 </body>
 
 </html>
