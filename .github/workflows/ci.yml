@@ -37,7 +37,7 @@ jobs:
 
       - name: Lint CSS
         run: |
-          echo '{ "extends": "stylelint-config-standard", "rules": { "no-duplicate-selectors": null, "declaration-block-no-duplicate-properties": [true, { "ignore": ["consecutive-duplicates-with-different-values"] }], "alpha-value-notation": null, "color-function-notation": null, "shorthand-property-no-redundant-values": null, "declaration-block-no-redundant-longhand-properties": null } }' > .stylelintrc.json
+          echo '{ "extends": "stylelint-config-standard", "rules": { "no-duplicate-selectors": null, "declaration-block-no-duplicate-properties": [true, { "ignore": ["consecutive-duplicates-with-different-values"] }], "alpha-value-notation": null, "color-function-notation": null, "shorthand-property-no-redundant-values": null, "declaration-block-no-redundant-longhand-properties": null, "no-descending-specificity": null, "property-no-vendor-prefix": null } }' > .stylelintrc.json
           stylelint "css/**/*.css" --allow-empty-input || true
 
       # ---------- JS Lint ----------

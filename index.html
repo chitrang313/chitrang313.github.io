@@ -2,369 +2,908 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Personal Portfolio Website - Low-Fidelity Wireframe">
-  <title>Portfolio Wireframe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Chitrang Patel — Software Engineer | C#/.NET, real-time systems</title>
+  <meta name="description" content="Chitrang Patel is a software engineer with 8+ years building production C# / .NET applications, real-time client-server systems and interactive platforms shipped across iOS and Android.">
+  <meta name="author" content="Chitrang Patel">
+  <link rel="canonical" href="https://chitrang313.github.io/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Chitrang Patel">
+  <meta property="og:title" content="Chitrang Patel — Software Engineer">
+  <meta property="og:description" content="8+ years building production C# / .NET applications, real-time client-server systems and interactive platforms shipped across iOS and Android.">
+  <meta property="og:url" content="https://chitrang313.github.io/">
+  <meta property="og:image" content="https://chitrang313.github.io/assets/img/og-cover.png">
+  <meta property="og:image:alt" content="Chitrang Patel — Software Engineer">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Chitrang Patel — Software Engineer">
+  <meta name="twitter:description" content="8+ years building production C# / .NET applications, real-time client-server systems and interactive platforms.">
+  <meta name="twitter:image" content="https://chitrang313.github.io/assets/img/og-cover.png">
+
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/favicon.svg">
+
+  <!-- Fonts: Instrument Serif (display) + Inter (text) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inter:wght@400;500;600&amp;display=swap">
+
   <link rel="stylesheet" href="css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Chitrang Patel",
+    "jobTitle": "Software Engineer",
+    "url": "https://chitrang313.github.io/",
+    "email": "mailto:chitrang313@outlook.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Ahmedabad", "addressCountry": "India" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Dr. D. Y. Patil College of Engineering, Pune" },
+    "worksFor": { "@type": "Organization", "name": "ViitorCloud Technologies" },
+    "knowsLanguage": ["English", "Hindi", "Gujarati"],
+    "knowsAbout": ["C#", ".NET", "REST API design", "WebSocket", "Real-time systems", "Software architecture", "Unity Engine", "SQL Server", "Node.js", "AI-assisted development"],
+    "sameAs": [
+      "https://github.com/chitrang313",
+      "https://www.linkedin.com/in/chitrang313/",
+      "https://www.instagram.com/__chitrang/",
+      "https://www.youtube.com/@chitrang-313"
+    ]
+  }
+  </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- ========== STICKY NAVBAR ========== -->
-  <nav class="navbar" id="navbar">
-    <div class="navbar-container">
-      <div class="navbar-logo">[Your Name]</div>
-      <button class="navbar-toggle" id="navbar-toggle" aria-label="Toggle navigation">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
+  <!-- ============================================================
+       ICON SPRITE — one family: 24px grid, 1.6 stroke, round caps.
+       Never mix in other icon sets; add new symbols in this style.
+       ============================================================ -->
+  <svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <g id="i-base" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></g>
+    </defs>
+    <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m3 6.5 9 6 9-6"></path></g></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 5-2 5-5.5a5 5 0 0 0-1-3 4 4 0 0 0-.1-3s-1.6-.5-3.4 1.3a12 12 0 0 0-6.2 0C6.5 1.5 4.9 2 4.9 2a4 4 0 0 0-.1 3 5 5 0 0 0-1 3c0 3.5 2 5.5 5 5.5-.6.6-1 1.6-1 3.5v4"></path><path d="M9 18c-4.5 2-5-2-7-2"></path></g></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8.5a5.5 5.5 0 0 1 5.5 5.5V21h-4v-6.5a2 2 0 0 0-4 0V21h-4V9h4v1.4"></path><rect x="2.5" y="9" width="4" height="12"></rect><circle cx="4.5" cy="4.5" r="2"></circle></g></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><path d="M17.5 6.6h.01"></path></g></symbol>
+    <symbol id="i-youtube" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5.5" width="20" height="13" rx="4"></rect><path d="m10.5 9.5 5 2.5-5 2.5z"></path></g></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10.5c0 5.7-8 11.5-8 11.5S4 16.2 4 10.5a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10.2" r="2.8"></circle></g></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3.5"></path><path d="m7.5 10.5 4.5 4.5 4.5-4.5"></path><path d="M12 15V3"></path></g></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2.5H6.5a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7.5z"></path><path d="M14.5 2.5v5h5"></path><path d="M8.5 13h7M8.5 17h4.5"></path></g></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15"></path><path d="m13 6 6 6-6 6"></path></g></symbol>
+    <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></g></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></g></symbol>
+    <symbol id="i-chevron-left" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m14.5 5-7 7 7 7"></path></g></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9.5 5 7 7-7 7"></path></g></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"></circle><path d="m10 8.5 6 3.5-6 3.5z"></path></g></symbol>
+    <symbol id="i-expand" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 3.5h6v6"></path><path d="M9.5 20.5h-6v-6"></path><path d="m20.5 3.5-7 7"></path><path d="m3.5 20.5 7-7"></path></g></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m17 16 4-4-4-4"></path><path d="m7 8-4 4 4 4"></path><path d="m14 4-4 16"></path></g></symbol>
+    <symbol id="i-server" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="3" width="19" height="7" rx="2"></rect><rect x="2.5" y="14" width="19" height="7" rx="2"></rect><path d="M6.5 6.5h.01M6.5 17.5h.01"></path></g></symbol>
+    <symbol id="i-database" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 5.5c0 1.7-3.8 3-8.5 3s-8.5-1.3-8.5-3 3.8-3 8.5-3 8.5 1.3 8.5 3Z"></path><path d="M3.5 5.5v13c0 1.7 3.8 3 8.5 3s8.5-1.3 8.5-3v-13"></path><path d="M20.5 12c0 1.7-3.8 3-8.5 3s-8.5-1.3-8.5-3"></path></g></symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17.3 19H9a6.5 6.5 0 1 1 6.2-8.5h2.1a4.25 4.25 0 0 1 0 8.5Z"></path></g></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2.7 9 4.3-9 4.3-9-4.3z"></path><path d="m3.4 12 8.6 4.1 8.6-4.1"></path><path d="m3.4 16.6 8.6 4.1 8.6-4.1"></path></g></symbol>
+    <symbol id="i-flask" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2.5v6a2 2 0 0 0 .25 1l5.2 9.5A2 2 0 0 1 17.7 22H6.3a2 2 0 0 1-1.75-3l5.2-9.5A2 2 0 0 0 10 8.5v-6"></path><path d="M8.5 2.5h7"></path><path d="M7.2 16.5h9.6"></path></g></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m11 3.5-1.6 4.6a2 2 0 0 1-1.3 1.3L3.5 11l4.6 1.6a2 2 0 0 1 1.3 1.3L11 18.5l1.6-4.6a2 2 0 0 1 1.3-1.3L18.5 11l-4.6-1.6a2 2 0 0 1-1.3-1.3z"></path><path d="M18.5 17v4M16.5 19h4"></path></g></symbol>
+    <symbol id="i-git" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 4.5v10"></path><circle cx="6.5" cy="18" r="2.6"></circle><circle cx="17.5" cy="6" r="2.6"></circle><path d="M17.5 8.6c0 4.4-3.1 6.4-8 6.4"></path></g></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 20.5v-1.6a3.9 3.9 0 0 0-3.9-3.9H6.4a3.9 3.9 0 0 0-3.9 3.9v1.6"></path><circle cx="9" cy="7.5" r="3.7"></circle><path d="M21.5 20.5v-1.6a3.9 3.9 0 0 0-2.9-3.75"></path><path d="M16 4a3.7 3.7 0 0 1 0 7.1"></path></g></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="3.5" width="19" height="13" rx="2"></rect><path d="M8.5 20.5h7M12 16.5v4"></path></g></symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="7" width="19" height="13.5" rx="2"></rect><path d="M8.5 20.5V5.5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v15"></path></g></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"></circle><path d="M15.6 13.7 17 22l-5-2.9L7 22l1.4-8.3"></path></g></symbol>
+    <symbol id="i-bulb" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14.5c.2-1 .8-1.8 1.6-2.6A6 6 0 1 0 6 8c0 1.5.6 2.9 1.4 3.9.8.8 1.4 1.6 1.6 2.6"></path><path d="M9 18h6M10 21.5h4"></path></g></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"></circle><circle cx="12" cy="12" r="5.2"></circle><circle cx="12" cy="12" r="1.4"></circle></g></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7h17M3.5 12h17M3.5 17h17"></path></g></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6.5-10.5 11L4 12"></path></g></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 8.5 12 4 2 8.5l10 4.5z"></path><path d="M6 10.7V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-5.3"></path></g></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"></circle><path d="M2.8 12h18.4"></path><path d="M12 2.8c2.4 2.5 3.7 5.8 3.7 9.2S14.4 18.7 12 21.2C9.6 18.7 8.3 15.4 8.3 12S9.6 5.3 12 2.8Z"></path></g></symbol>
+  </svg>
+
+  <!-- ============================== NAV ============================== -->
+  <header class="site-head" id="site-head">
+    <div class="shell site-head-inner">
+      <a class="brand" href="#top" aria-label="Chitrang Patel — back to top">
+        <span class="brand-mark" aria-hidden="true">CP</span>
+        <span class="brand-text">Chitrang&nbsp;Patel</span>
+      </a>
+
+      <nav class="site-nav" id="site-nav" aria-label="Section navigation">
+        <ul class="nav-list">
+          <li><a class="nav-link is-current" href="#top">Home</a></li>
+          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#experience">Experience</a></li>
+          <li><a class="nav-link" href="#work">Projects</a></li>
+          <li><a class="nav-link" href="#skills">Skills</a></li>
+          <li><a class="nav-link" href="#resume">Résumé</a></li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <svg class="icon" aria-hidden="true"><use href="#i-menu"></use></svg>
       </button>
-      <ul class="navbar-links" id="navbar-links">
-        <li><a href="#hero" class="nav-link active">Home</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#skills" class="nav-link">Skills</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#experience" class="nav-link">Experience</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
-      <div class="navbar-annotation annotation">↑ Sticky on scroll · Smooth scrolling navigation</div>
     </div>
-  </nav>
+    <div class="head-progress" id="head-progress" aria-hidden="true"></div>
+  </header>
 
-  <!-- ========== HERO SECTION ========== -->
-  <section class="hero" id="hero">
-    <div class="section-label">HERO SECTION · ~80vh height</div>
-    <div class="hero-container">
-      <div class="hero-left">
-        <p class="hero-greeting">Hi, I'm</p>
-        <h1 class="hero-name">[Your Name]</h1>
-        <div class="hero-animated-text">
-          <span class="typing-placeholder" id="typing-text">[Role Animation Here]</span>
-          <span class="typing-cursor">|</span>
-        </div>
-        <div class="hero-annotation annotation">↑ Animated typing text placeholder</div>
-        <p class="hero-description">
-          [Short 2-line introduction placeholder. Brief description of who you are and what you do.]
-        </p>
-        <div class="hero-buttons">
-          <button class="btn btn-primary">View Projects</button>
-          <button class="btn btn-secondary">Contact Me</button>
-        </div>
-      </div>
-      <div class="hero-right">
-        <div class="hero-image-placeholder">
-          <span>[Profile Image Placeholder]</span>
-          <span class="placeholder-size">~350 × 350px</span>
-        </div>
-      </div>
-    </div>
-  </section>
+  <main id="main">
+    <!-- ============================== HERO ============================== -->
+    <section class="hero" id="top">
+      <div class="shell hero-grid">
+        <div class="hero-body">
+          <p class="eyebrow reveal">
+            <span class="eyebrow-dot" aria-hidden="true"></span>
+            Ahmedabad, India · Available for senior engineering roles
+          </p>
 
-  <!-- ========== ABOUT SECTION ========== -->
-  <section class="about" id="about">
-    <div class="section-label">ABOUT SECTION · 2-column layout</div>
-    <div class="about-container">
-      <div class="about-left">
-        <div class="about-image-placeholder">
-          <span>[Profile Image Placeholder]</span>
-          <span class="placeholder-size">~300 × 380px</span>
-        </div>
-      </div>
-      <div class="about-right">
-        <h2 class="section-title">About Me</h2>
-        <p class="about-bio">
-          [Bio paragraph placeholder. A few sentences about your background, interests, and professional journey. This should give visitors a sense of who you are beyond your technical skills.]
-        </p>
-        <div class="about-info">
-          <div class="info-row">
-            <span class="info-label">Name:</span>
-            <span class="info-value">[Your Full Name]</span>
+          <h1 class="hero-title reveal">
+            Chitrang&nbsp;Patel
+          </h1>
+
+          <p class="hero-role reveal">
+            Software Engineer — <em>C# / .NET</em>, backend &amp; real-time systems
+          </p>
+
+          <p class="hero-lede reveal">
+            Eight years of shipping production software: real-time client-server platforms,
+            REST APIs, and interactive 3D applications released on iOS and Android. I care about
+            architecture that survives its second year, and about the small details users feel
+            but never name.
+          </p>
+
+          <div class="hero-actions reveal">
+            <a class="btn btn-primary" href="#work">
+              View projects
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+            </a>
+            <a class="btn btn-ghost" href="assets/resume/Chitrang-Patel-Resume.pdf" download>
+              Download résumé
+              <svg class="icon" aria-hidden="true"><use href="#i-download"></use></svg>
+            </a>
+            <a class="btn btn-quiet" href="#contact">Get in touch</a>
           </div>
-          <div class="info-row">
-            <span class="info-label">Location:</span>
-            <span class="info-value">[Your Location]</span>
-          </div>
-          <div class="info-row">
-            <span class="info-label">Experience:</span>
-            <span class="info-value">[X Years]</span>
-          </div>
-          <div class="info-row">
-            <span class="info-label">Current Role:</span>
-            <span class="info-value">[Your Current Role]</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ========== SKILLS SECTION ========== -->
-  <section class="skills" id="skills">
-    <div class="section-label">SKILLS SECTION · 4-column grid · Hover cards</div>
-    <div class="skills-container">
-      <h2 class="section-title">Skills &amp; Technologies</h2>
-
-      <h3 class="skill-category">Frontend</h3>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <div class="skill-icon">[Icon]</div>
-          <span class="skill-name">HTML</span>
-          <div class="skill-hover-annotation annotation">↑ Hover state</div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">[Icon]</div>
-          <span class="skill-name">CSS</span>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">[Icon]</div>
-          <span class="skill-name">JavaScript</span>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">[Icon]</div>
-          <span class="skill-name">React</span>
-        </div>
-      </div>
-
-      <h3 class="skill-category">Backend</h3>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <div class="skill-icon">[Icon]</div>
-          <span class="skill-name">ASP.NET</span>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">[Icon]</div>
-          <span class="skill-name">C#</span>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">[Icon]</div>
-          <span class="skill-name">MySQL</span>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">[Icon]</div>
-          <span class="skill-name">Node.js</span>
-        </div>
-      </div>
-
-      <h3 class="skill-category">Tools</h3>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <div class="skill-icon">[Icon]</div>
-          <span class="skill-name">Git</span>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">[Icon]</div>
-          <span class="skill-name">Unity</span>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">[Icon]</div>
-          <span class="skill-name">AI Tools</span>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">[Icon]</div>
-          <span class="skill-name">VS Code</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== PROJECTS SECTION ========== -->
-  <section class="projects" id="projects">
-    <div class="section-label">PROJECTS SECTION · 3-column grid · Equal card heights · Hover state</div>
-    <div class="projects-container">
-      <h2 class="section-title">Projects</h2>
-      <div class="projects-grid">
-
-        <div class="project-card">
-          <div class="project-image">[Project Thumbnail]</div>
-          <div class="project-content">
-            <h3 class="project-title">[Project Title 1]</h3>
-            <p class="project-description">[Short description of the project, technologies used, and purpose.]</p>
-            <div class="project-buttons">
-              <button class="btn btn-small">View Project</button>
-              <button class="btn btn-small btn-outline">Source Code</button>
+          <dl class="hero-stats reveal">
+            <div class="stat">
+              <dt>Years shipping</dt>
+              <dd>8<span class="stat-unit">+</span></dd>
             </div>
-          </div>
-          <div class="project-hover-annotation annotation">↑ Hover card indication</div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-image">[Project Thumbnail]</div>
-          <div class="project-content">
-            <h3 class="project-title">[Project Title 2]</h3>
-            <p class="project-description">[Short description of the project, technologies used, and purpose.]</p>
-            <div class="project-buttons">
-              <button class="btn btn-small">View Project</button>
-              <button class="btn btn-small btn-outline">Source Code</button>
+            <div class="stat">
+              <dt>Products released</dt>
+              <dd>10<span class="stat-unit">+</span></dd>
             </div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-image">[Project Thumbnail]</div>
-          <div class="project-content">
-            <h3 class="project-title">[Project Title 3]</h3>
-            <p class="project-description">[Short description of the project, technologies used, and purpose.]</p>
-            <div class="project-buttons">
-              <button class="btn btn-small">View Project</button>
-              <button class="btn btn-small btn-outline">Source Code</button>
+            <div class="stat">
+              <dt>Cycle time cut</dt>
+              <dd>30<span class="stat-unit">%</span></dd>
             </div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-image">[Project Thumbnail]</div>
-          <div class="project-content">
-            <h3 class="project-title">[Project Title 4]</h3>
-            <p class="project-description">[Short description of the project, technologies used, and purpose.]</p>
-            <div class="project-buttons">
-              <button class="btn btn-small">View Project</button>
-              <button class="btn btn-small btn-outline">Source Code</button>
+            <div class="stat">
+              <dt>Platforms</dt>
+              <dd>iOS<span class="stat-unit"> · Android</span></dd>
             </div>
-          </div>
+          </dl>
         </div>
 
-        <div class="project-card">
-          <div class="project-image">[Project Thumbnail]</div>
-          <div class="project-content">
-            <h3 class="project-title">[Project Title 5]</h3>
-            <p class="project-description">[Short description of the project, technologies used, and purpose.]</p>
-            <div class="project-buttons">
-              <button class="btn btn-small">View Project</button>
-              <button class="btn btn-small btn-outline">Source Code</button>
+        <aside class="hero-aside reveal" aria-label="Portrait and current role">
+          <!-- PORTRAIT SLOT — replace the figure body with:
+               <img src="assets/img/portrait.jpg" alt="Portrait of Chitrang Patel" width="720" height="900" class="portrait-img"> -->
+          <figure class="portrait">
+            <div class="portrait-frame">
+              <span class="portrait-monogram" aria-hidden="true">CP</span>
+              <span class="portrait-hint">Portrait slot — drop <code>assets/img/portrait.jpg</code></span>
             </div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-image">[Project Thumbnail]</div>
-          <div class="project-content">
-            <h3 class="project-title">[Project Title 6]</h3>
-            <p class="project-description">[Short description of the project, technologies used, and purpose.]</p>
-            <div class="project-buttons">
-              <button class="btn btn-small">View Project</button>
-              <button class="btn btn-small btn-outline">Source Code</button>
-            </div>
-          </div>
-        </div>
-
+            <figcaption class="portrait-caption">
+              <span class="portrait-now">Currently</span>
+              Software Engineer at <strong>ViitorCloud Technologies</strong>, building real-time,
+              multi-user product experiences.
+            </figcaption>
+          </figure>
+        </aside>
       </div>
-    </div>
-  </section>
 
-  <!-- ========== EXPERIENCE TIMELINE ========== -->
-  <section class="experience" id="experience">
-    <div class="section-label">EXPERIENCE TIMELINE · Alternate left/right · Center line · Timeline dots</div>
-    <div class="experience-container">
-      <h2 class="section-title">Experience</h2>
-      <div class="timeline">
+      <p class="scroll-cue" aria-hidden="true"><span></span>Scroll</p>
+    </section>
 
-        <div class="timeline-item timeline-left">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3 class="timeline-company">ViitorCloud Technology</h3>
-            <span class="timeline-position">Software Engineer</span>
-            <span class="timeline-duration">Present</span>
-            <p class="timeline-description">[Short description of role, responsibilities, and key achievements at this position.]</p>
+    <!-- ============================== ABOUT ============================== -->
+    <section class="band" id="about" aria-labelledby="about-title">
+      <div class="shell">
+        <header class="band-head reveal">
+          <p class="band-index">01 — About</p>
+          <h2 class="band-title" id="about-title">Engineering as craft, not output</h2>
+        </header>
+
+        <div class="about-grid">
+          <div class="prose reveal">
+            <p class="prose-lead">
+              I started in 2017 writing gameplay code for small Android titles, where the feedback loop
+              was brutally honest: if an interaction felt wrong, the store reviews said so within a day.
+              That taught me to treat user experience as an engineering problem rather than a coat of paint.
+            </p>
+            <p>
+              Since then the work has moved deeper into systems. At nCore Games I owned the decision-making
+              AI, statistics, and mathematics layers of an officially licensed cricket simulation released
+              globally — probabilistic behaviour translated into deterministic, testable code. At
+              Vasundhara Vision I led a small team and built the multiplayer backend behind real-money
+              sessions with Node.js, Express and Socket.IO, where a dropped connection is not a bug report,
+              it is a financial dispute.
+            </p>
+            <p>
+              Today, at ViitorCloud Technologies, I design modular C# systems for real-time,
+              multi-user platforms — authoritative networking, state synchronisation, REST and third-party
+              SDK integration, and the profiling work that keeps large 3D scenes inside a mobile memory
+              budget. Reusable architecture cut our feature delivery time by roughly 30%, which is the kind
+              of number I like: it comes from restraint, not heroics.
+            </p>
+            <p>
+              I use AI tooling every day — code generation, refactoring, test scaffolding, documentation,
+              and increasingly MCP-connected workflows. It is a force multiplier on the parts of the job
+              that were always mechanical. The judgement about what to build, how to shape a boundary, and
+              which trade-off to accept is still mine, and that is the part I keep sharpening.
+            </p>
           </div>
-        </div>
 
-        <div class="timeline-item timeline-right">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3 class="timeline-company">[Previous Company 1]</h3>
-            <span class="timeline-position">Unity Game Developer</span>
-            <span class="timeline-duration">[Duration]</span>
-            <p class="timeline-description">[Short description of role, responsibilities, and key achievements at this position.]</p>
-          </div>
+          <aside class="about-side reveal" aria-label="How I work">
+            <h3 class="side-title">How I work</h3>
+            <ul class="principles">
+              <li>
+                <svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg>
+                <div>
+                  <strong>Boundaries first.</strong>
+                  Small modules with honest interfaces. OOP and SOLID as tools, not ceremony.
+                </div>
+              </li>
+              <li>
+                <svg class="icon" aria-hidden="true"><use href="#i-target"></use></svg>
+                <div>
+                  <strong>Make it observable.</strong>
+                  Structured error handling, retries, and logs that explain themselves at 2&nbsp;a.m.
+                </div>
+              </li>
+              <li>
+                <svg class="icon" aria-hidden="true"><use href="#i-flask"></use></svg>
+                <div>
+                  <strong>Determinism where it counts.</strong>
+                  Behaviour you can unit test and tune beats behaviour you can only admire.
+                </div>
+              </li>
+              <li>
+                <svg class="icon" aria-hidden="true"><use href="#i-users"></use></svg>
+                <div>
+                  <strong>Review as mentoring.</strong>
+                  CI-gated pull requests, shared standards, fewer defects reaching QA.
+                </div>
+              </li>
+              <li>
+                <svg class="icon" aria-hidden="true"><use href="#i-bulb"></use></svg>
+                <div>
+                  <strong>Keep learning in public.</strong>
+                  New tooling adopted deliberately, measured against real delivery outcomes.
+                </div>
+              </li>
+            </ul>
+          </aside>
         </div>
-
-        <div class="timeline-item timeline-left">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3 class="timeline-company">[Previous Company 2]</h3>
-            <span class="timeline-position">[Earlier Role]</span>
-            <span class="timeline-duration">[Duration]</span>
-            <p class="timeline-description">[Short description of role, responsibilities, and key achievements at this position.]</p>
-          </div>
-        </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ========== CONTACT SECTION ========== -->
-  <section class="contact" id="contact">
-    <div class="section-label">CONTACT SECTION · 2-column layout · Form validation annotation</div>
-    <div class="contact-container">
-      <h2 class="section-title">Contact Me</h2>
-      <div class="contact-grid">
+    <!-- ============================== EXPERIENCE ============================== -->
+    <section class="band band-alt" id="experience" aria-labelledby="exp-title">
+      <div class="shell">
+        <header class="band-head reveal">
+          <p class="band-index">02 — Experience</p>
+          <h2 class="band-title" id="exp-title">Eight years, four teams, one habit</h2>
+          <p class="band-sub">Ship it, then make it maintainable enough to ship the next thing faster.</p>
+        </header>
 
-        <div class="contact-info">
-          <h3 class="contact-subtitle">Contact Information</h3>
-          <div class="contact-row">
-            <span class="contact-icon">[✉]</span>
-            <span class="contact-text">[your.email@example.com]</span>
-          </div>
-          <div class="contact-row">
-            <span class="contact-icon">[☎]</span>
-            <span class="contact-text">[+91 XXXXX XXXXX]</span>
-          </div>
-          <div class="contact-row">
-            <span class="contact-icon">[📍]</span>
-            <span class="contact-text">[Your Location]</span>
-          </div>
+        <ol class="timeline">
+          <li class="tl-item reveal">
+            <div class="tl-marker" aria-hidden="true"></div>
+            <div class="tl-card">
+              <p class="tl-period">Apr 2023 — Present</p>
+              <h3 class="tl-role">Software Engineer</h3>
+              <p class="tl-org">
+                <svg class="icon" aria-hidden="true"><use href="#i-briefcase"></use></svg>
+                ViitorCloud Technologies · Ahmedabad
+              </p>
+              <ul class="tl-points">
+                <li>Cut feature development time ~30% with reusable, extensible modules governed by OOP and SOLID principles — consistent on-time delivery against every client commitment.</li>
+                <li>Architected modular, component-based systems that lowered regression risk and shortened the path to shipping new features on existing products.</li>
+                <li>Engineered real-time client-server features over authoritative networking and socket messaging: state synchronisation, latency tolerance, connection recovery.</li>
+                <li>Integrated REST APIs and third-party SDKs with structured error handling, retry logic and payload validation.</li>
+                <li>Optimised runtime performance and memory via profiling, asset streaming and object pooling.</li>
+                <li>Recognised as <strong>Entrant of the Quarter</strong> for engineering contribution and delivery consistency.</li>
+              </ul>
+              <ul class="chips">
+                <li class="chip">C#</li>
+                <li class="chip">.NET</li>
+                <li class="chip">Photon Networking</li>
+                <li class="chip">Socket.IO</li>
+                <li class="chip">Addressables</li>
+                <li class="chip">DOTween</li>
+                <li class="chip">Git · CI/CD</li>
+              </ul>
+            </div>
+          </li>
 
-          <h3 class="contact-subtitle">Social Links</h3>
-          <div class="social-links">
-            <div class="social-link">[LinkedIn]</div>
-            <div class="social-link">[GitHub]</div>
-            <div class="social-link">[Twitter]</div>
+          <li class="tl-item reveal">
+            <div class="tl-marker" aria-hidden="true"></div>
+            <div class="tl-card">
+              <p class="tl-period">Dec 2020 — Mar 2023</p>
+              <h3 class="tl-role">Software Engineer</h3>
+              <p class="tl-org">
+                <svg class="icon" aria-hidden="true"><use href="#i-briefcase"></use></svg>
+                nCore Games · Bangalore
+              </p>
+              <ul class="tl-points">
+                <li>Owned core application logic, decision-making AI, statistics and mathematics subsystems for a globally released, officially licensed sports simulation.</li>
+                <li>Designed an AI decision engine using goal-oriented action planning — probabilistic models turned into deterministic, testable, tunable behaviour.</li>
+                <li>Built the statistics and mathematics layer, guaranteeing numerical correctness across a large simulation state space.</li>
+                <li>Reviewed peer code through CI/CD-gated pull requests, raising baseline quality and reducing defects reaching QA.</li>
+              </ul>
+              <ul class="chips">
+                <li class="chip">C#</li>
+                <li class="chip">GOAP</li>
+                <li class="chip">State machines</li>
+                <li class="chip">Algorithms</li>
+                <li class="chip">CI/CD</li>
+                <li class="chip">SourceTree</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="tl-item reveal">
+            <div class="tl-marker" aria-hidden="true"></div>
+            <div class="tl-card">
+              <p class="tl-period">Dec 2019 — Dec 2020</p>
+              <h3 class="tl-role">Senior Unity Game Developer</h3>
+              <p class="tl-org">
+                <svg class="icon" aria-hidden="true"><use href="#i-briefcase"></use></svg>
+                Vasundhara Vision · Surat
+              </p>
+              <ul class="tl-points">
+                <li>Delivered 5+ production applications for iOS and Android from architecture through store release, owning technical decisions end to end.</li>
+                <li>Built online multiplayer backend services with Node.js, Express.js and Socket.IO — session and room management, authoritative server logic, real-time event broadcasting.</li>
+                <li>Implemented in-app purchases, leaderboards and ad network integrations with server-side transaction validation.</li>
+                <li>Led a small engineering team: set code standards, ran reviews, mentored developers, met every release date.</li>
+              </ul>
+              <ul class="chips">
+                <li class="chip">C#</li>
+                <li class="chip">Node.js</li>
+                <li class="chip">Express.js</li>
+                <li class="chip">Socket.IO</li>
+                <li class="chip">IAP</li>
+                <li class="chip">AdMob</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="tl-item reveal">
+            <div class="tl-marker" aria-hidden="true"></div>
+            <div class="tl-card">
+              <p class="tl-period">Oct 2017 — Oct 2019</p>
+              <h3 class="tl-role">Unity Game Developer</h3>
+              <p class="tl-org">
+                <svg class="icon" aria-hidden="true"><use href="#i-briefcase"></use></svg>
+                Escrow Infotech · Surat
+              </p>
+              <ul class="tl-points">
+                <li>Designed and implemented application logic, interactive UI and animation systems for consumer mobile products on Android.</li>
+                <li>Drove a 20% increase in user retention through iterative UX refinement informed by user feedback and store review analysis.</li>
+                <li>Established reusable UI and animation components adopted across multiple projects, removing duplicated effort.</li>
+              </ul>
+              <ul class="chips">
+                <li class="chip">C#</li>
+                <li class="chip">UI/UX</li>
+                <li class="chip">Animation systems</li>
+                <li class="chip">Android</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================== PROJECTS ============================== -->
+    <section class="band" id="work" aria-labelledby="work-title">
+      <div class="shell">
+        <header class="band-head reveal">
+          <p class="band-index">03 — Selected work</p>
+          <h2 class="band-title" id="work-title">Case studies</h2>
+          <p class="band-sub">
+            Six systems, chosen for what they demanded rather than how they looked. Open any card
+            for the problem, the architecture, and what I would do differently.
+          </p>
+        </header>
+
+        <div class="work-grid">
+          <!-- ---------- SoReal ---------- -->
+          <article class="work-card is-feature reveal" data-project="soreal">
+            <div class="work-cover" data-cover="soreal">
+              <!-- COVER SLOT: replace with <img src="assets/img/projects/soreal-cover.jpg" alt="" width="1200" height="750" loading="lazy" class="work-cover-img"> -->
+              <span class="work-cover-mono" aria-hidden="true">SR</span>
+              <span class="work-cover-note">Cover slot</span>
+            </div>
+            <div class="work-body">
+              <p class="work-meta"><span>2023 — Present</span><span class="dot" aria-hidden="true"></span><span>Lead client engineer</span></p>
+              <h3 class="work-title">SoReal</h3>
+              <p class="work-kicker">Interactive real-estate visualisation platform</p>
+              <p class="work-desc">
+                A multi-user 3D property walkthrough used in live client engagements — synchronised
+                sessions over unreliable networks, large scenes inside a mobile memory budget.
+              </p>
+              <ul class="chips chips-sm">
+                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>C#</li>
+                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-server"></use></svg>Real-time networking</li>
+                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-cloud"></use></svg>REST APIs</li>
+              </ul>
+              <button class="work-more" type="button" data-open="soreal">
+                Read case study
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- ---------- ICC Cricket Mobile ---------- -->
+          <article class="work-card is-feature reveal" data-project="icc">
+            <div class="work-cover" data-cover="icc">
+              <span class="work-cover-mono" aria-hidden="true">IC</span>
+              <span class="work-cover-note">Cover slot</span>
+            </div>
+            <div class="work-body">
+              <p class="work-meta"><span>2020 — 2023</span><span class="dot" aria-hidden="true"></span><span>Core systems &amp; AI</span></p>
+              <h3 class="work-title">ICC Cricket Mobile</h3>
+              <p class="work-kicker">Officially licensed sports simulation</p>
+              <p class="work-desc">
+                Batting, bowling and fielding mechanics plus an AI decision layer built from scratch with
+                goal-oriented action planning — believable behaviour that still unit tests cleanly.
+              </p>
+              <ul class="chips chips-sm">
+                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>C#</li>
+                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg>GOAP</li>
+                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-flask"></use></svg>Deterministic sim</li>
+              </ul>
+              <button class="work-more" type="button" data-open="icc">
+                Read case study
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- ---------- Ludo Multiplayer ---------- -->
+          <article class="work-card reveal" data-project="ludo">
+            <div class="work-cover" data-cover="ludo">
+              <span class="work-cover-mono" aria-hidden="true">LD</span>
+              <span class="work-cover-note">Cover slot</span>
+            </div>
+            <div class="work-body">
+              <p class="work-meta"><span>2019 — 2020</span><span class="dot" aria-hidden="true"></span><span>Full-stack owner</span></p>
+              <h3 class="work-title">Ludo Multiplayer</h3>
+              <p class="work-kicker">Real-time real-money platform</p>
+              <p class="work-desc">
+                Online and offline modes, bot opponents, and transaction-facing error handling with
+                graceful mid-session disconnect recovery.
+              </p>
+              <ul class="chips chips-sm">
+                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-server"></use></svg>Node.js</li>
+                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-cloud"></use></svg>Socket.IO</li>
+                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>C#</li>
+              </ul>
+              <button class="work-more" type="button" data-open="ludo">
+                Read case study
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- ---------- Card engine ---------- -->
+          <article class="work-card reveal" data-project="cards">
+            <div class="work-cover" data-cover="cards">
+              <span class="work-cover-mono" aria-hidden="true">CE</span>
+              <span class="work-cover-note">Cover slot</span>
+            </div>
+            <div class="work-body">
+              <p class="work-meta"><span>2019 — 2020</span><span class="dot" aria-hidden="true"></span><span>Architecture &amp; delivery</span></p>
+              <h3 class="work-title">Configurable Card Engine</h3>
+              <p class="work-kicker">One engine, two shipped titles</p>
+              <p class="work-desc">
+                A data-driven rules engine with eight variants toggleable at runtime, AI bots and
+                monetisation — no conditional-logic sprawl.
+              </p>
+              <ul class="chips chips-sm">
+                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>C#</li>
+                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg>Data-driven rules</li>
+                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-cloud"></use></svg>IAP · Ads</li>
+              </ul>
+              <button class="work-more" type="button" data-open="cards">
+                Read case study
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- ---------- Bus simulator ---------- -->
+          <article class="work-card reveal" data-project="bus">
+            <div class="work-cover" data-cover="bus">
+              <span class="work-cover-mono" aria-hidden="true">BS</span>
+              <span class="work-cover-note">Cover slot</span>
+            </div>
+            <div class="work-body">
+              <p class="work-meta"><span>2018 — 2019</span><span class="dot" aria-hidden="true"></span><span>Solo developer</span></p>
+              <h3 class="work-title">99.9% Impossible Bus Simulator</h3>
+              <p class="work-kicker">Vehicle physics &amp; content pipeline</p>
+              <p class="work-desc">
+                Sky-road driving challenges with a level-authoring pipeline that let new modes ship from
+                player feedback in days, not weeks.
+              </p>
+              <ul class="chips chips-sm">
+                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>C#</li>
+                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-target"></use></svg>Physics tuning</li>
+                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-monitor"></use></svg>Android</li>
+              </ul>
+              <button class="work-more" type="button" data-open="bus">
+                Read case study
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- ---------- Shooting arena ---------- -->
+          <article class="work-card reveal" data-project="arena">
+            <div class="work-cover" data-cover="arena">
+              <span class="work-cover-mono" aria-hidden="true">SA</span>
+              <span class="work-cover-note">Cover slot</span>
+            </div>
+            <div class="work-body">
+              <p class="work-meta"><span>2017 — 2018</span><span class="dot" aria-hidden="true"></span><span>Gameplay systems</span></p>
+              <h3 class="work-title">Shooting Arena: Total Destruction</h3>
+              <p class="work-kicker">Enemy AI &amp; virtual economy</p>
+              <p class="work-desc">
+                Ship controls, state-driven enemy AI, health and damage, plus a currency economy designed
+                to resist exploitation.
+              </p>
+              <ul class="chips chips-sm">
+                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>C#</li>
+                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg>State machines</li>
+                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-cloud"></use></svg>IAP · Ads</li>
+              </ul>
+              <button class="work-more" type="button" data-open="arena">
+                Read case study
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== SKILLS ============================== -->
+    <section class="band band-alt" id="skills" aria-labelledby="skills-title">
+      <div class="shell">
+        <header class="band-head reveal">
+          <p class="band-index">04 — Capabilities</p>
+          <h2 class="band-title" id="skills-title">What I bring to a codebase</h2>
+          <p class="band-sub">Grouped by the decision each one supports, not by logo count.</p>
+        </header>
+
+        <div class="skill-grid">
+          <article class="skill-card reveal">
+            <h3 class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>Languages</h3>
+            <ul class="skill-list">
+              <li>C# — primary, 8 years</li>
+              <li>SQL</li>
+              <li>JavaScript</li>
+              <li>TypeScript</li>
+            </ul>
+          </article>
+
+          <article class="skill-card reveal">
+            <h3 class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-server"></use></svg>Backend &amp; APIs</h3>
+            <ul class="skill-list">
+              <li>.NET</li>
+              <li>REST API design &amp; integration</li>
+              <li>WebSocket / real-time messaging</li>
+              <li>Node.js · Express.js · Socket.IO</li>
+              <li>Client-server &amp; authoritative architecture</li>
+              <li>Authentication flows · SDK integration</li>
+            </ul>
+          </article>
+
+          <article class="skill-card reveal">
+            <h3 class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-database"></use></svg>Data</h3>
+            <ul class="skill-list">
+              <li>Microsoft SQL Server</li>
+              <li>Firebase (NoSQL)</li>
+              <li>Data modelling</li>
+              <li>Query optimisation</li>
+            </ul>
+          </article>
+
+          <article class="skill-card reveal">
+            <h3 class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg>Architecture</h3>
+            <ul class="skill-list">
+              <li>OOP · SOLID · design patterns</li>
+              <li>Modular, component-based systems</li>
+              <li>State machines · GOAP</li>
+              <li>System &amp; database design</li>
+              <li>Performance &amp; memory profiling</li>
+            </ul>
+          </article>
+
+          <article class="skill-card reveal">
+            <h3 class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-flask"></use></svg>Quality</h3>
+            <ul class="skill-list">
+              <li>Unit testing</li>
+              <li>Code review at scale</li>
+              <li>Debugging &amp; root-cause analysis</li>
+              <li>Structured error handling</li>
+              <li>Technical documentation</li>
+            </ul>
+          </article>
+
+          <article class="skill-card reveal">
+            <h3 class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-git"></use></svg>Delivery</h3>
+            <ul class="skill-list">
+              <li>Git · branching strategy</li>
+              <li>CI/CD pipelines</li>
+              <li>Agile / Scrum · SDLC</li>
+              <li>Release management (iOS · Android)</li>
+            </ul>
+          </article>
+
+          <article class="skill-card reveal">
+            <h3 class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-cloud"></use></svg>Platforms</h3>
+            <ul class="skill-list">
+              <li>Unity Engine (C#)</li>
+              <li>iOS · Android</li>
+              <li>AR / VR</li>
+              <li>Cloud-backed services</li>
+              <li>Visual Studio</li>
+            </ul>
+          </article>
+
+          <article class="skill-card reveal">
+            <h3 class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-sparkles"></use></svg>AI-assisted engineering</h3>
+            <ul class="skill-list">
+              <li>LLM tooling daily: Claude, ChatGPT, Copilot, Cursor</li>
+              <li>Prompt &amp; context design for production output</li>
+              <li>AI-assisted debugging &amp; test scaffolding</li>
+              <li>Docs and workflow automation</li>
+              <li>Model Context Protocol (MCP) workflows</li>
+            </ul>
+          </article>
+
+          <article class="skill-card reveal">
+            <h3 class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-users"></use></svg>Working with people</h3>
+            <ul class="skill-list">
+              <li>Mentoring &amp; team leadership</li>
+              <li>Cross-functional collaboration (design, QA, product)</li>
+              <li>Requirement translation with clients</li>
+              <li>Written communication</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== RESUME ============================== -->
+    <section class="band" id="resume" aria-labelledby="resume-title">
+      <div class="shell">
+        <header class="band-head reveal">
+          <p class="band-index">05 — Résumé</p>
+          <h2 class="band-title" id="resume-title">The one-page version</h2>
+        </header>
+
+        <div class="resume-grid">
+          <article class="resume-card reveal">
+            <div class="resume-doc" aria-hidden="true">
+              <span class="resume-doc-name">Chitrang Patel</span>
+              <span class="resume-doc-role">Software Engineer · C# / .NET</span>
+              <span class="resume-doc-rule"></span>
+              <span class="resume-doc-line"></span>
+              <span class="resume-doc-line"></span>
+              <span class="resume-doc-line short"></span>
+              <span class="resume-doc-rule"></span>
+              <span class="resume-doc-line"></span>
+              <span class="resume-doc-line short"></span>
+            </div>
+            <div class="resume-actions">
+              <h3 class="resume-title">Full résumé, PDF</h3>
+              <p class="resume-note">Experience, technical skills, key projects, education and recognition — two pages, no filler.</p>
+              <div class="btn-row">
+                <a class="btn btn-primary" href="assets/resume/Chitrang-Patel-Resume.pdf" download>
+                  Download
+                  <svg class="icon" aria-hidden="true"><use href="#i-download"></use></svg>
+                </a>
+                <a class="btn btn-ghost" href="assets/resume/Chitrang-Patel-Resume.pdf" target="_blank" rel="noopener">
+                  View in browser
+                  <svg class="icon" aria-hidden="true"><use href="#i-file"></use></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <div class="credentials reveal">
+            <article class="cred">
+              <h3 class="cred-head"><svg class="icon" aria-hidden="true"><use href="#i-cap"></use></svg>Education</h3>
+              <p class="cred-main">Bachelor of Engineering, Computer Engineering</p>
+              <p class="cred-sub">Dr. D. Y. Patil College of Engineering, Pune · 2012 — 2016</p>
+              <p class="cred-note">Coursework: OOP, data structures &amp; algorithms, database systems, operating systems, computer networks.</p>
+            </article>
+
+            <article class="cred">
+              <h3 class="cred-head"><svg class="icon" aria-hidden="true"><use href="#i-award"></use></svg>Recognition</h3>
+              <p class="cred-main">Entrant of the Quarter</p>
+              <p class="cred-sub">ViitorCloud Technologies</p>
+              <p class="cred-note">Awarded for engineering contribution and consistent delivery performance.</p>
+            </article>
+
+            <article class="cred">
+              <h3 class="cred-head"><svg class="icon" aria-hidden="true"><use href="#i-globe"></use></svg>Spoken languages</h3>
+              <p class="cred-main">English — professional</p>
+              <p class="cred-sub">Hindi — native · Gujarati — native</p>
+            </article>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="contact-form-wrapper">
-          <form class="contact-form" id="contact-form">
-            <div class="form-group">
-              <label class="form-label">Name</label>
-              <input type="text" class="form-input" placeholder="[Your Name]" disabled>
-              <div class="validation-annotation annotation">↑ Required field validation</div>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Email</label>
-              <input type="email" class="form-input" placeholder="[your@email.com]" disabled>
-              <div class="validation-annotation annotation">↑ Email format validation</div>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Subject</label>
-              <input type="text" class="form-input" placeholder="[Subject]" disabled>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Message</label>
-              <textarea class="form-input form-textarea" placeholder="[Your message here...]" disabled></textarea>
-            </div>
-            <button type="button" class="btn btn-primary btn-full">Submit</button>
-          </form>
+    <!-- ============================== CONTACT ============================== -->
+    <section class="band band-contact" id="contact" aria-labelledby="contact-title">
+      <div class="shell">
+        <header class="band-head reveal">
+          <p class="band-index">06 — Contact</p>
+          <h2 class="band-title" id="contact-title">Let's build something durable</h2>
+          <p class="band-sub">
+            Open to senior software engineering roles and interesting real-time systems work.
+            The fastest route is email — I reply to everything that isn't a template.
+          </p>
+        </header>
+
+        <div class="contact-grid">
+          <div class="contact-direct reveal">
+            <a class="contact-row" href="mailto:chitrang313@outlook.com">
+              <svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg>
+              <span>
+                <span class="contact-label">Email</span>
+                <span class="contact-value">chitrang313@outlook.com</span>
+              </span>
+              <svg class="icon icon-end" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+            </a>
+
+            <a class="contact-row" href="https://www.linkedin.com/in/chitrang313/" target="_blank" rel="noopener">
+              <svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg>
+              <span>
+                <span class="contact-label">LinkedIn</span>
+                <span class="contact-value">in/chitrang313</span>
+              </span>
+              <svg class="icon icon-end" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+            </a>
+
+            <a class="contact-row" href="https://github.com/chitrang313" target="_blank" rel="noopener">
+              <svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg>
+              <span>
+                <span class="contact-label">GitHub</span>
+                <span class="contact-value">github.com/chitrang313</span>
+              </span>
+              <svg class="icon icon-end" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+            </a>
+
+            <a class="contact-row" href="https://www.youtube.com/@chitrang-313" target="_blank" rel="noopener">
+              <svg class="icon" aria-hidden="true"><use href="#i-youtube"></use></svg>
+              <span>
+                <span class="contact-label">YouTube</span>
+                <span class="contact-value">@chitrang-313</span>
+              </span>
+              <svg class="icon icon-end" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+            </a>
+
+            <a class="contact-row" href="https://www.instagram.com/__chitrang/" target="_blank" rel="noopener">
+              <svg class="icon" aria-hidden="true"><use href="#i-instagram"></use></svg>
+              <span>
+                <span class="contact-label">Instagram</span>
+                <span class="contact-value">@__chitrang</span>
+              </span>
+              <svg class="icon icon-end" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+            </a>
+
+            <p class="contact-row is-static">
+              <svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>
+              <span>
+                <span class="contact-label">Based in</span>
+                <span class="contact-value">Ahmedabad, India · open to remote</span>
+              </span>
+            </p>
+          </div>
+
+          <div class="contact-form-wrap reveal">
+            <h3 class="form-title">Or write here</h3>
+            <p class="form-note">
+              This form opens your own mail client with the message pre-filled — nothing is sent to a
+              third-party service.
+            </p>
+            <form class="contact-form" id="contact-form" novalidate>
+              <div class="field">
+                <label for="cf-name">Name</label>
+                <input id="cf-name" name="name" type="text" autocomplete="name" required>
+                <p class="field-error" id="cf-name-error" hidden>Please add your name.</p>
+              </div>
+              <div class="field">
+                <label for="cf-email">Email</label>
+                <input id="cf-email" name="email" type="email" autocomplete="email" required>
+                <p class="field-error" id="cf-email-error" hidden>Please add a valid email address.</p>
+              </div>
+              <div class="field">
+                <label for="cf-subject">Subject</label>
+                <input id="cf-subject" name="subject" type="text" value="Opportunity for Chitrang">
+              </div>
+              <div class="field">
+                <label for="cf-message">Message</label>
+                <textarea id="cf-message" name="message" rows="5" required></textarea>
+                <p class="field-error" id="cf-message-error" hidden>Please add a short message.</p>
+              </div>
+              <button class="btn btn-primary btn-block" type="submit">
+                Compose email
+                <svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg>
+              </button>
+              <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+            </form>
+          </div>
         </div>
+      </div>
+    </section>
+  </main>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== FOOTER ========== -->
-  <footer class="footer" id="footer">
-    <div class="section-label section-label-footer">FOOTER · Small height · Horizontal layout</div>
-    <div class="footer-container">
-      <div class="footer-left">
-        <span>&copy; 2025 [Your Name]. All rights reserved.</span>
-      </div>
-      <div class="footer-right">
-        <a href="#about" class="footer-link">About</a>
-        <a href="#skills" class="footer-link">Skills</a>
-        <a href="#projects" class="footer-link">Projects</a>
-        <a href="#experience" class="footer-link">Experience</a>
-        <a href="#contact" class="footer-link">Contact</a>
-      </div>
+  <!-- ============================== FOOTER ============================== -->
+  <footer class="site-foot">
+    <div class="shell site-foot-inner">
+      <p class="foot-note">
+        <span class="foot-name">Chitrang Patel</span>
+        Built by hand — semantic HTML, one stylesheet, no framework.
+      </p>
+      <nav class="foot-nav" aria-label="Footer navigation">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#work">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#resume">Résumé</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <p class="foot-copy">© <span id="foot-year">2026</span> Chitrang Patel</p>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <!-- ============================== CASE STUDY MODAL ============================== -->
+  <dialog class="case" id="case-modal" aria-labelledby="case-title">
+    <button class="case-close" id="case-close" type="button" aria-label="Close case study">
+      <svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg>
+    </button>
+    <article class="case-inner" id="case-inner" tabindex="-1">
+      <!-- injected by js/main.js -->
+    </article>
+  </dialog>
+
+  <!-- ============================== MEDIA LIGHTBOX ============================== -->
+  <dialog class="lightbox" id="lightbox" aria-labelledby="lb-title">
+    <h2 class="visually-hidden" id="lb-title">Media preview</h2>
+    <button class="lb-close" id="lb-close" type="button" aria-label="Close preview">
+      <svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg>
+    </button>
+    <button class="lb-nav lb-prev" id="lb-prev" type="button" aria-label="Previous item">
+      <svg class="icon" aria-hidden="true"><use href="#i-chevron-left"></use></svg>
+    </button>
+    <div class="lb-stage" id="lb-stage"></div>
+    <button class="lb-nav lb-next" id="lb-next" type="button" aria-label="Next item">
+      <svg class="icon" aria-hidden="true"><use href="#i-chevron-right"></use></svg>
+    </button>
+    <p class="lb-caption" id="lb-caption"></p>
+  </dialog>
+
+  <script src="js/data.js" defer></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>
