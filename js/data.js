@@ -1060,6 +1060,122 @@ window.CASE_STUDIES = {
     ]
   },
 
+  /* ------------------------------------------------------------------ Cuenect */
+  cuenect: {
+    title: 'Cuenect',
+    kicker: 'Interactive 3D Product Showcase & Spatial Reality System',
+    year: '2022 — 2023',
+    role: 'Lead Interactive Systems Engineer — distributed multi-app architecture, 3D runtime, Sony Spatial Reality SDK',
+    org: 'ViitorCloud Technologies · Cuenect',
+    stackLine: 'Unity (URP) · C# · Sony Spatial Reality Display · Local WebSocket/TCP · Android Remote · glTF Ingestion',
+    hero: { type: 'placeholder', label: 'Hero shot — Cuenect 3D showcase running on Sony Spatial Reality Display and large screen with phone remote', caption: 'Drop assets/img/projects/cuenect-hero.jpg' },
+
+    overview: [
+      'Built for Cuenect at ViitorCloud Technologies, this interactive product showcase system transforms commercial exhibitions, flagship corporate showrooms, and luxury retail activations into immersive 3D presentation environments. The platform allows businesses to showcase industrial, architectural, and consumer products as interactive 3D models, 4K videos, and high-resolution media on massive screens and on Sony’s glasses-free Spatial Reality Display.',
+      'The system operates through an integrated, three-tiered application ecosystem working over an isolated local network without requiring internet connectivity: Cuenect Hub (the organizer’s content management and playlist control center), Cuenect Experience (the high-performance display client rendering real-time 3D models and autostereoscopic holograms), and Cuenect Stream (a native Android companion remote allowing presenters to rotate, zoom, explode, and switch content straight from their smartphone via QR code pairing).'
+    ],
+
+    problem: [
+      'Exhibitors at trade shows and retail events struggle with physical product limitations: large industrial machinery, heavy equipment, or luxury goods cannot always be shipped to booth floors, while flat video reels or printed brochures fail to capture consumer attention. Furthermore, exhibition convention centers are notorious for saturated or non-existent Wi-Fi networks, making cloud-dependent digital signage prone to disastrous public crashes.',
+      'From an engineering standpoint, Cuenect required strict guarantees: real-time touch interaction on the presenter’s phone had to translate into instantaneous 60 FPS model transformations on the main screen with imperceptible latency; the display runtime had to interface with Sony’s cutting-edge autostereoscopic eye-sensing hardware; and the entire ecosystem had to operate flawlessly on an isolated offline network with zero cloud dependencies.'
+    ],
+
+    responsibilities: [
+      'Architected and implemented the distributed three-application ecosystem (Hub, Experience, Stream) in Unity (URP) and C#.',
+      'Integrated the Sony Spatial Reality Display (SRD) SDK, engineering real-time eye-sensing facial tracking pipelines that dynamically adapt stereoscopic camera view frustums for glasses-free 3D.',
+      'Engineered a low-latency, bi-directional binary WebSocket/TCP local networking protocol achieving sub-12ms glass-to-glass touch telemetry between Android phone and main display.',
+      'Developed the native Android companion remote app (Stream) featuring virtual trackball orbit controllers, smooth pinch-to-zoom, exploded view scrubbers, and instant QR code network pairing.',
+      'Created an automated 3D model ingestion pipeline in Cuenect Hub supporting runtime glTF, FBX, and OBJ import with automatic pivot centering, normal recalculation, and PBR material normalization.',
+      'Implemented offline zero-configuration network discovery via local mDNS and SSDP, enabling instant booth setup without manual IP entry.'
+    ],
+
+    architecture: {
+      paragraphs: [
+        'Cuenect is architected as an isolated local-area distributed network. Cuenect Experience serves as the presentation node and local communication broker. At session start, it displays a dynamic QR code containing local IP parameters and an ephemeral session key. When the presenter scans the code with the Cuenect Stream Android app, a bi-directional local socket handshake is established without traversing the public internet.',
+        'Touch interactions on the mobile remote are converted into delta rotation quaternions, translation vectors, and explode-state floats, packed into binary payloads, and streamed at 60 Hz to Experience. On the display node, a dual-pipeline camera system supports both traditional orthographic/perspective 2D screens and Sony’s autostereoscopic Spatial Reality Display, where high-speed eye-tracking sensors continuously update dual-frustum micro-lens projections in real time.'
+      ],
+      layers: [
+        ['Spatial Reality Display Engine', 'Sony SR SDK integration, 60 FPS face-tracking eye sensor, real-time parallax view frustum'],
+        ['Display Runtime (Experience)', 'Unity URP 3D viewport, turntable orbit, exploded view animator, 4K media player'],
+        ['Mobile Remote (Stream)', 'Android native touch listener, virtual trackball, playlist controller, QR scanner'],
+        ['Low-Latency Local Broker', 'High-frequency WebSocket/TCP server, binary telemetry packets, dead-reckoning sync'],
+        ['Content Hub & CMS (Hub)', 'glTF/FBX 3D runtime parser, PBR material normalizer, playlist staging, local asset store'],
+        ['Offline Network Discovery', 'Zero-conf mDNS/SSDP broadcaster, local network fallback, automatic heartbeat reconnect']
+      ]
+    },
+
+    challenges: [
+      {
+        challenge: 'Eliminating input lag between the presenter’s smartphone gestures and the 3D model on a 90-inch exhibition screen.',
+        solution: 'Replaced high-overhead JSON socket messages with a compact binary telemetry protocol over a dedicated local WebSocket connection. Combined with client-side touch delta smoothing and spring interpolation on the display client, glass-to-glass latency dropped below 12ms.'
+      },
+      {
+        challenge: 'Rendering true glasses-free 3D on Sony Spatial Reality Displays without stereoscopic shearing or visual discomfort.',
+        solution: 'Coupled Sony’s micro-optical lens camera tracking with Unity URP shaders, recalculating dual-eye projection matrices each frame. Calibrated clipping planes and depth-of-field budgets to keep virtual 3D models firmly grounded within the display’s optimal holographic viewing volume.'
+      },
+      {
+        challenge: 'Guaranteeing 100% booth reliability in convention centers where public internet is completely blocked or unreliable.',
+        solution: 'Built an entirely offline local networking layer. Cuenect Hub, Experience, and Stream communicate exclusively over local Wi-Fi or ad-hoc routers using local IP dynamic discovery, guaranteeing uninterrupted multi-day trade show operation with zero external internet pings.'
+      },
+      {
+        challenge: 'Normalizing disparate client 3D CAD models (scale, orientation, materials) uploaded on-site by non-technical staff.',
+        solution: 'Engineered automated runtime mesh validation in Cuenect Hub. The importer automatically centers geometry bounding boxes, aligns coordinate axes, scales models to standardized presentation bounding spheres, and applies calibrated PBR metallic-roughness materials.'
+      }
+    ],
+
+    features: [
+      'Glasses-free holographic 3D presentation support on Sony Spatial Reality Display with real-time eye tracking',
+      'Ultra-large display presentation client for standard 4K/8K commercial showroom video walls and touchscreens',
+      'Distributed tri-app architecture: Cuenect Hub (CMS), Cuenect Experience (Display), Cuenect Stream (Mobile Remote)',
+      'Instant smartphone remote pairing via on-screen dynamic QR code scan over local Wi-Fi',
+      'Real-time presenter remote control: 360° orbit rotation, fluid zoom, exploded parts view, and material toggles',
+      '100% offline operation with zero internet dependency, eliminating booth Wi-Fi failure risks',
+      'Automated 3D model ingestion supporting glTF, GLB, FBX, and OBJ with runtime PBR material normalization',
+      'Multi-format playlist manager supporting 3D models, 4K video reels, and high-resolution promotional imagery',
+      'Automatic local network discovery via mDNS with instant reconnect resilience'
+    ],
+
+    stack: [
+      ['Platform', 'Ultra-Large Displays, Sony Spatial Reality Display (ELF-SR1/SR2), Android'],
+      ['Engine & Language', 'Unity (URP), C#, Java'],
+      ['Spatial Hardware', 'Sony Spatial Reality SDK, Eye-Sensing Light Field Display'],
+      ['Networking', 'Local WebSocket / TCP Binary Protocol, mDNS Zero-Config Discovery'],
+      ['3D & Formats', 'Runtime glTF/GLB & FBX Loader, PBR Material Shaders, 4K Video Streaming'],
+      ['Architecture', 'Distributed Tri-App Ecosystem (Hub, Experience, Stream), Offline Local Cache']
+    ],
+
+    achievements: [
+      'Successfully deployed across major commercial trade shows, automotive exhibitions, and corporate demonstration suites.',
+      'Achieved sub-12ms touch-to-screen latency, giving presenters a tactile, instantaneous feel when manipulating 3D models from their phone.',
+      'Pioneered early enterprise integration of Sony Spatial Reality Displays, creating a show-stopping glasses-free 3D booth draw.',
+      'Delivered 100% uptime across multi-day exhibitions with zero reliance on convention hall internet connections.'
+    ],
+
+    process: [
+      ['Ecosystem & UX architecture', 'Defined the tri-app separation of concerns across Hub organizer, Experience display, and Stream remote'],
+      ['Spatial Reality R&D', 'Calibrated Sony SR SDK eye-tracking matrices and stereoscopic viewing volumes in Unity URP'],
+      ['Protocol & socket engineering', 'Built high-throughput, low-latency binary telemetry networking between Android and Unity'],
+      ['Asset pipeline automation', 'Implemented automated mesh analysis, pivot centering, and PBR shader assignment for imported 3D models'],
+      ['Exhibition deployment', 'Stress-tested multi-day offline runtime resilience, thermal performance, and local Wi-Fi reconnect protocols']
+    ],
+
+    lessons: [
+      'In live exhibition environments, network independence is non-negotiable: designing for offline-first local communication ensures absolute presenter confidence regardless of venue infrastructure.',
+      'Novel hardware like glasses-free 3D displays requires rigorous spatial calibration—maintaining correct visual scale within the holographic viewing sweet-spot makes the difference between visual awe and eye fatigue.'
+    ],
+
+    gallery: [
+      { type: 'placeholder', label: 'Cuenect Experience running on large display with interactive 3D model inspection', caption: 'Drop assets/img/projects/cuenect-01.jpg' },
+      { type: 'placeholder', label: 'Sony Spatial Reality Display showing glasses-free holographic 3D product view', caption: 'Drop assets/img/projects/cuenect-02.jpg' },
+      { type: 'placeholder', label: 'Cuenect Stream Android companion remote with virtual orbit trackball', caption: 'Drop assets/img/projects/cuenect-03.jpg' },
+      { type: 'placeholder', label: 'Cuenect Hub playlist orchestrator and 3D asset ingestion interface', caption: 'Drop assets/img/projects/cuenect-04.jpg' }
+    ],
+
+    links: [
+      { label: 'ViitorCloud Technologies', url: 'https://viitorcloud.com/' }
+    ]
+  },
+
   /* ------------------------------------------------------------------ SoReal */
   soreal: {
     title: 'SoReal',

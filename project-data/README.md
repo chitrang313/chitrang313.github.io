@@ -27,6 +27,9 @@ project-data/
 ├── rnd/                               # Research & Development / Unpublished Museum Prototypes
 │   └── tirthankaras-museum-journey.md # 24 Tirthankaras interactive map & multi-plane parallax journey
 │
+├── cuenect/                           # Cuenect
+│   └── interactive-3d-showcase.md     # Tri-app 3D showcase & Sony Spatial Reality Display
+│
 ├── soreal/                            # SoReal / ViitorCloud
 │   └── soreal-real-estate-platform.md # Multi-user guided 3D interior walkthrough platform
 │
@@ -68,16 +71,20 @@ Interactive museum installation built at ViitorCloud Technologies:
 Independent museum R&D prototypes developed by Chitrang Patel:
 - **`tirthankaras-museum-journey.md`**: An interactive touch-screen exhibition prototype exploring the lives and sacred geography of the 24 Jain Tirthankaras through a dual-state map of India (Janma vs Moksha Bhumi), calm multi-plane parallax scenes, and an iconographic archival book reader.
 
-### 5. `soreal/` — SoReal
+### 5. `cuenect/` — Cuenect
+Interactive 3D product showcase and spatial reality platform:
+- **`interactive-3d-showcase.md`**: Distributed three-app ecosystem (Hub CMS, Experience display client, and Stream Android remote) powering offline interactive 3D product presentations on large screens and autostereoscopic Sony Spatial Reality Displays.
+
+### 6. `soreal/` — SoReal
 - **`soreal-real-estate-platform.md`**: Lead client engineering for an authoritative real-time 3D property walkthrough platform used by sales agents and buyers.
 
-### 6. `ncore-games/` — nCore Games
+### 7. `ncore-games/` — nCore Games
 - **`icc-cricket-mobile.md`**: Core systems, deterministic mathematics layer, and Goal-Oriented Action Planning (GOAP) AI decision engine for an officially licensed global mobile title.
 
-### 7. `vasundhara-vision/` — Vasundhara Vision
+### 8. `vasundhara-vision/` — Vasundhara Vision
 - **`ludo-multiplayer.md`**: Authoritative Node.js/Socket.IO backend and client state machine for real-time mobile multiplayer matches.
 - **`configurable-card-engine.md`**: Composable rules engine driving two commercially shipped titles with dynamic variant toggling and monetization.
 
-### 8. `escrow-infotech/` — Escrow Infotech
+### 9. `escrow-infotech/` — Escrow Infotech
 - **`heavy-bus-simulator.md`**: Fixed-timestep vehicle handling simulation and data-driven level authoring pipeline.
 - **`shooting-arena.md`**: Arcade space combat with state-driven enemy AI, centralized damage evaluation, and virtual economy.

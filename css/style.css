@@ -1025,6 +1025,10 @@ code {
   background-image: linear-gradient(135deg, rgba(125, 97, 68, 0.16), rgba(85, 97, 63, 0.14));
 }
 
+.work-cover[data-cover="cuenect"] {
+  background-image: linear-gradient(150deg, rgba(85, 97, 63, 0.16), rgba(66, 74, 84, 0.14));
+}
+
 .work-cover[data-cover="soreal"] {
   background-image: linear-gradient(145deg, rgba(85, 97, 63, 0.14), rgba(251, 248, 241, 0.7));
 }

@@ -50,6 +50,39 @@ Possible Next Step: <Recommended follow-up>
 
 <!-- Add entries only for meaningful work. Do not create fictional history. -->
 
+### 2026-10-22 — Add Cuenect Interactive 3D Product Showcase
+
+#### Request
+
+Add Cuenect: Interactive 3D Product Showcase (Client: Cuenect, built at ViitorCloud Technologies) into the portfolio and `project-data/cuenect/`, bringing the total projects to 17, then commit and push.
+
+#### Investigation
+
+- Examined project mechanics: distributed three-app ecosystem (Hub CMS, Experience display client, and Stream Android companion remote) operating over an isolated local network (zero internet needed at venues).
+- Supported cutting-edge hardware: autostereoscopic Sony Spatial Reality Display (ELF-SR1/ELF-SR2) with real-time 60 FPS eye-sensing facial tracking view frustum adjustments, plus large-format standard 4K/8K showroom displays.
+- Sub-12ms touch-to-screen presenter remote telemetry via binary WebSocket/TCP local socket streaming.
+- Re-aligned 6-column work grid across 17 total systems to maintain full row parity and thematic symmetry:
+  - Row 1 (Sikh History Museum — 3 cards x 2 cols = 6 cols): `goldentemple`, `dualgallery`, `sikhtimeline`
+  - Row 2 (CSMVS Museum Kiosks — 3 cards x 2 cols = 6 cols): `feedback`, `motw`, `rosetta`
+  - Row 3 (CSMVS Trade & MAP Bengaluru — 3 cards x 2 cols = 6 cols): `tradewall`, `traderoute`, `mappuzzle`
+  - Row 4 (Featured 3D Interactive Platforms — 2 cards x 3 cols = 6 cols): `cuenect` (is-feature), `soreal` (is-feature)
+  - Row 5 (Digital Systems & Simulations — 3 cards x 2 cols = 6 cols): `tirthankaras`, `icc`, `ludo`
+  - Row 6 (Classic Game Engines & Simulators — 3 cards x 2 cols = 6 cols): `cards`, `bus`, `arena`
+
+#### Changes
+
+- `project-data/cuenect/interactive-3d-showcase.md`: Created detailed project documentation detailing the tri-app ecosystem, Sony Spatial Reality SDK integration, low-latency mobile telemetry, and offline venue resilience.
+- `project-data/README.md`: Updated directory tree and folder summaries with `cuenect/`.
+- `js/data.js`: Added `cuenect` case study entry containing complete overview, problem statement, responsibilities, architecture, challenges/solutions, features, stack, achievements, process, and lessons.
+- `index.html`: Added `cuenect` card (`data-project="cuenect"`, cover badge `CU`), styled as `is-feature` (span 3) paired with `soreal` in Row 4, normalized `tirthankaras`, `icc`, and `ludo` to standard span 2 cards in Row 5, and updated subtitle to "Seventeen systems".
+- `css/style.css`: Added `.work-cover[data-cover="cuenect"]` gradient styling.
+
+#### Validation
+
+- `node --check js/data.js` passed with zero errors.
+
+---
+
 ### 2026-10-22 — Add 24 Tirthankaras Museum Journey R&D Project
 
 #### Request
