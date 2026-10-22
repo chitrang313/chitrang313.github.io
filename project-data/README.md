@@ -17,8 +17,8 @@ project-data/
 │   └── visitor-feedback-kiosk.md      # Trilingual gallery feedback kiosk with offline sync
 │
 ├── shm/                               # Sikh History Museum (SHM)
+│   ├── dual-gallery-interactive-display.md # Interactive touchscreen multimedia gallery (Ten Gurus & Guru Nanak)
 │   ├── interactive-timeline-kiosk.md  # Interactive chronological timeline kiosk (1469–Modern)
-│   ├── project-02.md                  # [Planned / Pending Brief from User]
 │   └── project-03.md                  # [Planned / Pending Brief from User]
 │
 ├── soreal/                            # SoReal / ViitorCloud
@@ -50,8 +50,8 @@ Contains documentation for 5 interactive museum installations built at ViitorClo
 
 ### 2. `shm/` — Sikh History Museum
 Interactive touchscreen kiosk projects built at ViitorCloud Technologies:
+- **`dual-gallery-interactive-display.md`**: Touchscreen multimedia gallery bringing the stories of Guru Nanak and the Ten Gurus to life with hardware-accelerated video, archival galleries, and automatic REST/offline caching.
 - **`interactive-timeline-kiosk.md`**: Touchscreen timeline kiosk allowing visitors to explore Sikh history from 1469 across three themed chapters with full-screen artwork and dynamic smartphone QR bridge.
-- **`project-02.md`**: Placeholder for upcoming second Sikh History Museum project brief.
 - **`project-03.md`**: Placeholder for upcoming third Sikh History Museum project brief.
 
 ### 3. `soreal/` — SoReal

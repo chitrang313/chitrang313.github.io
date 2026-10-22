@@ -17,6 +17,72 @@
  * `hero` follows the same shape and is shown large at the top of the modal.
  */
 window.CASE_STUDIES = {
+  /* ---------------------------------------------------- Dual Gallery Display */
+  dualgallery: {
+    title: 'Dual Gallery Interactive Display',
+    kicker: 'Touchscreen Multimedia Kiosk for Sikh History Museum',
+    year: '2023 — 2024',
+    role: 'Interactive Systems Engineer — multimedia engine, offline cache pipeline, kiosk UI',
+    org: 'ViitorCloud Technologies · Sikh History Museum',
+    stackLine: 'Unity 6 (URP) · C# · REST API · Offline Cache · TextMeshPro · Newtonsoft JSON',
+    hero: { type: 'placeholder', label: 'Hero shot — Dual Gallery Interactive Display in exhibition hall', caption: 'Drop assets/img/projects/dualgallery-hero.jpg' },
+
+    overview: [
+      'Built for the Sikh History Museum (SHM) at ViitorCloud Technologies, the Dual Gallery Interactive Display brings the revered histories of Guru Nanak and the Ten Gurus to life on large touchscreen kiosk hardware. Visitors explore dual multimedia streams—browsing archival historical imagery, curated documentary video clips, and detailed narrative accounts that illuminate the foundational principles, journeys, and teachings of the Gurus.',
+      'Engineered for unattended museum gallery use, the application connects to the museum’s central media servers via REST APIs to pull fresh historical content and curation updates. It automatically falls back to local high-speed cached media whenever offline, guaranteeing 100% kiosk uptime without staff intervention.'
+    ],
+
+    problem: [
+      'Traditional gallery signage and static photo panels are inherently constrained: physical placards cannot display multimedia video, offer limited narrative depth, and quickly fade or become outdated as curatorial archives expand. Furthermore, gallery internet connections can be sporadic, posing a severe risk of blank screens or broken loaders if an app relies on live web streaming.',
+      'The museum required a dynamic, high-engagement digital kiosk capable of handling high-resolution imagery and video smoothly at 60 FPS, maintaining full autonomy with self-updating offline-first persistence, and offering an inviting, intuitive touch experience accessible to pilgrims and visitors of all generations.'
+    ],
+
+    responsibilities: [
+      'Architected and implemented the entire dual-gallery interactive touchscreen application in Unity 6 using C# and the Universal Render Pipeline (URP).',
+      'Engineered a robust offline-first content sync pipeline using REST APIs and Newtonsoft JSON, downloading updated assets and caching them locally for seamless offline playback.',
+      'Built smooth multimedia browsing components for simultaneous image slideshows, high-definition video playback, and responsive typography layouts with TextMeshPro.',
+      'Implemented full-screen Windows kiosk shell integration with automatic boot-up launch, watchdog crash recovery, and hidden staff administrative controls.',
+      'Optimized texture streaming, video decoding buffers, and memory reclamation routines for continuous multi-hour gallery operation without memory leaks.',
+      'Designed an intuitive, self-explanatory touchscreen UI with generous touch targets, breadcrumb navigation, and idle timeout attract loops.'
+    ],
+
+    architecture: {
+      paragraphs: [
+        'The application is structured into decoupled presentation and data repository layers. A background content manager communicates with the museum REST API using Newtonsoft JSON for schema validation. On startup or when network connectivity is detected, the manager compares local content hashes with server manifests, downloading new images or video clips asynchronously into isolated local cache storage without interrupting active visitor browsing.',
+        'The multimedia presentation engine leverages Unity 6 URP and optimized video rendering pipelines with hardware-accelerated video decoding. TextMeshPro ensures crisp typography across large format touchscreens, while an idle timer automatically transitions the display into an ambient attract loop to invite approaching museum guests.'
+      ],
+      layers: [
+        ['Kiosk shell & watchdog', 'Full-screen kiosk mode, hidden staff gestures, automatic crash recovery, OS lockdown'],
+        ['Media presentation engine', 'Hardware-accelerated video player, archival photo gallery, gesture-controlled viewer'],
+        ['Dual gallery UI', 'Ten Gurus & Guru Nanak story panels, chapter selection, TextMeshPro typography'],
+        ['Offline-first cache', 'Local file persistence, checksum verification, atomic asset swaps, zero-network fallback'],
+        ['REST sync client', 'Newtonsoft JSON schema parsing, background manifest polling, asset delta downloader'],
+        ['Attract & session manager', 'Idle detection, ambient video attractor, automatic session reset']
+      ]
+    },
+
+    whatWentWell: [
+      'The automated offline-first caching mechanism completely eliminated gallery downtime—even during network outages, visitors experienced zero interruptions.',
+      'Hardware-accelerated video streaming integrated seamlessly alongside high-resolution photo galleries while maintaining 60 FPS under continuous touch input.',
+      'Curators were able to publish revised historical write-ups and high-definition video assets directly to the server, which synced autonomously to the kiosk display.'
+    ],
+
+    whatIdDoDifferently: [
+      'Implement multi-language audio narration tracks with directional overhead speakers for visitors who prefer auditory storytelling.',
+      'Add an interactive search index allowing visitors to query specific historical battles, hymns, and gurdwaras across the timeline.'
+    ],
+
+    gallery: [
+      { type: 'placeholder', label: 'Dual gallery navigation and chapter selection', caption: 'Drop assets/img/projects/dualgallery-01.jpg' },
+      { type: 'placeholder', label: 'Multimedia story panel with archival imagery and video player', caption: 'Drop assets/img/projects/dualgallery-02.jpg' },
+      { type: 'placeholder', label: 'Full-screen historical artwork inspection view', caption: 'Drop assets/img/projects/dualgallery-03.jpg' }
+    ],
+
+    links: [
+      { label: 'ViitorCloud Technologies', url: 'https://viitorcloud.com/' }
+    ]
+  },
+
   /* ---------------------------------------------------- Sikh History Timeline */
   sikhtimeline: {
     title: 'Sikh History Timeline',

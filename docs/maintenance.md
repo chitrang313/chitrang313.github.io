@@ -50,6 +50,36 @@ Possible Next Step: <Recommended follow-up>
 
 <!-- Add entries only for meaningful work. Do not create fictional history. -->
 
+### 2026-10-22 — Add Dual Gallery Interactive Display for Sikh History Museum
+
+#### Request
+
+Add Dual Gallery Interactive Display — Sikh History Museum Kiosk (Client: Sikh History Museum, built at ViitorCloud Technologies) into the portfolio and `project-data/shm/`, then commit and push.
+
+#### Investigation
+
+- Examined kiosk requirements: interactive touchscreen installation exploring the lives, travels, and teachings of Guru Nanak and the Ten Gurus through high-resolution archival photo galleries and documentary video clips.
+- Evaluated technical architecture: Unity 6 (Windows Kiosk), C#, Universal Render Pipeline (URP), REST API media synchronization with Newtonsoft JSON, and automatic offline fallback to local cached media for zero-downtime gallery operation.
+- Re-aligned 6-column work grid across 13 total systems:
+  - Row 1 (Sikh History Museum — 2 cards x 3 cols = 6 cols): `dualgallery`, `sikhtimeline`
+  - Row 2 (CSMVS Museum Touchscreen Kiosks — 3 cards x 2 cols = 6 cols): `feedback`, `motw`, `rosetta`
+  - Row 3 (CSMVS Museum Trade Displays — 2 cards x 3 cols = 6 cols): `tradewall`, `traderoute`
+  - Row 4 (Flagship Commercial Platforms — 2 cards x 3 cols = 6 cols): `soreal`, `icc`
+  - Row 5 (Multiplayer & Simulation — 3 cards x 2 cols = 6 cols): `ludo`, `cards`, `bus`
+  - Row 6 (Action Game — 1 card x 2 cols = 2 cols): `arena`
+
+#### Changes
+
+- Created `project-data/shm/dual-gallery-interactive-display.md` containing complete project brief, metadata, architecture, challenges, and feature specifications; removed temporary `project-02.md` placeholder and updated `project-data/README.md`.
+- Added `dualgallery` case study entry to `js/data.js` covering multimedia engine, offline cache pipeline, hardware-accelerated video buffers, and kiosk UI.
+- Added `dualgallery` card (`data-project="dualgallery"`, badge `DG`) to `index.html`, updated section subtitle to "Thirteen systems", and balanced grid rows.
+- Added `.work-cover[data-cover="dualgallery"]` sage & warm ochre gradient tint in `css/style.css`.
+
+#### Validation
+
+- Validated JavaScript syntax using `node --check js/data.js` and `node --check js/main.js`.
+- Verified desktop (6-column) and mobile single-column responsive behavior.
+
 ### 2026-10-22 — Create Organized project-data Directory and Project Briefs
 
 #### Request
