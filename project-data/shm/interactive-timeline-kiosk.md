@@ -56,3 +56,14 @@ Spanning more than five centuries from the birth of Guru Nanak in 1469 through t
 - **Deep-Dive Story Modal:** Full-screen archival artwork viewer, multi-touch pan & zoom, typography layout engine.
 - **Dynamic QR Bridge:** Real-time offline QR code rasterizer, URL payload formatting for post-visit web reading.
 - **JSON Data Pipeline:** Schema-validated JSON event feeds, asynchronous media streaming, local asset hot-reloading.
+
+---
+
+## Media Assets & Screenshots
+
+- **Cover & Primary Overview:** `https://res.cloudinary.com/dpl3xzmwx/image/upload/v1792654240/InteractiveTimeline_1080p_07.05.2026_10-37-23_hzvexl.webp`
+- **Chapter Navigation & Era Selection:** `https://res.cloudinary.com/dpl3xzmwx/image/upload/v1792654227/InteractiveTimeline_1080p_07.05.2026_10-37-19_vaeyd2.webp`
+- **Milestone Story Panel & Artwork:** `https://res.cloudinary.com/dpl3xzmwx/image/upload/v1792654231/InteractiveTimeline_1080p_07.05.2026_10-37-26_luzplb.webp`
+- **Deep-Dive Historical Narrative:** `https://res.cloudinary.com/dpl3xzmwx/image/upload/v1792654240/InteractiveTimeline_1080p_07.05.2026_10-37-29_mvbueh.webp`
+- **Full-Screen Archival Viewer & QR Bridge:** `https://res.cloudinary.com/dpl3xzmwx/image/upload/v1792654235/InteractiveTimeline_1080p_07.05.2026_10-37-32_xqthbe.webp`
+

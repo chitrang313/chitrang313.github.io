@@ -50,6 +50,35 @@ Possible Next Step: <Recommended follow-up>
 
 <!-- Add entries only for meaningful work. Do not create fictional history. -->
 
+### 2026-10-22 — Add Cloudinary Media Assets for Sikh History Interactive Timeline Kiosk
+
+#### Request
+
+Integrate 5 provided Cloudinary image URLs into the "Interactive Timeline Kiosk" (`sikhtimeline`) project across the portfolio card cover, case study modal hero, and gallery.
+
+#### Investigation
+
+- Identified 5 1080p WebP screenshots showing the interactive timeline kiosk application across key views: chapter selection, chronological ribbon, milestone story panel, deep-dive narrative, and full-screen archival artwork viewer with QR code bridge.
+- Determined asset mapping:
+  - Hero & Cover card: `InteractiveTimeline_1080p_07.05.2026_10-37-23_hzvexl.webp` (timeline chronological ribbon).
+  - Gallery item 1: `..._vaeyd2.webp` (chapter navigation & era selection).
+  - Gallery item 2: `..._hzvexl.webp` (chronological ribbon scroller).
+  - Gallery item 3: `..._luzplb.webp` (milestone story panel & artwork).
+  - Gallery item 4: `..._mvbueh.webp` (deep-dive narrative view).
+  - Gallery item 5: `..._xqthbe.webp` (full-screen archival artwork viewer & QR bridge).
+
+#### Changes
+
+- `index.html`: Replaced placeholder spans in `<div class="work-cover" data-cover="sikhtimeline">` with an `<img class="work-cover-img">` targeting the primary timeline overview.
+- `js/data.js`: Updated `sikhtimeline.hero` to `type: 'image'` with Cloudinary URL, and populated `sikhtimeline.gallery` with all 5 Cloudinary URLs with descriptive labels and captions for the lightbox modal.
+- `project-data/shm/interactive-timeline-kiosk.md`: Appended `## Media Assets & Screenshots` section linking the 5 URLs.
+
+#### Validation
+
+- `node --check js/data.js` passed with zero errors.
+
+---
+
 ### 2026-10-22 — Add Golden Temple Video Gallery for Sikh History Museum
 
 #### Request

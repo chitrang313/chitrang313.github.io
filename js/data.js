@@ -158,7 +158,12 @@ window.CASE_STUDIES = {
     role: 'Interactive Systems Engineer — timeline architecture, content pipeline, UI/UX',
     org: 'ViitorCloud Technologies · Sikh History Museum',
     stackLine: 'Unity (URP) · C# · JSON Data Pipeline · Touchscreen Kiosk · Dynamic QR',
-    hero: { type: 'placeholder', label: 'Hero shot — Sikh History Timeline kiosk on museum exhibition floor', caption: 'Drop assets/img/projects/sikhtimeline-hero.jpg' },
+    hero: {
+      type: 'image',
+      src: 'https://res.cloudinary.com/dpl3xzmwx/image/upload/v1792654240/InteractiveTimeline_1080p_07.05.2026_10-37-23_hzvexl.webp',
+      alt: 'Sikh History Interactive Timeline Kiosk interface',
+      caption: 'Interactive Timeline Kiosk interface — chronological timeline scroller and chapter navigation'
+    },
 
     overview: [
       'Built for the Sikh History Museum at ViitorCloud Technologies, this interactive touchscreen kiosk invites museum visitors of all ages to journey through Sikh history across centuries. Spanning from the birth of Guru Nanak in 1469 to the modern era, the kiosk organizes history across three thematic chapters: The Guru Period, Warrior Saints and the Sikh Empire, and British and Punjab.',
@@ -206,9 +211,36 @@ window.CASE_STUDIES = {
     ],
 
     gallery: [
-      { type: 'placeholder', label: 'Interactive timeline view — chapter navigation and event ribbon', caption: 'Drop assets/img/projects/sikhtimeline-01.jpg' },
-      { type: 'placeholder', label: 'Archival artwork viewer with full-screen zoom and narrative panel', caption: 'Drop assets/img/projects/sikhtimeline-02.jpg' },
-      { type: 'placeholder', label: 'Dynamic QR code modal bridging kiosk stories to smartphone', caption: 'Drop assets/img/projects/sikhtimeline-03.jpg' }
+      {
+        type: 'image',
+        src: 'https://res.cloudinary.com/dpl3xzmwx/image/upload/v1792654227/InteractiveTimeline_1080p_07.05.2026_10-37-19_vaeyd2.webp',
+        alt: 'Timeline chapter selection and era overview',
+        caption: 'Timeline chapter selection — The Guru Period, Warrior Saints & Sikh Empire, and British & Punjab'
+      },
+      {
+        type: 'image',
+        src: 'https://res.cloudinary.com/dpl3xzmwx/image/upload/v1792654240/InteractiveTimeline_1080p_07.05.2026_10-37-23_hzvexl.webp',
+        alt: 'Chronological timeline ribbon with kinetic scrolling',
+        caption: 'Chronological timeline scroller — kinetic touch navigation through historical milestones'
+      },
+      {
+        type: 'image',
+        src: 'https://res.cloudinary.com/dpl3xzmwx/image/upload/v1792654231/InteractiveTimeline_1080p_07.05.2026_10-37-26_luzplb.webp',
+        alt: 'Milestone story panel with archival artwork',
+        caption: 'Milestone story panel — historical narrative paired with archival painting'
+      },
+      {
+        type: 'image',
+        src: 'https://res.cloudinary.com/dpl3xzmwx/image/upload/v1792654240/InteractiveTimeline_1080p_07.05.2026_10-37-29_mvbueh.webp',
+        alt: 'Deep-dive event narrative and historical background',
+        caption: 'Deep-dive event narrative — detailed historical background and curated records'
+      },
+      {
+        type: 'image',
+        src: 'https://res.cloudinary.com/dpl3xzmwx/image/upload/v1792654235/InteractiveTimeline_1080p_07.05.2026_10-37-32_xqthbe.webp',
+        alt: 'Full-screen archival artwork viewer with pinch-to-zoom and QR bridge',
+        caption: 'Full-screen archival artwork viewer — gesture zoom and smartphone QR link'
+      }
     ],
 
     links: [
