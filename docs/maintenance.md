@@ -50,6 +50,36 @@ Possible Next Step: <Recommended follow-up>
 
 <!-- Add entries only for meaningful work. Do not create fictional history. -->
 
+### 2026-10-22 — Add Trade Route: Interactive Museum Kiosk for CSMVS
+
+#### Request
+
+Add Trade Route: Interactive Museum Kiosk for CSMVS project into the portfolio, then commit and push changes.
+
+#### Investigation
+
+- Examined `index.html` work section structure, `js/data.js` case study schema (`window.CASE_STUDIES`), and `css/style.css` cover tint styling.
+- Checked grid responsiveness: 6-column desktop layout with feature cards spanning 3 columns.
+
+#### Changes
+
+- Added `traderoute` case study entry to `js/data.js` covering overview, problem statement, responsibilities, architecture, challenges, features, stack, achievements, lessons, process, gallery placeholders, and official CSMVS link.
+- Added Trade Route card (`data-project="traderoute"`) to `index.html` in the Selected Work section, updated project count to seven systems, and adjusted grid spans.
+- Added `.work-cover[data-cover="traderoute"]` gradient tint in `css/style.css`.
+
+#### Validation
+
+- Validated JavaScript syntax using `node --check js/data.js`.
+- Verified git status and diff across all modified files.
+
+#### Remaining Work
+
+- Replace media placeholders with photography/video assets when available.
+
+#### Notes for Future Agents
+
+- Case study ID is `traderoute`. Cover mono badge is `TR`.
+
 ### 2026-10-22 — Verify GitHub Connection and Remote Push Access
 
 #### Request

@@ -17,6 +17,120 @@
  * `hero` follows the same shape and is shown large at the top of the modal.
  */
 window.CASE_STUDIES = {
+  /* ------------------------------------------------------------- Trade Route */
+  traderoute: {
+    title: 'Trade Route',
+    kicker: 'Interactive Museum Kiosk for CSMVS',
+    year: '2024 — Present',
+    role: 'Interactive Systems Engineer — kiosk architecture, map engine, offline sync',
+    org: 'ViitorCloud Technologies · CSMVS Museum',
+    stackLine: 'Unity 6 · C# · URP · DOTween · REST API · Windows Kiosk',
+    hero: { type: 'placeholder', label: 'Hero shot — interactive touchscreen map', caption: 'Drop assets/img/projects/traderoute-hero.jpg' },
+
+    overview: [
+      'Built for the Chhatrapati Shivaji Maharaj Vastu Sangrahalaya (CSMVS Museum, Mumbai), Trade Route is an interactive touchscreen kiosk application that brings ancient mercantile history to life. Museum visitors explore four historical trade routes across a high-resolution, zoomable interactive map connected to physical artefacts displayed in the gallery.',
+      'Visitors pick a route on a zoomable map, and the app animates the journey between cities. Each route opens a panel with its history and the goods traded along it. Tapping a hotspot shows an artefact and its story, with seamless bilingual switching between English and Marathi.'
+    ],
+
+    problem: [
+      'Museum kiosks face unforgiving operational realities: unmonitored public hardware with high daily footfall, visitors of diverse age groups requiring intuitive zero-learning-curve gestures, and gallery spaces where network connectivity is intermittent or unavailable.',
+      'The museum needed an exhibit that runs completely offline with automatic background updates, stays locked in full-screen kiosk mode with secure staff administration, and anonymously records visitor engagement trends for curators without compromising system uptime.'
+    ],
+
+    responsibilities: [
+      'Architected and implemented the interactive map system, smooth pinch/drag navigation, and animated journey transitions using Unity 6, URP, and DOTween.',
+      'Engineered an offline-first data synchronization engine that loads content from the REST backend when online and reliably falls back to local cached storage when offline.',
+      'Built instant bilingual localization (English and Marathi) across all route histories, city narratives, and artefact description panels without reload hitching.',
+      'Implemented the secure Windows kiosk deployment shell with full-screen lockdown and hidden staff multi-touch controls for safe exit, restart, and system shutdown.',
+      'Developed an onboard analytics module that logs route engagement, artefact views, and language selections, producing weekly automated reporting digests.'
+    ],
+
+    architecture: {
+      paragraphs: [
+        'The application is structured into decoupled modules: Map Navigation, Journey Orchestration, Artefact Viewer, Localization, Data Repository, and Kiosk Supervision. Communication flows via a lightweight reactive event bus, isolating touch input from state transitions and camera tweens.',
+        'Content follows a cache-first repository pattern. When connectivity is available, the client probes the REST backend for updated narratives or media assets and validates payloads before persisting them locally. If offline or if requests fail, the application continues running seamlessly from local storage.'
+      ],
+      layers: [
+        ['Kiosk supervision', 'Full-screen lockdown, watchdog monitor, hidden staff administration controls'],
+        ['Map & journey engine', 'Zoomable navigation, city waypoints, spline-based journey animations via DOTween'],
+        ['Artefact & exhibit layer', 'Interactive hotspots, modal artefact details, bilingual media cards'],
+        ['Localization system', 'Dynamic runtime English/Marathi string and asset swapping'],
+        ['Data & cache layer', 'REST backend sync with automatic offline fallback to local database'],
+        ['Analytics engine', 'Local visitor telemetry, dwell time tracking, weekly digest generation']
+      ]
+    },
+
+    challenges: [
+      {
+        challenge: 'Gallery network connectivity is unpredictable, but public museum exhibits must operate without interruption.',
+        solution: 'Designed a fully offline-capable architecture: all map assets, trade route data, and artefact narratives are bundled locally and cached. The app polls the REST backend in the background when connected, synchronizing updates without ever blocking visitor interaction.'
+      },
+      {
+        challenge: 'Unattended public hardware requires strict lockdown to prevent visitors from accessing Windows desktop or OS settings.',
+        solution: 'Built a dedicated kiosk shell mode disabling OS hotkeys and edge-swipe gestures, coupled with a hidden multi-touch staff gesture that reveals an administrative panel for secure exit, reboot, or maintenance.'
+      },
+      {
+        challenge: 'Fluid map zooming and route animations must maintain locked 60 FPS under continuous visitor touch input.',
+        solution: 'Utilized Unity 6 Universal Render Pipeline (URP), DOTween easing sequences, sprite atlas batching, and strict texture memory budgeting to eliminate frame drops across hours of continuous use.'
+      },
+      {
+        challenge: 'Measuring exhibit engagement without collecting personally identifiable information.',
+        solution: 'Engineered an on-device analytics module that tracks aggregate engagement—most visited routes, popular artefacts, and language distribution—and automatically aggregates metrics into weekly reports for museum curators.'
+      }
+    ],
+
+    features: [
+      'Interactive zoomable map exploring four ancient trade routes',
+      'Animated journey transitions tracking historic trade routes between cities',
+      'Detailed panels with historical narratives and commodities traded',
+      'Interactive artefact hotspots revealing physical museum pieces and their stories',
+      'Real-time bilingual support with instant English/Marathi language switching',
+      'Fully offline operation with resilient REST backend caching and synchronization',
+      'Full-screen Windows kiosk mode with hidden staff administrative controls',
+      'Built-in analytics tracking visitor interactions with automated weekly reporting'
+    ],
+
+    stack: [
+      ['Engine', 'Unity 6 (Universal Render Pipeline)'],
+      ['Language', 'C#'],
+      ['Animation', 'DOTween'],
+      ['Backend & Sync', 'REST API, persistent local cache'],
+      ['Deployment', 'Windows Kiosk Mode, Touchscreen Hardware'],
+      ['Tooling', 'Visual Studio, Git']
+    ],
+
+    achievements: [
+      'Delivered a public-facing interactive exhibition piece for CSMVS Museum (Mumbai), used daily by visitors of all age groups.',
+      'Maintained 100% kiosk uptime in gallery operation through robust offline fallback and lockdown controls.',
+      'Enabled museum curators to analyze visitor interest patterns through automated weekly analytics reports.'
+    ],
+
+    lessons: [
+      'Public touch interfaces must be self-explanatory within 3 seconds; visual affordances and breadcrumb animations are essential.',
+      'Offline-first is mandatory for public venue deployments; relying on real-time internet in museum halls is an operational risk.',
+      'Staff administration must be completely invisible to visitors yet easily accessible to authorized gallery staff.'
+    ],
+
+    process: [
+      ['Curatorial review', 'Collaborated on route narratives, artefacts, and bilingual translations with CSMVS'],
+      ['UX & map prototyping', 'Iterated touch gestures, zoom constraints, and animated route pathing'],
+      ['Offline sync pipeline', 'Implemented REST connectors, schema validation, and persistent local storage'],
+      ['Kiosk lockdown & telemetry', 'Hardened Windows kiosk mode, staff controls, and analytics logger'],
+      ['Gallery deployment', 'On-site installation, touch calibration, and staff handover at CSMVS Museum']
+    ],
+
+    gallery: [
+      { type: 'placeholder', label: 'Interactive trade route map', caption: 'Touchscreen route selection' },
+      { type: 'placeholder', label: 'City journey animation', caption: 'Animated route progression' },
+      { type: 'placeholder', label: 'Artefact detail modal', caption: 'Hotspot inspection view' },
+      { type: 'placeholder', label: 'Bilingual language toggle', caption: 'English and Marathi content panels' }
+    ],
+
+    links: [
+      { label: 'CSMVS Museum Official Website', url: 'https://csmvs.gov.in/' }
+    ]
+  },
+
   /* ------------------------------------------------------------------ SoReal */
   soreal: {
     title: 'SoReal',
