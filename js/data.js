@@ -1060,6 +1060,121 @@ window.CASE_STUDIES = {
     ]
   },
 
+  /* --------------------------------------------------- The Good Deed Tree */
+  deedtree: {
+    title: 'The Good Deed Tree',
+    kicker: 'An Interactive Kindness Wall · Multi-Screen Installation',
+    year: '2023 — 2024',
+    role: 'Lead Interactive Systems Engineer — multi-screen architecture, 3D procedural tree engine, swipe gesture physics, tablet-to-wall IPC, profanity filter',
+    org: 'Interactive Exhibition Installation · Public Prototype',
+    stackLine: 'Unity 6 (URP) · C# · Local IPC (WebSocket/TCP) · Procedural 3D Foliage · GPU Instancing · Trie Filter · SQLite',
+    hero: { type: 'placeholder', label: 'Hero shot — The Good Deed Tree 4K living wall display and tablet kiosk', caption: 'Drop assets/img/projects/deedtree-hero.jpg' },
+
+    overview: [
+      'The Good Deed Tree is an interactive collective art installation that turns small acts of everyday kindness into a living, blossoming digital landmark. Built for public exhibition spaces, museums, and civic pavilions, the experience pairs an ergonomic tablet kiosk with a monumental 4K cinematic wall display rendering a lush, living 3D tree.',
+      'Visitors walk up to the tablet station, enter their name and a promise of kindness (such as “help a stranger with groceries” or “call my parents”), and swipe their digital leaf upward. In a continuous physical gesture, the leaf releases from the tablet and glides onto the giant 4K wall display, drifting through the air into the tree canopy. The tree glows in response, sprouting a new bud with the visitor’s personal pledge, while the wall thanks them by name: “Thank you, Chitrang. Your good deed now lives on the tree · #1,249”.'
+    ],
+
+    problem: [
+      'Public exhibitions and cultural spaces frequently seek ways to foster empathy, community spirit, and visitor reflection beyond passive viewing. Traditional physical guestbooks or sticky-note walls quickly become cluttered, unmoderated, messy, and difficult to preserve or celebrate at scale.',
+      'From an engineering standpoint, the installation required three rigorous guarantees: a zero-latency, cross-screen physical handoff where swiping up on a tablet immediately spawns a matching trajectory on a large 4K display; an instanced 3D rendering pipeline capable of displaying thousands of cumulative leaves without framerate drops; and a strict, 100% offline real-time profanity filter to ensure family-friendly content in public spaces without cloud dependencies.'
+    ],
+
+    responsibilities: [
+      'Architected the synchronized two-screen installation ecosystem (in-gallery tablet kiosk and 4K wall display) in Unity 6 (URP) and C#.',
+      'Engineered the cross-screen physics handoff protocol, mapping touch exit velocities and launch vectors from the tablet to the 4K display in under 10ms.',
+      'Designed the living 3D procedural tree with GPU foliage instancing and custom wind vertex shaders, maintaining locked 60 FPS in 4K resolution across thousands of cumulative visitor leaves.',
+      'Built an on-device, zero-cloud text moderation engine using a compact Trie dictionary and regex homoglyph normalizer to block offensive content in real time.',
+      'Created an autonomous ambient attractor state machine featuring procedural volumetric god-rays, boid-flocking birds, and floating memories of past community good deeds.',
+      'Implemented an offline-resilient local SQLite database assigning atomic sequential deed milestones (#1,249...) with unattended inactivity reset timers.'
+    ],
+
+    architecture: {
+      paragraphs: [
+        'The installation operates as a decoupled, multi-screen system connected over an isolated local network. The tablet acts as an ergonomic, low-friction input terminal, capturing the visitor’s name, deed pledge, and touch swipe trajectory. The tablet performs local text sanitization and packages the launch vector into a compact binary IPC payload sent via local WebSocket/TCP.',
+        'The 4K wall display acts as the master simulation node. Upon receiving the payload, it spawns a physical 3D leaf at the matching virtual baseline, simulating atmospheric turbulence, aerodynamics, and wind drag along a dynamic Bezier spline toward an unoccupied anchor point on the tree branches. The tree engine uses GPU mesh instancing for older leaves and dynamic billboard text shaders for recent submissions, preserving 4K fill rates and sub-16ms frame times.'
+      ],
+      layers: [
+        ['Tablet Input Station', 'Unity URP touch client, virtual keyboard, touch velocity vector calculator, inactivity timeout'],
+        ['Content Moderation Engine', 'On-device Trie profanity dictionary, leetspeak & homoglyph normalizer, instant feedback'],
+        ['Low-Latency Local IPC', 'High-frequency WebSocket/TCP broker, normalized coordinate handoff, auto-reconnect'],
+        ['Living 3D Tree Engine', 'Procedural branch hierarchy, GPU foliage instancing, dynamic bud spawner, wind vertex shaders'],
+        ['Atmospheric & Particle VFX', 'Volumetric sunbeams, drifting spores, luminescent bloom, boid flocking bird simulator'],
+        ['Persistence & Milestone Ledger', 'Local SQLite relational database, atomic sequential deed indexing, archival export']
+      ]
+    },
+
+    challenges: [
+      {
+        challenge: 'Creating a believable, seamless physical illusion when a visitor swipes a leaf off the tablet onto a large 4K wall screen.',
+        solution: 'Developed a normalized gesture telemetry protocol. The tablet calculates exit coordinates, velocity vectors, and release angles at the moment of touch release, broadcasting the payload over local socket in under 10ms. The wall display receives the packet and spawns the 3D leaf at the corresponding baseline coordinates with matching momentum, seamlessly blending into a wind-driven Bezier flight path.'
+      },
+      {
+        challenge: 'Rendering thousands of cumulative visitor leaves and messages in 4K resolution without GPU memory bottlenecks or draw-call spikes.',
+        solution: 'Utilized GPU mesh instancing paired with dynamic Level-of-Detail (LOD). Active and recently planted leaves utilize glowing billboard shaders and dynamic text rendering. As new deeds arrive, older leaves are batched into instanced foliage buffers with localized wind turbulence shaders, sustaining 60 FPS at 3840x2160.'
+      },
+      {
+        challenge: 'Ensuring 100% family-friendly content in an open public venue without relying on external cloud moderation APIs.',
+        solution: 'Built a lightweight on-device moderation engine using a Trie search structure and homoglyph normalization (converting symbols and numbers like "@" or "1" to letters). Inappropriate words are intercepted locally on the tablet before submission, offering constructive prompts to rephrase.'
+      },
+      {
+        challenge: 'Drawing visitors to the installation during quiet gallery periods without staff intervention.',
+        solution: 'Programmed an autonomous ambient attractor mode that activates after 45 seconds of idle time. The display renders volumetric sunlight sweeping through the canopy, flocks of birds soaring across the sky, and gently floating leaves displaying real historical good deeds from previous visitors.'
+      }
+    ],
+
+    features: [
+      'Interactive tablet kiosk for drafting and launching personal kindness pledges with a fluid swipe gesture',
+      'Monumental 4K living 3D tree display dynamically growing new branches and illuminated leaf buds',
+      'Seamless bezel-spanning gesture physics: leaf launches from tablet and appears instantly on the wall screen',
+      'Personalized milestone celebration: on-screen acknowledgment thanking each visitor by name with sequential deed counter (#1,249)',
+      'Autonomous ambient idle mode featuring volumetric light rays, boid flocking birds, and floating memories of past deeds',
+      'Robust on-device profanity and leetspeak filter ensuring 100% family-friendly public display',
+      'Persistent local SQLite database recording community deeds with sequential milestone tracking',
+      'Completely offline-resilient architecture requiring zero internet connectivity on venue floor'
+    ],
+
+    stack: [
+      ['Platform', 'In-Gallery Tablet Kiosk, Ultra-Large 4K Wall Display'],
+      ['Engine & Language', 'Unity 6 (Universal Render Pipeline), C#'],
+      ['Cross-Screen Networking', 'Local High-Speed IPC (WebSocket/TCP), Normalized Coordinate Handoff'],
+      ['3D & Rendering', 'Procedural 3D Foliage, GPU Mesh Instancing, Custom Wind & Bloom Shaders'],
+      ['Safety & Moderation', 'On-Device Trie Profanity Engine, Regex Homoglyph Normalizer'],
+      ['Database & Persistence', 'Local SQLite Database, Atomic Sequence Counter, WAL Mode']
+    ],
+
+    achievements: [
+      'Engineered an emotionally resonant public installation transforming personal commitments into a shared community landmark.',
+      'Achieved imperceptible cross-screen handoff latency (<10ms), creating the physical illusion of a leaf flying from tablet to wall.',
+      'Sustained locked 60 FPS in 4K resolution with thousands of cumulative leaves rendered simultaneously.',
+      'Zero inappropriate submissions displayed in public testing thanks to high-accuracy on-device Trie moderation.'
+    ],
+
+    process: [
+      ['Concept & emotional journey', 'Designed the multi-screen visitor ritual from intimate typing to monumental communal growth'],
+      ['Physics & network prototyping', 'Calibrated touch exit velocity curves and low-latency socket handoff between tablet and wall'],
+      ['3D tree & foliage R&D', 'Engineered procedural branch distribution, GPU instancing, and wind vertex animation in Unity URP'],
+      ['Content moderation engineering', 'Compiled comprehensive family-friendly Trie dictionary with leetspeak homoglyph detection'],
+      ['Attractor & ambient polish', 'Crafted volumetric god-rays, boid flocking birds, and atmospheric spore particles for idle engagement']
+    ],
+
+    lessons: [
+      'Physical gesture handoffs between multiple screens create powerful magic when latency is imperceptible; visitors instinctively watch their leaf fly into the room.',
+      'Public interactive art thrives when each individual contribution remains permanently visible as part of a larger, evolving whole.'
+    ],
+
+    gallery: [
+      { type: 'placeholder', label: 'The Good Deed Tree — 4K living wall display and tablet kiosk', caption: 'Drop assets/img/projects/deedtree-01.jpg' },
+      { type: 'placeholder', label: 'Tablet kiosk input interface with leaf swipe-to-release gesture', caption: 'Drop assets/img/projects/deedtree-02.jpg' },
+      { type: 'placeholder', label: 'Personalized milestone celebration: "Thank you, Chitrang · #1,249"', caption: 'Drop assets/img/projects/deedtree-03.jpg' },
+      { type: 'placeholder', label: 'Ambient idle attractor mode with volumetric sunbeams and drifting birds', caption: 'Drop assets/img/projects/deedtree-04.jpg' }
+    ],
+
+    links: [
+      { label: 'Exhibition Prototype & Architecture Notes', url: '#work' }
+    ]
+  },
+
   /* ------------------------------------------------------------------ Cuenect */
   cuenect: {
     title: 'Cuenect',

@@ -50,6 +50,42 @@ Possible Next Step: <Recommended follow-up>
 
 <!-- Add entries only for meaningful work. Do not create fictional history. -->
 
+### 2026-10-22 — Add The Good Deed Tree Interactive Kindness Wall
+
+#### Request
+
+Add The Good Deed Tree: An Interactive Kindness Wall (Multi-screen public exhibition installation) into the portfolio and `project-data/rnd/`, bringing the total projects to 18, then commit and push.
+
+#### Investigation
+
+- Examined project mechanics: multi-screen collective art installation coupling an in-gallery touch tablet kiosk with a monumental 4K wall display running a living 3D tree.
+- Cross-screen physics handoff: visitor types a personal deed of kindness, swipes the digital leaf upward off the tablet; the leaf launches seamlessly onto the giant 4K screen with matching velocity, angle, and timing over local socket (<10ms).
+- Dynamic living 3D tree: procedural branch growth with GPU foliage instancing and LOD scaling, enabling thousands of cumulative visitor leaves to flourish without dropping below 60 FPS in 4K resolution.
+- On-device content safety: offline Trie-based profanity filter with leetspeak/homoglyph normalization, ensuring 100% family-friendly public display without cloud dependencies.
+- Autonomous ambient attractor: idle state machine with procedural volumetric god-rays, boid flocking birds, and floating memories of past deeds.
+- Re-balanced 6-column work grid across 18 total systems into 6 perfectly balanced rows of 3 standard cards each (36 columns total, 0 orphaned slots):
+  - Row 1 (Sikh History Museum — 3 cards x 2 cols = 6 cols): `goldentemple`, `dualgallery`, `sikhtimeline`
+  - Row 2 (CSMVS Museum Kiosks — 3 cards x 2 cols = 6 cols): `feedback`, `motw`, `rosetta`
+  - Row 3 (CSMVS Trade & MAP Bengaluru — 3 cards x 2 cols = 6 cols): `tradewall`, `traderoute`, `mappuzzle`
+  - Row 4 (Interactive Installations, R&D & 3D — 3 cards x 2 cols = 6 cols): `deedtree`, `tirthankaras`, `cuenect`
+  - Row 5 (Enterprise Platforms, Real-Time Sims & Multiplayer — 3 cards x 2 cols = 6 cols): `soreal`, `icc`, `ludo`
+  - Row 6 (Engine Architecture, Vehicle Physics & Space Combat — 3 cards x 2 cols = 6 cols): `cards`, `bus`, `arena`
+
+#### Changes
+
+- `project-data/rnd/good-deed-tree.md`: Created detailed project documentation detailing the two-screen ecosystem, bezel-spanning gesture handoff, GPU-instanced 3D tree foliage, on-device Trie profanity filtering, and offline resilience.
+- `project-data/README.md`: Updated directory tree and folder summary section 4 with `good-deed-tree.md`.
+- `js/data.js`: Added comprehensive `deedtree` case study object with overview, problem, responsibilities, architecture layers, challenges/solutions, features, stack, achievements, and workflow process.
+- `css/style.css`: Added `.work-cover[data-cover="deedtree"]` emerald/gold morning tint gradient.
+- `index.html`: Updated subtitle to "Eighteen systems", inserted `deedtree` card (`data-project="deedtree"`, monogram badge `DT`), and normalized `cuenect` and `soreal` to standard span-2 cards for 6 perfectly filled rows.
+
+#### Validation
+
+- Validated JavaScript syntax using `node --check js/data.js` (exit code 0).
+- Verified grid column mathematics: 18 cards x 2 columns = 36 columns / 6 columns per row = exactly 6 full rows.
+
+---
+
 ### 2026-10-22 — Add Cuenect Interactive 3D Product Showcase
 
 #### Request

@@ -24,7 +24,8 @@ project-data/
 ├── map/                               # Museum of Art & Photography (MAP), Bengaluru
 │   └── art-puzzle-kiosk.md            # Interactive sliding puzzle kiosk on up to 90" displays
 │
-├── rnd/                               # Research & Development / Unpublished Museum Prototypes
+├── rnd/                               # Research & Development / Unpublished Museum & Public Prototypes
+│   ├── good-deed-tree.md              # The Good Deed Tree interactive kindness wall & 4K living 3D tree
 │   └── tirthankaras-museum-journey.md # 24 Tirthankaras interactive map & multi-plane parallax journey
 │
 ├── cuenect/                           # Cuenect
@@ -67,8 +68,9 @@ Interactive touchscreen kiosk projects built at ViitorCloud Technologies:
 Interactive museum installation built at ViitorCloud Technologies:
 - **`art-puzzle-kiosk.md`**: Large-format touchscreen sliding puzzle kiosk (up to 90" displays in portrait and landscape) featuring collection search, mobile photo upload bridge via QR code, interactive crop/zoom/rotate, and parity-checked solvable tile scrambling.
 
-### 4. `rnd/` — Research & Development (Cultural Heritage & Museum Prototypes)
-Independent museum R&D prototypes developed by Chitrang Patel:
+### 4. `rnd/` — Research & Development (Cultural Heritage & Interactive Prototypes)
+Independent museum and public exhibition prototypes developed by Chitrang Patel:
+- **`good-deed-tree.md`**: A multi-screen interactive collective art installation pairing a tablet kiosk with a 4K living 3D tree display, featuring swipe-to-release physics, GPU foliage instancing, Trie-based real-time profanity filtering, and an atmospheric idle attractor.
 - **`tirthankaras-museum-journey.md`**: An interactive touch-screen exhibition prototype exploring the lives and sacred geography of the 24 Jain Tirthankaras through a dual-state map of India (Janma vs Moksha Bhumi), calm multi-plane parallax scenes, and an iconographic archival book reader.
 
 ### 5. `cuenect/` — Cuenect
