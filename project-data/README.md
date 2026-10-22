@@ -18,8 +18,8 @@ project-data/
 │
 ├── shm/                               # Sikh History Museum (SHM)
 │   ├── dual-gallery-interactive-display.md # Interactive touchscreen multimedia gallery (Ten Gurus & Guru Nanak)
-│   ├── interactive-timeline-kiosk.md  # Interactive chronological timeline kiosk (1469–Modern)
-│   └── project-03.md                  # [Planned / Pending Brief from User]
+│   ├── golden-temple-video-gallery.md # Walk-up video wall kiosk with remote theming & REST sync
+│   └── interactive-timeline-kiosk.md  # Interactive chronological timeline kiosk (1469–Modern)
 │
 ├── soreal/                            # SoReal / ViitorCloud
 │   └── soreal-real-estate-platform.md # Multi-user guided 3D interior walkthrough platform
@@ -51,8 +51,8 @@ Contains documentation for 5 interactive museum installations built at ViitorClo
 ### 2. `shm/` — Sikh History Museum
 Interactive touchscreen kiosk projects built at ViitorCloud Technologies:
 - **`dual-gallery-interactive-display.md`**: Touchscreen multimedia gallery bringing the stories of Guru Nanak and the Ten Gurus to life with hardware-accelerated video, archival galleries, and automatic REST/offline caching.
+- **`golden-temple-video-gallery.md`**: Walk-up interactive video gallery kiosk featuring scroll-snap browsing, remote brand/color theming from `sikhhistorymuseum.org`, custom video player, and live news ticker.
 - **`interactive-timeline-kiosk.md`**: Touchscreen timeline kiosk allowing visitors to explore Sikh history from 1469 across three themed chapters with full-screen artwork and dynamic smartphone QR bridge.
-- **`project-03.md`**: Placeholder for upcoming third Sikh History Museum project brief.
 
 ### 3. `soreal/` — SoReal
 - **`soreal-real-estate-platform.md`**: Lead client engineering for an authoritative real-time 3D property walkthrough platform used by sales agents and buyers.

@@ -17,6 +17,73 @@
  * `hero` follows the same shape and is shown large at the top of the modal.
  */
 window.CASE_STUDIES = {
+  /* ---------------------------------------------------- Golden Temple Video Gallery */
+  goldentemple: {
+    title: 'Golden Temple Video Gallery',
+    kicker: 'Interactive Museum Touchscreen Kiosk',
+    year: '2023 — 2024',
+    role: 'Interactive Systems Engineer — video engine, remote theme pipeline, kiosk shell',
+    org: 'ViitorCloud Technologies · Sikh History Museum',
+    stackLine: 'Unity 6 (6000.0.25f1) · C# · REST API (Token Auth) · Scroll-Snap UI · Theme Engine',
+    hero: { type: 'placeholder', label: 'Hero shot — Golden Temple Video Gallery kiosk in exhibition gallery', caption: 'Drop assets/img/projects/goldentemple-hero.jpg' },
+
+    overview: [
+      'Built for the Sikh History Museum (SHM) at ViitorCloud Technologies, the Golden Temple Video Gallery is an interactive touch-screen kiosk application that lets museum visitors explore a curated digital video archive celebrating the heritage, architectural grandeur, and spiritual traditions of Harmandir Sahib (The Golden Temple).',
+      'Conceived as an interactive digital video wall, visitors can intuitively swipe through a scroll-snapping carousel of video banners, preview documentary narratives, and tap to trigger instant high-definition video playback. The installation is fully remote-managed: curatorial staff can update video rosters, metadata, imagery, news tickers, and even on-screen color branding dynamically via secure token-authenticated REST APIs without recompiling or rebooting the kiosk.'
+    ],
+
+    problem: [
+      'Museum video installations often suffer from rigid maintenance workflows: changing featured documentaries or updating seasonal exhibition branding typically requires on-site technician visits or manual app rebuilds. Furthermore, public touchscreen hardware left unattended on busy gallery floors is vulnerable to OS tampering, memory fragmentation from continuous video playback, and network drops.',
+      'The museum needed an autonomous, locked-down kiosk system that could stream or cache high-bitrate video reliably, adapt its visual theme remotely from central server configuration (sikhhistorymuseum.org), provide a running real-time museum information ticker, and run continuously for 12+ hours daily with zero staff supervision.'
+    ],
+
+    responsibilities: [
+      'Architected and implemented the interactive video kiosk application in Unity 6 (6000.0.25f1) and C# for Windows touchscreen hardware.',
+      'Engineered the secure REST client with bearer token authentication to ingest dynamic video manifests, remote image assets, and server-driven theme configurations from sikhhistorymuseum.org.',
+      'Built an adaptive remote theme engine dynamically restyling on-screen typography, brand accents, and layout color palettes via TextMeshPro without application restarts.',
+      'Implemented a high-performance touch gallery with kinetic swipe-to-scroll, inertial dampening, and seamless scroll-snapping for video banners and thumbnail cards.',
+      'Developed the custom kiosk video player module featuring runtime streaming/download caching, hardware-accelerated decoding buffers, and intuitive touch controls.',
+      'Implemented gallery kiosk lockdown safeguards including a live running news/info ticker, full-screen OS hotkey suppression, idle attract loops, and hidden maintenance gestures.'
+    ],
+
+    architecture: {
+      paragraphs: [
+        'The software is structured around a reactive, configuration-driven pipeline. On boot, the client performs an authenticated handshake with the museum REST server, fetching the latest gallery manifest and theme configuration payload. A remote theming subsystem applies dynamic color swatches, banner assets, and TextMeshPro font configurations across the UI hierarchy in real time.',
+        'The media pipeline implements hybrid runtime streaming and local chunked caching. Tapping an entry seamlessly transitions the custom video player into active playback with hardware-accelerated decode buffers, while a background watchdog monitors memory usage and idle state, returning the kiosk smoothly to an ambient attract mode with a live information ticker.'
+      ],
+      layers: [
+        ['Kiosk shell & watchdog', 'Full-screen Windows lockdown, hidden staff gestures, idle attract loop, watchdog process'],
+        ['Remote theme engine', 'Server-driven palette injection, dynamic brand headers, TextMeshPro styling'],
+        ['Scroll-snap touch gallery', 'Kinetic touch scroller, snap-to-card physics, banner carousel, lazy thumbnail loader'],
+        ['Custom video player', 'Hardware-accelerated video decoding, runtime chunked cache, gesture transport controls'],
+        ['REST sync & auth client', 'Bearer token login, JSON manifest parser, delta asset synchronization (sikhhistorymuseum.org)'],
+        ['Information ticker', 'Dynamic horizontal text marquee, live curatorial announcements, real-time news updates']
+      ]
+    },
+
+    whatWentWell: [
+      'Server-driven styling allowed the museum curatorial team to update the visual theme, banner graphics, and featured documentaries entirely from their administrative portal without engineering intervention.',
+      'Scroll-snapping carousel delivered a fluid 60 FPS touch experience that proved immediately intuitive for museum visitors of all ages.',
+      'The combination of token-secured REST synchronization and chunked local caching guaranteed seamless playback even during sporadic gallery internet drops.'
+    ],
+
+    whatIdDoDifferently: [
+      'Implement a multi-display synchronized mode to allow multiple adjacent kiosk screens to run synchronized video wall sequences during peak museum hours.',
+      'Add subtitle track selection (in Gurmukhi, Hindi, and English) to further broaden accessibility for diverse visitors and pilgrims.'
+    ],
+
+    gallery: [
+      { type: 'placeholder', label: 'Video gallery touch interface with banner carousel and scroll-snap cards', caption: 'Drop assets/img/projects/goldentemple-01.jpg' },
+      { type: 'placeholder', label: 'Full-screen documentary video playback with touch transport controls', caption: 'Drop assets/img/projects/goldentemple-02.jpg' },
+      { type: 'placeholder', label: 'Live information ticker and dynamic remote theme configuration view', caption: 'Drop assets/img/projects/goldentemple-03.jpg' }
+    ],
+
+    links: [
+      { label: 'Sikh History Museum', url: 'https://sikhhistorymuseum.org' },
+      { label: 'ViitorCloud Technologies', url: 'https://viitorcloud.com/' }
+    ]
+  },
+
   /* ---------------------------------------------------- Dual Gallery Display */
   dualgallery: {
     title: 'Dual Gallery Interactive Display',

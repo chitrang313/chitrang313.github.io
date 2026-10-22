@@ -50,6 +50,36 @@ Possible Next Step: <Recommended follow-up>
 
 <!-- Add entries only for meaningful work. Do not create fictional history. -->
 
+### 2026-10-22 — Add Golden Temple Video Gallery for Sikh History Museum
+
+#### Request
+
+Add Golden Temple Video Gallery — Interactive Museum Kiosk (Client: Sikh History Museum, built at ViitorCloud Technologies) into the portfolio and `project-data/shm/`, completing all 3 SHM museum projects, then commit and push.
+
+#### Investigation
+
+- Examined kiosk requirements: walk-up touchscreen video wall letting museum visitors browse and watch curated Golden Temple documentary videos via scroll-snapping carousel.
+- Evaluated technical architecture: Unity 6 (6000.0.25f1), C#, token-authenticated REST synchronization with `sikhhistorymuseum.org`, dynamic server-driven brand/color theming, custom video player with runtime chunk caching, and real-time news/information ticker.
+- Re-aligned 6-column work grid across 14 total systems:
+  - Row 1 (Sikh History Museum — 3 cards x 2 cols = 6 cols): `goldentemple`, `dualgallery`, `sikhtimeline`
+  - Row 2 (CSMVS Museum Touchscreen Kiosks — 3 cards x 2 cols = 6 cols): `feedback`, `motw`, `rosetta`
+  - Row 3 (CSMVS Museum Trade Displays — 2 cards x 3 cols = 6 cols): `tradewall`, `traderoute`
+  - Row 4 (Flagship Commercial Platforms — 2 cards x 3 cols = 6 cols): `soreal`, `icc`
+  - Row 5 (Multiplayer & Simulation — 3 cards x 2 cols = 6 cols): `ludo`, `cards`, `bus`
+  - Row 6 (Action Game — 1 card x 2 cols = 2 cols): `arena`
+
+#### Changes
+
+- Created `project-data/shm/golden-temple-video-gallery.md` containing complete brief, metadata, architecture, challenges, and feature specifications; removed temporary `project-03.md` placeholder and updated `project-data/README.md`.
+- Added `goldentemple` case study entry to `js/data.js` detailing video engine, server-driven theme pipeline, scroll-snap touch gallery, custom video player, and REST auth client.
+- Added `goldentemple` card (`data-project="goldentemple"`, badge `GT`) to `index.html`, updated section subtitle to "Fourteen systems", and normalized SHM cards to form a cohesive 3-card trio in Row 1.
+- Added `.work-cover[data-cover="goldentemple"]` warm gold & ochre gradient tint in `css/style.css`.
+
+#### Validation
+
+- Validated JavaScript syntax using `node --check js/data.js` and `node --check js/main.js`.
+- Verified desktop (6-column) and mobile single-column responsive behavior.
+
 ### 2026-10-22 — Add Dual Gallery Interactive Display for Sikh History Museum
 
 #### Request
