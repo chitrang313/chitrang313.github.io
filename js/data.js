@@ -945,6 +945,121 @@ window.CASE_STUDIES = {
     ]
   },
 
+  /* ---------------------------------------------------- 24 Tirthankaras R&D */
+  tirthankaras: {
+    title: '24 Tirthankaras',
+    kicker: 'An Interactive Museum Journey · Exhibition R&D',
+    year: '2023 — 2024',
+    role: 'Interactive Systems Engineer & Creative Technologist — concept, map engine, parallax system, UI/UX',
+    org: 'Independent R&D · Museum Exhibition Prototype',
+    stackLine: 'Unity (URP) / WebGL · C# · Vector Map Engine · 4-Plane Parallax · JSON Data Pipeline · Offline Cache',
+    hero: { type: 'placeholder', label: 'Hero shot — 24 Tirthankaras interactive map and meditative scene on kiosk display', caption: 'Drop assets/img/projects/tirthankaras-hero.jpg' },
+
+    overview: [
+      'Developed as an independent museum exhibition R&D prototype, this interactive touch-screen installation reimagines cultural heritage interpretation for visitors of all ages. Spanning the sacred geography and profound spiritual narratives of the 24 Jain Tirthankaras, the experience invites self-paced exploration through an interactive dual-state map of India and serene, multi-layered painted dioramas.',
+      'Visitors toggle between Janma Bhumi (sacred birthplaces) and Moksha Bhumi (places of liberation / Nirvana), pinch-zooming into ancient pilgrimage sites to discover historical associations. Selecting any Tirthankara transitions into a tranquil, four-plane parallax scene depicting the Tirthankara in deep meditation beneath their sacred enlightenment tree, accompanied by their canonical symbol (lanchhana) and a rich biographical archive.'
+    ],
+
+    problem: [
+      'Cultural heritage exhibits often rely on static wall text, printed chronologies, and stone reliefs that can feel intimidating or inaccessible to modern audiences, school groups, and casual museum visitors. Visitors frequently leave without grasping the interconnected geography of ancient sites or the distinctive iconography defining each historical figure.',
+      'From an engineering standpoint, the installation needed to run smoothly on gallery tablets and kiosks with 100% offline reliability in thick-walled museum spaces, while remaining fully responsive and lightweight enough to run in any web browser without performance degradation or long loading barriers.'
+    ],
+
+    responsibilities: [
+      'Conceptualized, architected, and engineered the complete interactive experience in Unity (URP) with dual deployment targets (Standalone Kiosk/Tablet and WebGL).',
+      'Built an interactive geospatial vector map of India with dual-state pin filtering for Janma Bhumi and Moksha Bhumi.',
+      'Designed a continuous vertical multi-plane parallax renderer featuring dynamic depth layers (flora, temple/tree/figure, mountains, and drifting atmospheric clouds).',
+      'Developed a decoupled JSON data pipeline encapsulating canonical iconographic attributes (lanchhana symbols, parentage, sacred trees, traditional complexion, and historical narratives).',
+      'Implemented touch gesture recognition including smooth pinch-to-zoom, pan momentum, and inertia-damped scene transitions.',
+      'Engineered an offline-first asset streaming strategy ensuring zero network dependency on museum hardware with a compact memory footprint (~30 MB).'
+    ],
+
+    architecture: {
+      paragraphs: [
+        'The application is structured around a decoupled model-view-controller pattern optimized for high-performance touch devices. The geospatial map engine plots ancient pilgrimage coordinates onto an interactive vector projection, using proximity clustering and state filters to switch between birth and liberation contexts without redrawing geometry.',
+        'The contemplative scene module coordinates an infinite vertical scroller using four virtualized camera depth planes. Rather than loading heavy 3D geometry, layers are composed of optimized 2D sprite atlases driven by custom depth-of-field shaders, producing an ethereal, handcrafted diorama effect while sustaining a locked 60 FPS on mobile processors.'
+      ],
+      layers: [
+        ['Kiosk Shell & Timeout', 'Attract screen loop, inactivity session reset, multi-touch lock, cross-platform resolution scaling'],
+        ['Geospatial Map Engine', 'Dual-state Janma/Moksha toggling, pinch-to-zoom/pan touch handler, dynamic site clustering'],
+        ['Multi-Plane Parallax System', '4-depth virtualized diorama layers, inertia-damped vertical swiping, non-linear camera easing'],
+        ['Iconography Archive Modal', 'Canonical attribute parser, genealogical sheets, sacred tree & symbol viewer, story reader'],
+        ['JSON Content Pipeline', 'Normalized Tirthankara metadata schemas, localized text assets, asset hot-reloading'],
+        ['Offline Cache & Runtime', 'Zero-dependency standalone tablet packaging, compressed WebP/ASTC texture streaming']
+      ]
+    },
+
+    challenges: [
+      {
+        challenge: 'Displaying complex, overlapping sacred geography across 24 historical lineages without overwhelming the screen.',
+        solution: 'Engineered a dual-state geospatial toggle between Janma Bhumi and Moksha Bhumi with dynamic pin clustering. Tapping any pilgrimage hub dynamically isolates connected Tirthankaras, turning a dense map into an intuitive discovery path.'
+      },
+      {
+        challenge: 'Creating a reverent, contemplative transition between all 24 Tirthankaras that feels artistic rather than mechanical.',
+        solution: 'Developed an inertia-damped multi-plane parallax engine. Foreground foliage, temple sanctums, sacred trees, rolling hills, and sky elements move at distinct depth rates with spring easing, giving the impression of walking through a living miniature painting.'
+      },
+      {
+        challenge: 'Ensuring seamless cross-platform performance across low-power museum tablets and high-performance kiosks.',
+        solution: 'Optimized memory and draw calls by using sprite atlasing, dynamic texture unloading, and lightweight unlit shaders, keeping peak memory under 150 MB and draw calls below 25 per frame.'
+      },
+      {
+        challenge: 'Structuring accurate, respectful canonical iconographic data for educational integrity.',
+        solution: 'Curated and schema-validated detailed records for all 24 Tirthankaras—incorporating heraldic lanchhanas, complexions, paternal/maternal names, sacred trees, and narrative deep-dives into structured JSON.'
+      }
+    ],
+
+    features: [
+      'Interactive map of India with instant one-tap toggle between Janma Bhumi (birthplaces) and Moksha Bhumi (liberation sites)',
+      'Multi-touch map navigation with fluid pinch-to-zoom, pan inertia, and interactive sacred site pins',
+      '24 tranquil multi-plane parallax diorama scenes with vertical swipe transitions and atmospheric depth',
+      'Faithfully rendered canonical iconography: sacred trees (Kevala Vriksha), temple settings, and pedestal symbols (lanchhanas)',
+      'Comprehensive archival book modal cataloging parents, complexions, birthplaces, nirvana sites, and life stories',
+      'Complete offline capability on museum tablets and kiosk screens with zero internet dependency',
+      'Cross-platform responsive design running on in-gallery hardware, mobile devices, and desktop web browsers',
+      'Gentle ambient soundscape and unattended idle screensaver attract loop'
+    ],
+
+    stack: [
+      ['Platform', 'In-Gallery Tablets, Touchscreen Kiosks, Web & Mobile (Cross-Platform)'],
+      ['Engine & Language', 'Unity (URP) / WebGL, C#'],
+      ['Rendering & FX', '4-Plane Parallax Scene System, Custom Depth-of-Field Shaders'],
+      ['Geospatial', 'Interactive Vector Map Engine, Dynamic Pin Clustering'],
+      ['Data Architecture', 'Schema-Validated JSON Manifest, Pre-baked Sprite Atlases'],
+      ['Storage & Runtime', 'Offline Local Storage Cache, Standalone Tablet Shell']
+    ],
+
+    achievements: [
+      'Developed a fully functional, highly praised exhibition prototype demonstrating modern digital storytelling for ancient cultural heritage.',
+      'Dual-state map and parallax mechanics dramatically improved engagement and comprehension during R&D testing sessions.',
+      'Achieved a lightweight ~30 MB total build footprint running at a locked 60 FPS across both low-cost tablets and web browsers.',
+      'Created an enduring, reusable architectural framework for sacred geography and cultural heritage museum kiosks.'
+    ],
+
+    process: [
+      ['Iconographic & archival research', 'Researched canonical Jain texts to compile comprehensive genealogical and iconographic manifests'],
+      ['Map & coordinate design', 'Mapped ancient historical pilgrimage sites to modern geospatial coordinates with dual-state filtering'],
+      ['Parallax prototyping', 'Iterated multi-plane diorama depths, vertical gesture physics, and atmospheric motion curves'],
+      ['Archive modal & UI styling', 'Designed an elegant, distraction-free reading experience inspired by classical manuscript leaves'],
+      ['Cross-platform optimization', 'Profiled draw calls and asset compression to ensure zero-lag offline tablet and web deployment']
+    ],
+
+    lessons: [
+      'Sacred and philosophical art requires quiet, reverent UI pacing—excessive gamification or frantic animations clash with contemplative subjects.',
+      'Geographical anchors make ancient history tangible: linking spiritual biographies to real physical locations across India helps visitors connect with stories on a personal level.'
+    ],
+
+    gallery: [
+      { type: 'placeholder', label: 'Interactive map of India — Janma Bhumi and Moksha Bhumi sacred site exploration', caption: 'Drop assets/img/projects/tirthankaras-01.jpg' },
+      { type: 'placeholder', label: 'Meditative parallax diorama scene under sacred enlightenment tree', caption: 'Drop assets/img/projects/tirthankaras-02.jpg' },
+      { type: 'placeholder', label: 'Vertical multi-plane scene transition between Tirthankaras', caption: 'Drop assets/img/projects/tirthankaras-03.jpg' },
+      { type: 'placeholder', label: 'Iconography archive book modal with canonical attributes and biography', caption: 'Drop assets/img/projects/tirthankaras-04.jpg' }
+    ],
+
+    links: [
+      { label: 'Exhibition Prototype & Research Notes', url: '#work' }
+    ]
+  },
+
   /* ------------------------------------------------------------------ SoReal */
   soreal: {
     title: 'SoReal',

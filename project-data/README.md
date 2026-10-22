@@ -24,6 +24,9 @@ project-data/
 ├── map/                               # Museum of Art & Photography (MAP), Bengaluru
 │   └── art-puzzle-kiosk.md            # Interactive sliding puzzle kiosk on up to 90" displays
 │
+├── rnd/                               # Research & Development / Unpublished Museum Prototypes
+│   └── tirthankaras-museum-journey.md # 24 Tirthankaras interactive map & multi-plane parallax journey
+│
 ├── soreal/                            # SoReal / ViitorCloud
 │   └── soreal-real-estate-platform.md # Multi-user guided 3D interior walkthrough platform
 │
@@ -61,16 +64,20 @@ Interactive touchscreen kiosk projects built at ViitorCloud Technologies:
 Interactive museum installation built at ViitorCloud Technologies:
 - **`art-puzzle-kiosk.md`**: Large-format touchscreen sliding puzzle kiosk (up to 90" displays in portrait and landscape) featuring collection search, mobile photo upload bridge via QR code, interactive crop/zoom/rotate, and parity-checked solvable tile scrambling.
 
-### 4. `soreal/` — SoReal
+### 4. `rnd/` — Research & Development (Cultural Heritage & Museum Prototypes)
+Independent museum R&D prototypes developed by Chitrang Patel:
+- **`tirthankaras-museum-journey.md`**: An interactive touch-screen exhibition prototype exploring the lives and sacred geography of the 24 Jain Tirthankaras through a dual-state map of India (Janma vs Moksha Bhumi), calm multi-plane parallax scenes, and an iconographic archival book reader.
+
+### 5. `soreal/` — SoReal
 - **`soreal-real-estate-platform.md`**: Lead client engineering for an authoritative real-time 3D property walkthrough platform used by sales agents and buyers.
 
-### 5. `ncore-games/` — nCore Games
+### 6. `ncore-games/` — nCore Games
 - **`icc-cricket-mobile.md`**: Core systems, deterministic mathematics layer, and Goal-Oriented Action Planning (GOAP) AI decision engine for an officially licensed global mobile title.
 
-### 6. `vasundhara-vision/` — Vasundhara Vision
+### 7. `vasundhara-vision/` — Vasundhara Vision
 - **`ludo-multiplayer.md`**: Authoritative Node.js/Socket.IO backend and client state machine for real-time mobile multiplayer matches.
 - **`configurable-card-engine.md`**: Composable rules engine driving two commercially shipped titles with dynamic variant toggling and monetization.
 
-### 7. `escrow-infotech/` — Escrow Infotech
+### 8. `escrow-infotech/` — Escrow Infotech
 - **`heavy-bus-simulator.md`**: Fixed-timestep vehicle handling simulation and data-driven level authoring pipeline.
 - **`shooting-arena.md`**: Arcade space combat with state-driven enemy AI, centralized damage evaluation, and virtual economy.

@@ -50,6 +50,38 @@ Possible Next Step: <Recommended follow-up>
 
 <!-- Add entries only for meaningful work. Do not create fictional history. -->
 
+### 2026-10-22 — Add 24 Tirthankaras Museum Journey R&D Project
+
+#### Request
+
+Add 24 Tirthankaras — An Interactive Museum Journey (R&D exhibition prototype developed by Chitrang Patel, client name strictly confidential/omitted) into the portfolio and `project-data/rnd/`, bringing the total projects to 16, then commit and push.
+
+#### Investigation
+
+- Examined project mechanics: dual-state geospatial map of India (instant one-touch toggle between Janma Bhumi birthplaces and Moksha Bhumi liberation sites with pinch-to-zoom and site pins), serene vertical 4-plane parallax diorama scenes (foreground flora, midground Tirthankara under sacred enlightenment tree with heraldic lanchhana, background hills, and atmospheric clouds/birds), and an archival iconography book reader detailing parentage, complexions, symbols, and life stories.
+- Confirmed zero-dependency offline tablet kiosk capability and lightweight WebGL cross-platform deployment.
+- Re-aligned the 6-column work grid across 16 total projects to achieve full row parity with zero orphaned cards:
+  - Row 1 (Sikh History Museum — 3 cards x 2 cols = 6 cols): `goldentemple`, `dualgallery`, `sikhtimeline`
+  - Row 2 (CSMVS Museum Kiosks — 3 cards x 2 cols = 6 cols): `feedback`, `motw`, `rosetta`
+  - Row 3 (CSMVS Trade & MAP Bengaluru — 3 cards x 2 cols = 6 cols): `tradewall`, `traderoute`, `mappuzzle`
+  - Row 4 (Featured Cultural & 3D Platforms — 2 cards x 3 cols = 6 cols): `tirthankaras` (is-feature), `soreal` (is-feature)
+  - Row 5 (Featured Real-Time Flagships — 2 cards x 3 cols = 6 cols): `icc` (is-feature), `ludo` (is-feature)
+  - Row 6 (Classic Game Engines & Simulators — 3 cards x 2 cols = 6 cols): `cards`, `bus`, `arena`
+
+#### Changes
+
+- `project-data/rnd/tirthankaras-museum-journey.md`: Created detailed R&D project documentation omitting client name as requested, capturing dual-state map algorithms, 4-plane parallax renderer, canonical iconography database, and offline tablet architecture.
+- `project-data/README.md`: Updated directory tree and folder summaries with `rnd/`.
+- `js/data.js`: Added `tirthankaras` case study entry containing complete overview, problem statement, responsibilities, architecture, challenges/solutions, features, stack, achievements, process, and lessons.
+- `index.html`: Added `tirthankaras` card (`data-project="tirthankaras"`, cover badge `24`), styled as `is-feature` (span 3), set `ludo` as `is-feature` (span 3) to pair with `icc`, and updated subtitle to "Sixteen systems".
+- `css/style.css`: Added `.work-cover[data-cover="tirthankaras"]` gradient styling.
+
+#### Validation
+
+- `node --check js/data.js` passed with zero errors.
+
+---
+
 ### 2026-10-22 — Add MAP Art Puzzle Kiosk for Museum of Art & Photography
 
 #### Request
