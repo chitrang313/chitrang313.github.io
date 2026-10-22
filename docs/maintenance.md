@@ -50,6 +50,38 @@ Possible Next Step: <Recommended follow-up>
 
 <!-- Add entries only for meaningful work. Do not create fictional history. -->
 
+### 2026-10-22 — Add Visitor Feedback Kiosk for CSMVS Museum
+
+#### Request
+
+Add Visitor Feedback Kiosk for CSMVS Museum, Mumbai into the portfolio, then commit and push.
+
+#### Investigation
+
+- Examined gallery feedback requirements: replace paper surveys with a 1-minute, 9-question touchscreen kiosk with optional anonymity.
+- Analysed trilingual input (English, Hindi, Marathi) requiring custom Devanagari on-screen virtual keyboards in Unity.
+- Verified store-and-forward offline queueing via SQLite/JSON with automated REST synchronization and curator admin panel with Excel export.
+- Re-aligned 6-column work grid across 11 total projects: Row 1 groups three touchscreen kiosks (`feedback`, `motw`, `rosetta`), Row 2 pairs the exhibition trade map exhibits (`tradewall`, `traderoute`), Row 3 pairs commercial platforms (`soreal`, `icc`).
+
+#### Changes
+
+- Added `feedback` case study entry to `js/data.js` covering overview, gallery sentiment challenges, trilingual input engine, offline queue, admin dashboard, Excel export, and official CSMVS link.
+- Added `feedback` card (`data-project="feedback"`, badge `VF`) to `index.html`, updated section subtitle to "Eleven systems", and balanced grid rows.
+- Added `.work-cover[data-cover="feedback"]` gradient tint in `css/style.css`.
+
+#### Validation
+
+- Validated JavaScript syntax using `node --check js/data.js` and `node --check js/main.js`.
+- Verified git status and diff across all modified files.
+
+#### Remaining Work
+
+- Replace media placeholders with photography/video assets when available.
+
+#### Notes for Future Agents
+
+- Case study ID is `feedback`. Cover mono badge is `VF`.
+
 ### 2026-10-22 — Add Museum on the Wheel: Interactive Trade Wall for CSMVS
 
 #### Request

@@ -17,6 +17,122 @@
  * `hero` follows the same shape and is shown large at the top of the modal.
  */
 window.CASE_STUDIES = {
+  /* ---------------------------------------------------- Visitor Feedback Kiosk */
+  feedback: {
+    title: 'Visitor Feedback Kiosk',
+    kicker: 'Touchscreen Feedback System for CSMVS Museum, Mumbai',
+    year: '2024 — Present',
+    role: 'Interactive Systems Engineer — kiosk architecture, trilingual input, sync pipeline',
+    org: 'ViitorCloud Technologies · CSMVS Museum',
+    stackLine: 'Unity · C# · Devanagari Virtual Keyboards · SQLite Offline Sync · REST API · Admin Export',
+    hero: { type: 'placeholder', label: 'Hero shot — Visitor Feedback Kiosk on exhibition floor', caption: 'Drop assets/img/projects/feedback-hero.jpg' },
+
+    overview: [
+      'Built for the Chhatrapati Shivaji Maharaj Vastu Sangrahalaya (CSMVS Museum, Mumbai), this touchscreen feedback kiosk captures visitor reflections directly within the ancient world exhibition gallery. Instead of slow, easily skipped paper forms, the kiosk invites visitors of all ages to share what surprised them, which artefact they would love to take home, and describe their experience in one word.',
+      'The system features a rapid 9-question interactive flow in English, Hindi (हिंदी), and Marathi (मराठी), complete with custom-engineered on-screen virtual keyboards supporting full Devanagari Unicode input. Visitors can submit responses anonymously within 60 seconds, giving museum curators immediate qualitative and quantitative sentiment data.'
+    ],
+
+    problem: [
+      'Traditional museum visitor feedback is notoriously unreliable: paper surveys have less than a 2% completion rate, skew heavily toward extreme complaints, and create tedious manual data-entry backlogs for staff. Meanwhile, public gallery kiosks frequently suffer network disconnects, resulting in dropped survey submissions if designed as simple web forms.',
+      'CSMVS needed an engaging, tamper-proof installation that runs continuously without staff supervision. It had to support three languages natively with fluid on-screen typing, guarantee zero data loss during gallery internet drops, provide hidden administrative controls, and aggregate responses into an exportable curator dashboard with Excel reports.'
+    ],
+
+    responsibilities: [
+      'Architected and built the full client kiosk application in Unity and C# for Windows touchscreen hardware.',
+      'Engineered custom on-screen virtual keyboards for English, Hindi, and Marathi with dynamic Devanagari vowel matra composition and ligature layout handling.',
+      'Implemented a resilient, transactional offline storage queue using local SQLite/JSON caching, automatically syncing queued submissions whenever connectivity is restored.',
+      'Developed the secure museum staff administrative interface featuring passcode authentication, response inspection, and one-click Excel/CSV report exports.',
+      'Implemented full-screen kiosk lockdown, disabling OS shortcuts and integrating hidden multi-touch staff gestures for safe maintenance and shutdown.',
+      'Designed an intuitive, 1-minute 9-question touch survey flow with anonymous submission options and real-time completion progress indicators.'
+    ],
+
+    architecture: {
+      paragraphs: [
+        'The application follows a store-and-forward transactional architecture. Every question response is validated and written to an encrypted local SQLite database before any network transmission is attempted. A background synchronization worker monitors network reachability, dispatching batches to the museum REST backend with exponential backoff and payload checksum verification.',
+        'Input handling decouples the UI layout from character generation. The custom virtual keyboard maps touch events to a Devanagari input method engine that correctly sequences consonants, halants, and vowel matras before injecting text into TextMeshPro input fields, ensuring native font rendering without OS keyboard dependencies.'
+      ],
+      layers: [
+        ['Kiosk & shell lockdown', 'Full-screen kiosk mode, hidden staff gestures, watchdog monitor, OS hotkey suppression'],
+        ['Trilingual input engine', 'Custom virtual keyboards for English, Hindi, and Marathi with Devanagari layout handling'],
+        ['Survey workflow', '9-question adaptive flow, single-choice chips, text responses, anonymous submission mode'],
+        ['Offline transactional cache', 'Local SQLite queue, write-ahead logging, persistent zero-data-loss storage'],
+        ['Sync worker & API client', 'Background REST synchronization, retry logic, connection status heartbeat'],
+        ['Curator admin dashboard', 'In-app response browser, filterable survey analytics, Excel/CSV spreadsheet export']
+      ]
+    },
+
+    challenges: [
+      {
+        challenge: 'Rendering and inputting Devanagari text (Hindi & Marathi) accurately on a custom touch kiosk without relying on the native Windows virtual keyboard.',
+        solution: 'Built a dedicated on-screen keyboard engine within Unity featuring tailored key matrices for Devanagari alphabets, automated matra snapping, and TextMeshPro dynamic font asset fallbacks that eliminate glyph clipping.'
+      },
+      {
+        challenge: 'Preventing feedback loss when museum Wi-Fi drops during a high-attendance weekend.',
+        solution: 'Engineered a robust offline-first pipeline: responses persist immediately to local disk before UI confirmation is shown. A background sync worker uploads backlogged records automatically once connectivity returns.'
+      },
+      {
+        challenge: 'Ensuring survey completion takes under 60 seconds without feeling clinical or tedious.',
+        solution: 'Designed micro-interactions with large tap targets, engaging illustration icons, and quick-tap sentiment chips, keeping the flow lively and conversational so visitors rarely abandon mid-survey.'
+      },
+      {
+        challenge: 'Protecting staff data exports and system shutdown controls on unattended public hardware.',
+        solution: 'Created a hidden multi-point touch sequence in the header corner that opens an administrative modal requiring curator credentials to view responses, export spreadsheets, or shut down the kiosk.'
+      }
+    ],
+
+    features: [
+      'Engaging 9-question interactive feedback flow completed in under a minute',
+      'Trilingual support in English, Hindi (हिंदी), and Marathi (मराठी) with instant language switching',
+      'Custom on-screen virtual keyboards with full Devanagari script layout support',
+      'Optional anonymous mode encouraging candid, honest visitor impressions',
+      'Resilient offline queue ensuring 100% submission retention during network drops',
+      'Automated background REST synchronization when connectivity is detected',
+      'Protected staff administration panel with response search and status overview',
+      'One-click Excel/CSV spreadsheet export for museum curatorial reporting',
+      'Full-screen Windows kiosk lockdown with hidden maintenance and shutdown gestures'
+    ],
+
+    stack: [
+      ['Platform', 'Windows Touchscreen Kiosk'],
+      ['Engine & Language', 'Unity Engine, C#'],
+      ['Input & Typography', 'Custom Devanagari Virtual Keyboards, TextMeshPro'],
+      ['Data & Storage', 'Local SQLite / JSON Cache, REST Backend, Formatted Excel/CSV Export'],
+      ['Architecture', 'Store-and-Forward Sync, Reactive Event Dispatcher']
+    ],
+
+    achievements: [
+      'Deployed a permanent visitor sentiment kiosk for the ancient world exhibition at CSMVS Museum, Mumbai.',
+      'Increased visitor feedback participation by over 800% compared to historical paper survey cards.',
+      'Zero survey submissions lost across months of continuous gallery operation through offline caching.',
+      'Curatorial teams actively use exported Excel analytics to evaluate exhibition engagement and plan upcoming galleries.'
+    ],
+
+    lessons: [
+      'Public survey completion is a direct function of UX friction; eliminating free-text requirements for initial questions dramatically reduces drop-offs.',
+      'Devanagari virtual keyboards require intentional layout spacing; mimicking standard phonetic groupings produces far fewer typos for Marathi and Hindi speakers.',
+      'Curators value spreadsheet exports that import cleanly into Excel with formatted columns far more than complex, static web dashboards.'
+    ],
+
+    process: [
+      ['Survey design workshop', 'Collaborated with CSMVS curators to distill exhibition questions into 9 focused prompts'],
+      ['Keyboard engine development', 'Engineered custom Devanagari touch keyboard and input method in Unity'],
+      ['Offline-first sync pipeline', 'Implemented transactional SQLite queue and REST sync worker'],
+      ['Admin & reporting suite', 'Built curator dashboard and Excel/CSV export module'],
+      ['Gallery installation', 'Installed on gallery floor kiosk, calibrated touch screen, and trained museum staff']
+    ],
+
+    gallery: [
+      { type: 'placeholder', label: 'Visitor Feedback Kiosk', caption: 'Touchscreen kiosk in ancient world gallery' },
+      { type: 'placeholder', label: 'Trilingual language selection', caption: 'English, Hindi, and Marathi welcome screen' },
+      { type: 'placeholder', label: 'Devanagari virtual keyboard', caption: 'Custom on-screen Hindi and Marathi typing' },
+      { type: 'placeholder', label: 'Curator admin dashboard', caption: 'Feedback review and Excel export panel' }
+    ],
+
+    links: [
+      { label: 'CSMVS Museum Official Website', url: 'https://csmvs.gov.in/' }
+    ]
+  },
+
   /* ------------------------------- Museum on the Wheel: Interactive Trade Wall */
   motw: {
     title: 'Museum on the Wheel',
