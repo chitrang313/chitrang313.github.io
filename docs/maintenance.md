@@ -50,6 +50,34 @@ Possible Next Step: <Recommended follow-up>
 
 <!-- Add entries only for meaningful work. Do not create fictional history. -->
 
+### 2026-10-22 — Add Sikh History Interactive Timeline Kiosk
+
+#### Request
+
+Add Sikh History — Interactive Timeline Kiosk (Client: Sikh History Museum, built at ViitorCloud Technologies) into the portfolio, then commit and push.
+
+#### Investigation
+
+- Examined museum timeline requirements: chronological self-guided exploration spanning 1469 (birth of Guru Nanak) to modern times across three themed chapters (The Guru Period, Warrior Saints & Sikh Empire, British & Punjab).
+- Analysed technical architecture: Unity (URP), C#, data-driven JSON schema for timeline milestones and assets without rebuilding, kinetic touch scrolling, full-screen archival image viewer with pan & zoom, and dynamic QR smartphone bridge for post-visit engagement.
+- Re-aligned 6-column work grid across 12 total systems:
+  - Row 1 (Museum Kiosks — 3 cards x 2 cols = 6 cols): `sikhtimeline`, `feedback`, `motw`
+  - Row 2 (Museum Kiosks & Exhibits — 3 cards x 2 cols = 6 cols): `rosetta`, `tradewall`, `traderoute`
+  - Row 3 (Flagship Commercial Platforms — 2 cards x 3 cols = 6 cols): `soreal`, `icc`
+  - Row 4 (Multiplayer & Simulation — 3 cards x 2 cols = 6 cols): `ludo`, `cards`, `bus`
+  - Row 5 (Action Game — 1 card x 2 cols = 2 cols): `arena`
+
+#### Changes
+
+- Added `sikhtimeline` case study entry to `js/data.js` detailing timeline architecture, kinetic scrolling, virtualized object pooling, archival image viewer, dynamic QR generator, and JSON data pipeline.
+- Added `sikhtimeline` card (`data-project="sikhtimeline"`, badge `SH`) to `index.html`, updated section subtitle to "Twelve systems", and normalized `tradewall` and `traderoute` to standard 2-column cards to maintain a balanced 3x3 layout for museum exhibits.
+- Added `.work-cover[data-cover="sikhtimeline"]` warm heritage tint in `css/style.css`.
+
+#### Validation
+
+- Validated JavaScript syntax using `node --check js/data.js` and `node --check js/main.js`.
+- Verified layout and grid balance across desktop and mobile breakpoints.
+
 ### 2026-10-22 — Add Visitor Feedback Kiosk for CSMVS Museum
 
 #### Request

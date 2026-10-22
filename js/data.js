@@ -17,6 +17,72 @@
  * `hero` follows the same shape and is shown large at the top of the modal.
  */
 window.CASE_STUDIES = {
+  /* ---------------------------------------------------- Sikh History Timeline */
+  sikhtimeline: {
+    title: 'Sikh History Timeline',
+    kicker: 'Interactive Museum Timeline Kiosk',
+    year: '2023 — 2024',
+    role: 'Interactive Systems Engineer — timeline architecture, content pipeline, UI/UX',
+    org: 'ViitorCloud Technologies · Sikh History Museum',
+    stackLine: 'Unity (URP) · C# · JSON Data Pipeline · Touchscreen Kiosk · Dynamic QR',
+    hero: { type: 'placeholder', label: 'Hero shot — Sikh History Timeline kiosk on museum exhibition floor', caption: 'Drop assets/img/projects/sikhtimeline-hero.jpg' },
+
+    overview: [
+      'Built for the Sikh History Museum at ViitorCloud Technologies, this interactive touchscreen kiosk invites museum visitors of all ages to journey through Sikh history across centuries. Spanning from the birth of Guru Nanak in 1469 to the modern era, the kiosk organizes history across three thematic chapters: The Guru Period, Warrior Saints and the Sikh Empire, and British and Punjab.',
+      'Visitors can seamlessly drag, scrub, and tap through chronology on a responsive, high-performance touch interface. Every milestone unfolds into a rich historical narrative paired with archival artwork that can be examined full-screen. To extend engagement beyond the museum visit, each event dynamically generates a scannable QR code linking directly to curated deep-dives on the museum’s website.'
+    ],
+
+    problem: [
+      'Traditional museum exhibits often face a core dilemma: walls have limited physical placard space, and dense historical timelines feel static and intimidating to younger visitors or casual tour groups. Furthermore, historical research and archival collections evolve—curators frequently acquire higher-resolution scans, new translations, or refined dates, which previously required re-printing physical signage or re-compiling proprietary kiosk software.',
+      'The museum needed an installation that feels approachable to self-guided visitors of any age, withstands uninterrupted 12-hour daily operation on high-traffic gallery floors, and decouples content maintenance from software engineering—allowing curators to update milestones, captions, and high-res imagery purely via structured JSON data.'
+    ],
+
+    responsibilities: [
+      'Architected and implemented the entire touchscreen timeline client application in Unity (Universal Render Pipeline) and C#.',
+      'Designed a flexible, decoupled data pipeline loading timeline milestones, chapter hierarchies, and media assets asynchronously from localized JSON schemas.',
+      'Engineered an ultra-smooth kinetic touch-scrolling engine with inertia, snapping, and non-blocking background asset streaming for high-resolution historical paintings.',
+      'Implemented a full-screen archival image viewer with pinch-to-zoom, pan gestures, and double-tap resets optimized for large kiosk displays.',
+      'Built an on-demand QR code generation subsystem allowing visitors to scan any event with their smartphone and save the story or continue reading on the museum website.',
+      'Implemented gallery kiosk resilience measures including idle screensaver attract loops, automatic session timeout resets, memory caching limits, and hidden gesture-based maintenance controls.'
+    ],
+
+    architecture: {
+      paragraphs: [
+        'The kiosk software is architected around a data-driven model-view-controller paradigm. At startup, a timeline manifest loader parses the JSON content bundle, validates event chronological ordering across chapters, and constructs a memory-efficient virtualized view hierarchy. Instead of instantiating hundreds of heavy UI objects simultaneously, an object pooling and virtualized scroll system recycles off-screen cards and loads uncompressed 4K textures on demand via Unity’s Addressables/async texture loaders.',
+        'To bridge the physical exhibit with mobile visitors, a lightweight C# QR matrix encoder renders vector-crisp QR codes in real time from event metadata URLs, eliminating external API calls or network dependencies on the gallery floor.'
+      ],
+      layers: [
+        ['Kiosk shell & watchdog', 'Full-screen kiosk lockdown, idle attract video loop, session auto-reset, maintenance gestures'],
+        ['Kinetic touch engine', 'Multi-touch gesture recognizer, inertia-damped horizontal timeline scroller, milestone snapping'],
+        ['Virtualized timeline UI', 'Dynamic object pooling, chapter navigation tabs, LOD timeline markers, chronological indexing'],
+        ['Deep-dive story modal', 'Full-screen archival artwork viewer, multi-touch pan & zoom, typography layout engine'],
+        ['Dynamic QR bridge', 'Real-time offline QR code rasterizer, URL payload formatting for post-visit web reading'],
+        ['JSON data pipeline', 'Schema-validated JSON event feeds, asynchronous media streaming, local asset hot-reloading']
+      ]
+    },
+
+    whatWentWell: [
+      'The data-driven JSON architecture enabled museum curators to review, reorder, and enrich event descriptions independently without requiring Unity project rebuilds or engineering intervention.',
+      'The virtualized kinetic scroller maintained a rock-solid 60 FPS on touch hardware even with hundreds of timeline entries and heavy archival imagery.',
+      'The smartphone QR code bridge saw high visitor adoption, turning brief 3-minute gallery interactions into lasting post-visit engagement.'
+    ],
+
+    whatIdDoDifferently: [
+      'Incorporate audio narration tracks and ambient period soundscapes with directional acoustic speakers or headphone jacks for enhanced immersion.',
+      'Add multilingual localization (such as Punjabi and Hindi alongside English) to make the installation even more accessible to regional and international pilgrims.'
+    ],
+
+    gallery: [
+      { type: 'placeholder', label: 'Interactive timeline view — chapter navigation and event ribbon', caption: 'Drop assets/img/projects/sikhtimeline-01.jpg' },
+      { type: 'placeholder', label: 'Archival artwork viewer with full-screen zoom and narrative panel', caption: 'Drop assets/img/projects/sikhtimeline-02.jpg' },
+      { type: 'placeholder', label: 'Dynamic QR code modal bridging kiosk stories to smartphone', caption: 'Drop assets/img/projects/sikhtimeline-03.jpg' }
+    ],
+
+    links: [
+      { label: 'ViitorCloud Technologies', url: 'https://viitorcloud.com/' }
+    ]
+  },
+
   /* ---------------------------------------------------- Visitor Feedback Kiosk */
   feedback: {
     title: 'Visitor Feedback Kiosk',
