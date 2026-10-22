@@ -1060,6 +1060,121 @@ window.CASE_STUDIES = {
     ]
   },
 
+  /* ------------------------------------------------------------ TouchWall */
+  touchwall: {
+    title: 'TouchWall',
+    kicker: 'Touch the Wall, the Story Plays · Interactive Projection Installation',
+    year: '2023 — 2024',
+    role: 'Lead Interactive Systems Engineer — touch plane sensor calibration, projection mapping homography, video engine in Unity (URP), on-site hot-swap pipeline',
+    org: 'Interactive Exhibition Installation · Public Prototype',
+    stackLine: 'Unity 6 (URP) · C# · Optical/LiDAR Touch Tracking · 4-Point Homography · Hardware Video Player · 100% Offline',
+    hero: { type: 'placeholder', label: 'Hero shot — TouchWall interactive projection on architectural wall showing video opening on touch', caption: 'Drop assets/img/projects/touchwall-hero.jpg' },
+
+    overview: [
+      'TouchWall is an interactive exhibition installation that turns a plain architectural white wall into a living storytelling surface. Visitors walk up to what appears to be an ordinary wall, touch a designated spot, and a high-definition video appears directly on the wall surface—projected large, bright, and clear by a concealed ultra-short-throw projector. Touching again closes the video seamlessly, returning the wall to its quiet, unassuming state.',
+      'Engineered with zero visible hardware—no screens, no kiosks, no buttons, and no dangling cables—the installation creates an enchanting moment of natural tactile discovery. Built for cultural heritage centers, temples, museums, and flagship showrooms, it delivers a high-impact communal viewing experience at a fraction of the cost of giant touchscreens, operates 100% offline without internet, and allows venue staff to swap videos in minutes via simple local file drops.'
+    ],
+
+    problem: [
+      'Exhibitors, temples, and museums frequently struggle to transform passive gallery spaces into engaging exploratory environments. Large commercial touch displays are prohibitively expensive, accumulate greasy fingerprints, suffer from glare, and disrupt the historical or spiritual aesthetic of architectural wall surfaces. Meanwhile, traditional passive video loops running in corners are quickly ignored by visitors.',
+      'From an engineering standpoint, TouchWall required an entirely invisible hardware footprint; an ultra-precise optical touch detection plane sweeping flush across the wall with sub-15ms latency; mathematical homography calibration to eliminate projection keystone and parallax distortion; hardware-accelerated video decoding supporting instant multi-video triggering without stutter; and a zero-code local media update pipeline so non-technical staff can update content on site in minutes.'
+    ],
+
+    responsibilities: [
+      'Architected the interactive projection and invisible touch tracking installation in Unity 6 (URP) and C#.',
+      'Engineered an optical/LiDAR planar touch tracking pipeline running flush to the wall surface with sub-10mm spatial accuracy and sub-15ms touch latency.',
+      'Built an in-engine 4-point homography calibration system to projectively align sensor coordinates with arbitrary projector lenses, throw angles, and wall aspect ratios.',
+      'Developed a hardware-accelerated H.264/HEVC video playback engine with smooth circular aperture reveal and fade shaders.',
+      'Implemented an automated local file watcher allowing venue staff to hot-swap video assets via USB drives without restarting the application.',
+      'Integrated automated unattended operation routines including inactivity auto-reset timers and projector sleep/wake scheduling.'
+    ],
+
+    architecture: {
+      paragraphs: [
+        'The installation comprises three tightly integrated layers: an invisible optical sensing layer, the TouchWall Unity URP runtime engine, and an ultra-short-throw laser projector. The sensing layer (planar infrared laser curtain or solid-state LiDAR) scans an invisible plane 2mm above the architectural wall. When a visitor reaches out and breaks the curtain, the sensor streams high-frequency touch coordinates over USB/Serial to the host workstation.',
+        'The Unity runtime applies a calibrated 3x3 projective homography matrix to transform raw sensor readings into normalized viewport space. If a touch intersects an active hotspot, the video player engine smoothly scales and fades in the associated video texture via a custom aperture shader. A file-system watcher monitors a local directory for media drops, dynamically binding new video files to interaction hotspots at runtime without recompilation.'
+      ],
+      layers: [
+        ['Invisible Sensing Layer', 'Flush planar IR laser curtain / 2D LiDAR, sub-millimeter optical sweep, ambient light rejection filter'],
+        ['Homography Calibration Engine', '4-point perspective warp, 3x3 projective matrix mapping, keystone and parallax compensation'],
+        ['Touch Tracking & State Machine', 'Noise filtering, cluster tracking, dwell-time validation, multi-touch toggle state machine'],
+        ['Video Playback Pipeline', 'Hardware-accelerated Media Foundation video player, smooth circular aperture reveal shaders, audio fade'],
+        ['Dynamic Media Ingestion', 'Local file-system watcher, hot-swap MP4/WebM video loader, automatic aspect ratio adaptation'],
+        ['Autonomous Kiosk & Scheduler', '30-second inactivity reset, RS-232 / CEC projector sleep/wake control, 100% offline standalone operation']
+      ]
+    },
+
+    challenges: [
+      {
+        challenge: 'Maintaining the illusion of zero visible hardware in sacred or historically sensitive architectural spaces.',
+        solution: 'Concealed the ultra-short-throw laser projector in ceiling soffits and integrated perimeter laser plane emitters disguised within room baseboards. The wall retains its pristine drywall or plaster finish with zero glass or electronics visible to visitors.'
+      },
+      {
+        challenge: 'Aligning physical touch coordinates with projected video imagery without parallax distortion.',
+        solution: 'Engineered an interactive 4-point homography calibration utility in Unity. By tapping projected crosshairs during initial setup, the software calculates a projective transformation matrix that perfectly maps sensor coordinates to the projection plane regardless of projector angle or wall imperfections.'
+      },
+      {
+        challenge: 'Preventing ambient sunlight, shadows, or passing visitors from triggering false video playback.',
+        solution: 'Utilized modulated 850nm infrared laser emitters with optical bandpass filtering to block visible ambient light. Implemented software cluster filtering that requires touch contact area and dwell time thresholds before registering an intentional press.'
+      },
+      {
+        challenge: 'Enabling non-technical venue staff to update exhibition videos on site without technical assistance.',
+        solution: 'Built a dynamic local directory file watcher. Staff simply copy new `.mp4` or `.webm` files onto a USB drive and drop them into designated folders; the engine automatically hot-reloads the video assets at runtime without restarting the application.'
+      }
+    ],
+
+    features: [
+      'Touch-activated storytelling on ordinary architectural walls with zero visible screens, tablets, or buttons',
+      'Concealed ultra-short-throw laser projection displaying large, bright, high-contrast video directly on wall surfaces',
+      'Flush planar optical/LiDAR touch tracking with sub-15ms response time and sub-10mm precision',
+      'Interactive toggle control: touching a hotspot opens the story video; touching again closes it smoothly',
+      'In-engine 4-point homography calibration compensating for projection angle, keystoning, and surface variation',
+      'Rapid on-site content swapping via local folder drag-and-drop without recompilation or technical staff',
+      'Autonomous inactivity auto-reset timer returning the wall to ambient standby when visitors step away',
+      '100% offline operation requiring zero internet access, cloud servers, or external network infrastructure'
+    ],
+
+    stack: [
+      ['Platform', 'Architectural Wall Surface, Ultra-Short-Throw (UST) Laser Projection, Invisible Touch Sensor'],
+      ['Engine & Language', 'Unity 6 (Universal Render Pipeline), C#, Custom URP Aperture Shaders'],
+      ['Sensing & Tracking', 'Planar IR Laser Curtain / Solid-State 2D LiDAR, OpenCV Homography Calibration'],
+      ['Video & Media', 'Hardware-Accelerated H.264/HEVC/WebM Decoding, Dynamic Video Texture Streaming'],
+      ['Automation & Tools', 'Local File-System Watcher, Hot-Swap Ingestion Pipeline, RS-232 Projector Power Control'],
+      ['Resilience', '100% Offline Standalone Architecture, Hardware Watchdog, Auto-Recovery']
+    ],
+
+    achievements: [
+      'Transformed plain architectural walls into magical, touch-responsive storytelling surfaces with zero visible hardware.',
+      'Delivered large-format interactive projection at a fraction of the cost of commercial touchscreens.',
+      'Achieved sub-15ms touch-to-projection response times with sub-10mm optical tracking accuracy.',
+      'Enabled seamless, non-technical video updates on site in under 2 minutes via local USB file drag-and-drop.'
+    ],
+
+    process: [
+      ['Sensor & optics R&D', 'Bench-tested IR laser curtains, 2D LiDAR sensors, and UST projection throws on various wall textures'],
+      ['Homography calibration math', 'Engineered 4-point perspective warp and coordinate transformation matrix in Unity'],
+      ['Video player & shader architecture', 'Built hardware-accelerated video decoding with dynamic aperture reveal and dissolve effects'],
+      ['Media hot-swap automation', 'Implemented file-system watcher for real-time USB video ingestion without app restarts'],
+      ['On-site physical deployment', 'Installed concealed soffit projector mounts, perimeter sensors, and calibrated optical geometry']
+    ],
+
+    lessons: [
+      'Removing visible hardware shifts user perception from "interacting with a computer" to "discovering a magical secret in the room"—visitors are significantly more likely to touch an ordinary wall than a standard kiosk.',
+      'Making content updates as simple as dropping a video file into a folder is essential for long-term venue adoption, freeing curators from developer dependency.'
+    ],
+
+    gallery: [
+      { type: 'placeholder', label: 'TouchWall — visitor touching ordinary white wall as projected story video expands', caption: 'Drop assets/img/projects/touchwall-01.jpg' },
+      { type: 'placeholder', label: 'Concealed ultra-short-throw laser projector and flush optical touch tracking sensor setup', caption: 'Drop assets/img/projects/touchwall-02.jpg' },
+      { type: 'placeholder', label: 'In-engine 4-point homography calibration grid projected on wall surface', caption: 'Drop assets/img/projects/touchwall-03.jpg' },
+      { type: 'placeholder', label: 'Local dynamic media folder showing drag-and-drop video hot-swapping', caption: 'Drop assets/img/projects/touchwall-04.jpg' }
+    ],
+
+    links: [
+      { label: 'Exhibition Prototype & Architecture Notes', url: '#work' }
+    ]
+  },
+
   /* --------------------------------------------------------- Tree Light-Up */
   treelight: {
     title: 'Tree Light-Up',

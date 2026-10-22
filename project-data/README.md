@@ -28,6 +28,7 @@ project-data/
 │   ├── digital-twin-lights.md         # DigitalTwinLights real-time hardware-to-3D twin mirror
 │   ├── good-deed-tree.md              # The Good Deed Tree interactive kindness wall & 4K living 3D tree
 │   ├── tirthankaras-museum-journey.md # 24 Tirthankaras interactive map & multi-plane parallax journey
+│   ├── touch-wall.md                  # TouchWall invisible interactive projection touch wall
 │   └── tree-light-up.md               # Tree Light-Up interactive physical tree lighting over local wireless
 │
 ├── cuenect/                           # Cuenect
@@ -72,6 +73,7 @@ Interactive museum installation built at ViitorCloud Technologies:
 
 ### 4. `rnd/` — Research & Development (Cultural Heritage & Interactive Prototypes)
 Independent museum, digital twin, and public exhibition prototypes developed by Chitrang Patel:
+- **`touch-wall.md`**: An invisible interactive projection wall where touching a plain architectural wall plays bright, large-format story videos via laser projection and optical touch sensing with zero hardware in sight and rapid on-site video hot-swapping.
 - **`tree-light-up.md`**: An interactive physical computing display where touching a screen lights up a real physical tree with four color strands, progressive climbing animations, soothing breathing effects, and physical filament bulbs over an isolated local wireless connection.
 - **`digital-twin-lights.md`**: A hands-on digital twin demonstration pairing an industrial 4-switch physical control panel with an exact virtual 3D copy in Unity URP, mirroring switch positions, dynamic lighting, and bulb illumination in real time without manual sync.
 - **`good-deed-tree.md`**: A multi-screen interactive collective art installation pairing a tablet kiosk with a 4K living 3D tree display, featuring swipe-to-release physics, GPU foliage instancing, Trie-based real-time profanity filtering, and an atmospheric idle attractor.

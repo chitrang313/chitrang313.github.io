@@ -50,6 +50,46 @@ Possible Next Step: <Recommended follow-up>
 
 <!-- Add entries only for meaningful work. Do not create fictional history. -->
 
+### 2026-10-22 — Add TouchWall Interactive Projection Touch Installation
+
+#### Request
+
+Add TouchWall: Touch the Wall, the Story Plays (Interactive projection mapping & invisible touch surface installation) into the portfolio and `project-data/rnd/`, bringing the total projects to 21, then commit and push.
+
+#### Investigation
+
+- Examined project mechanics:
+  - Invisible touch surface sensing: flush planar IR laser curtain / 2D solid-state LiDAR scanning 2mm above plain architectural drywall, stone, or plaster walls with sub-10mm spatial accuracy and sub-15ms response latency.
+  - Projection mapping & 4-point homography calibration: software projective warp compensating for projector throw angles, keystone distortion, and surface irregularities.
+  - Zero-hardware architectural integration: ultra-short-throw laser projector and sensors recessed into ceiling soffits and room trim, maintaining clean architectural aesthetics with zero visible screens, kiosks, or buttons.
+  - Toggle interaction & media playback: touching a spot reveals a large-format story video via dynamic aperture shader; touching again closes it smoothly; inactivity timer resets to quiet standby.
+  - On-site media hot-swapping: local file-system watcher allows venue staff to drag-and-drop standard MP4/WebM files onto a USB drive to update video slots without restarting or recompiling the app.
+  - 100% offline standalone operation: zero internet required, integrated RS-232 / CEC projector sleep/wake scheduling.
+- Re-balanced 6-column work grid across 21 total systems into 7 perfectly uniform rows of 3 standard cards each (42 columns total, 0 orphaned slots):
+  - Row 1 (Sikh History Museum — 3 cards x 2 cols = 6 cols): `goldentemple`, `dualgallery`, `sikhtimeline`
+  - Row 2 (CSMVS Museum Kiosks — 3 cards x 2 cols = 6 cols): `feedback`, `motw`, `rosetta`
+  - Row 3 (CSMVS Trade & MAP Bengaluru — 3 cards x 2 cols = 6 cols): `tradewall`, `traderoute`, `mappuzzle`
+  - Row 4 (Interactive Walls, IoT & Living Tree Installations — 3 cards x 2 cols = 6 cols): `touchwall`, `treelight`, `deedtree`
+  - Row 5 (Digital Twins, Cultural Heritage & Spatial Reality — 3 cards x 2 cols = 6 cols): `digitaltwin`, `tirthankaras`, `cuenect`
+  - Row 6 (Enterprise Platforms & Real-Time Simulations — 3 cards x 2 cols = 6 cols): `soreal`, `icc`, `ludo`
+  - Row 7 (Classic Game Engines & Simulators — 3 cards x 2 cols = 6 cols): `cards`, `bus`, `arena`
+
+#### Changes
+
+- `project-data/rnd/touch-wall.md`: Created comprehensive project documentation detailing planar optical sensing, homography calibration, zero-hardware architectural integration, video playback pipeline, and on-site media hot-swapping.
+- `project-data/README.md`: Updated directory tree and folder summary section 4 with `touch-wall.md`.
+- `js/data.js`: Added comprehensive `touchwall` case study object to `window.CASE_STUDIES` complete with overview, problem, responsibilities, architecture layers, challenges/solutions, features, stack, achievements, process, lessons, gallery placeholders, and links.
+- `css/style.css`: Added `.work-cover[data-cover="touchwall"]` luminous projection tint.
+- `index.html`: Updated subtitle to "Twenty-one systems", inserted `touchwall` card (`data-project="touchwall"`, monogram badge `TC`), and normalized `cuenect` and `soreal` to standard span-2 cards to achieve 7 rows of 3 standard cards.
+
+#### Validation
+
+- Validated JavaScript syntax using `node --check js/data.js` and `node --check js/main.js` (both exit code 0).
+- Validated runtime parsing of `js/data.js` via Node vm, verifying all 21 case study keys are properly registered.
+- Verified grid column mathematics: 21 standard cards x 2 cols = 42 columns / 6 columns per row = exactly 7 full rows (zero orphaned slots).
+
+---
+
 ### 2026-10-22 — Add Tree Light-Up and DigitalTwinLights IoT Installations
 
 #### Request
