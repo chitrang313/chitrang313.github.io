@@ -1,0 +1,69 @@
+# Project Data Repository
+
+This directory serves as the centralized source of truth for all project briefs, engineering notes, architectural breakdowns, and client requirements for Chitrang Patel's portfolio.
+
+---
+
+## Directory Structure
+
+```
+project-data/
+├── README.md
+├── csmvs/                             # Chhatrapati Shivaji Maharaj Vastu Sangrahalaya (CSMVS Museum, Mumbai)
+│   ├── interactive-trade-wall.md      # Dual-screen touch book + animated map wall
+│   ├── museum-on-the-wheel.md         # Travelling mobile museum kiosk for rural India
+│   ├── rosetta-stone-kiosk.md         # Interactive touch kiosk + hieroglyphic drawing game
+│   ├── trade-route-kiosk.md           # Zoomable trade map + artifact exploration kiosk
+│   └── visitor-feedback-kiosk.md      # Trilingual gallery feedback kiosk with offline sync
+│
+├── shm/                               # Sikh History Museum (SHM)
+│   ├── interactive-timeline-kiosk.md  # Interactive chronological timeline kiosk (1469–Modern)
+│   ├── project-02.md                  # [Planned / Pending Brief from User]
+│   └── project-03.md                  # [Planned / Pending Brief from User]
+│
+├── soreal/                            # SoReal / ViitorCloud
+│   └── soreal-real-estate-platform.md # Multi-user guided 3D interior walkthrough platform
+│
+├── ncore-games/                       # nCore Games
+│   └── icc-cricket-mobile.md          # Officially licensed cricket simulation with GOAP AI
+│
+├── vasundhara-vision/                 # Vasundhara Vision
+│   ├── ludo-multiplayer.md            # Real-time authoritative multiplayer board platform
+│   └── configurable-card-engine.md    # Multi-variant card rules engine for 2 shipped games
+│
+└── escrow-infotech/                   # Escrow Infotech
+    ├── heavy-bus-simulator.md         # Deterministic vehicle physics simulation
+    └── shooting-arena.md              # Arcade vehicular combat & virtual economy
+```
+
+---
+
+## Folder Summaries
+
+### 1. `csmvs/` — Chhatrapati Shivaji Maharaj Vastu Sangrahalaya (Mumbai)
+Contains documentation for 5 interactive museum installations built at ViitorCloud Technologies:
+- **`trade-route-kiosk.md`**: An interactive touchscreen map exploring four historical trade routes and physical gallery artefacts with offline caching and bilingual English/Marathi support.
+- **`interactive-trade-wall.md`**: A bilingual, two-screen experience pairing a touch-screen book controller with an illuminated animated map wall.
+- **`rosetta-stone-kiosk.md`**: A touchscreen exhibit station featuring historical deep-dives and a GPU-accelerated hieroglyphic drawing and decoding game.
+- **`museum-on-the-wheel.md`**: A mobile travelling museum mounted on a 4-wheel tempo bringing Harappan civilization trade history to rural Indian villages with zero-connectivity offline operation.
+- **`visitor-feedback-kiosk.md`**: A trilingual (English, Hindi, Marathi) gallery feedback kiosk with custom on-screen Devanagari virtual keyboards and transactional SQLite offline sync.
+
+### 2. `shm/` — Sikh History Museum
+Interactive touchscreen kiosk projects built at ViitorCloud Technologies:
+- **`interactive-timeline-kiosk.md`**: Touchscreen timeline kiosk allowing visitors to explore Sikh history from 1469 across three themed chapters with full-screen artwork and dynamic smartphone QR bridge.
+- **`project-02.md`**: Placeholder for upcoming second Sikh History Museum project brief.
+- **`project-03.md`**: Placeholder for upcoming third Sikh History Museum project brief.
+
+### 3. `soreal/` — SoReal
+- **`soreal-real-estate-platform.md`**: Lead client engineering for an authoritative real-time 3D property walkthrough platform used by sales agents and buyers.
+
+### 4. `ncore-games/` — nCore Games
+- **`icc-cricket-mobile.md`**: Core systems, deterministic mathematics layer, and Goal-Oriented Action Planning (GOAP) AI decision engine for an officially licensed global mobile title.
+
+### 5. `vasundhara-vision/` — Vasundhara Vision
+- **`ludo-multiplayer.md`**: Authoritative Node.js/Socket.IO backend and client state machine for real-time mobile multiplayer matches.
+- **`configurable-card-engine.md`**: Composable rules engine driving two commercially shipped titles with dynamic variant toggling and monetization.
+
+### 6. `escrow-infotech/` — Escrow Infotech
+- **`heavy-bus-simulator.md`**: Fixed-timestep vehicle handling simulation and data-driven level authoring pipeline.
+- **`shooting-arena.md`**: Arcade space combat with state-driven enemy AI, centralized damage evaluation, and virtual economy.

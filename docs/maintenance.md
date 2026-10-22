@@ -50,6 +50,28 @@ Possible Next Step: <Recommended follow-up>
 
 <!-- Add entries only for meaningful work. Do not create fictional history. -->
 
+### 2026-10-22 — Create Organized project-data Directory and Project Briefs
+
+#### Request
+
+Create `project-data` directory on root level, containing all project information texts provided by the user and existing project details organized into sub-folders based on clients/institutions (e.g. `csmvs/`, `shm/`, and other existing projects), each as an individual, well-structured `.md` file.
+
+#### Changes
+
+- Created root `project-data/` folder with sub-folders for each client and publisher:
+  - `project-data/csmvs/`: 5 projects (`interactive-trade-wall.md`, `museum-on-the-wheel.md`, `rosetta-stone-kiosk.md`, `trade-route-kiosk.md`, `visitor-feedback-kiosk.md`).
+  - `project-data/shm/`: `interactive-timeline-kiosk.md`, plus placeholders `project-02.md` and `project-03.md` for upcoming briefs.
+  - `project-data/soreal/`: `soreal-real-estate-platform.md`.
+  - `project-data/ncore-games/`: `icc-cricket-mobile.md`.
+  - `project-data/vasundhara-vision/`: `ludo-multiplayer.md`, `configurable-card-engine.md`.
+  - `project-data/escrow-infotech/`: `heavy-bus-simulator.md`, `shooting-arena.md`.
+  - `project-data/README.md`: Centralized index and navigation guide for all project data.
+- Preserved exact user briefs and integrated complete technical architectures, operational challenges, solutions, and feature lists.
+
+#### Validation
+
+- Verified directory structure and file contents across all 15 markdown files.
+
 ### 2026-10-22 — Add Sikh History Interactive Timeline Kiosk
 
 #### Request
