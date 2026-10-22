@@ -21,6 +21,9 @@ project-data/
 │   ├── golden-temple-video-gallery.md # Walk-up video wall kiosk with remote theming & REST sync
 │   └── interactive-timeline-kiosk.md  # Interactive chronological timeline kiosk (1469–Modern)
 │
+├── map/                               # Museum of Art & Photography (MAP), Bengaluru
+│   └── art-puzzle-kiosk.md            # Interactive sliding puzzle kiosk on up to 90" displays
+│
 ├── soreal/                            # SoReal / ViitorCloud
 │   └── soreal-real-estate-platform.md # Multi-user guided 3D interior walkthrough platform
 │
@@ -54,16 +57,20 @@ Interactive touchscreen kiosk projects built at ViitorCloud Technologies:
 - **`golden-temple-video-gallery.md`**: Walk-up interactive video gallery kiosk featuring scroll-snap browsing, remote brand/color theming from `sikhhistorymuseum.org`, custom video player, and live news ticker.
 - **`interactive-timeline-kiosk.md`**: Touchscreen timeline kiosk allowing visitors to explore Sikh history from 1469 across three themed chapters with full-screen artwork and dynamic smartphone QR bridge.
 
-### 3. `soreal/` — SoReal
+### 3. `map/` — Museum of Art & Photography (MAP), Bengaluru
+Interactive museum installation built at ViitorCloud Technologies:
+- **`art-puzzle-kiosk.md`**: Large-format touchscreen sliding puzzle kiosk (up to 90" displays in portrait and landscape) featuring collection search, mobile photo upload bridge via QR code, interactive crop/zoom/rotate, and parity-checked solvable tile scrambling.
+
+### 4. `soreal/` — SoReal
 - **`soreal-real-estate-platform.md`**: Lead client engineering for an authoritative real-time 3D property walkthrough platform used by sales agents and buyers.
 
-### 4. `ncore-games/` — nCore Games
+### 5. `ncore-games/` — nCore Games
 - **`icc-cricket-mobile.md`**: Core systems, deterministic mathematics layer, and Goal-Oriented Action Planning (GOAP) AI decision engine for an officially licensed global mobile title.
 
-### 5. `vasundhara-vision/` — Vasundhara Vision
+### 6. `vasundhara-vision/` — Vasundhara Vision
 - **`ludo-multiplayer.md`**: Authoritative Node.js/Socket.IO backend and client state machine for real-time mobile multiplayer matches.
 - **`configurable-card-engine.md`**: Composable rules engine driving two commercially shipped titles with dynamic variant toggling and monetization.
 
-### 6. `escrow-infotech/` — Escrow Infotech
+### 7. `escrow-infotech/` — Escrow Infotech
 - **`heavy-bus-simulator.md`**: Fixed-timestep vehicle handling simulation and data-driven level authoring pipeline.
 - **`shooting-arena.md`**: Arcade space combat with state-driven enemy AI, centralized damage evaluation, and virtual economy.

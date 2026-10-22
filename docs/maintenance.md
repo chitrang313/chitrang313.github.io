@@ -50,6 +50,37 @@ Possible Next Step: <Recommended follow-up>
 
 <!-- Add entries only for meaningful work. Do not create fictional history. -->
 
+### 2026-10-22 — Add MAP Art Puzzle Kiosk for Museum of Art & Photography
+
+#### Request
+
+Add MAP Art Puzzle — Interactive Sliding Puzzle Kiosk for the Museum of Art & Photography (MAP), Bengaluru (built at ViitorCloud Technologies) into the portfolio and `project-data/map/`, bringing the total projects to 15, then commit and push.
+
+#### Investigation
+
+- Examined project mechanics: large-format touch-screen puzzle kiosk on screens up to 90" in portrait and landscape orientation, collection browsing with multi-facet metadata search, smartphone photo upload bridge via ephemeral QR code pairing, multi-touch crop/zoom/rotate engine, guaranteed solvable sliding puzzle generator (inversion parity verification), and artwork-specific high scores.
+- Re-balanced 6-column work grid across 15 total systems:
+  - Row 1 (Sikh History Museum — 3 cards x 2 cols = 6 cols): `goldentemple`, `dualgallery`, `sikhtimeline`
+  - Row 2 (CSMVS Museum Kiosks — 3 cards x 2 cols = 6 cols): `feedback`, `motw`, `rosetta`
+  - Row 3 (CSMVS & MAP Bengaluru — 3 cards x 2 cols = 6 cols): `tradewall`, `traderoute`, `mappuzzle`
+  - Row 4 (Flagship Commercial Platforms — 2 cards x 3 cols = 6 cols): `soreal`, `icc`
+  - Row 5 (Multiplayer & Simulation — 3 cards x 2 cols = 6 cols): `ludo`, `cards`, `bus`
+  - Row 6 (Action Game — 1 card x 2 cols = 2 cols): `arena`
+
+#### Changes
+
+- `project-data/map/art-puzzle-kiosk.md`: Created detailed project document capturing provided information and in-depth architectural breakdown (parity verification, UV tile slicing, multi-touch affine transform, QR upload bridge).
+- `project-data/README.md`: Updated directory structure and folder summaries with `map/`.
+- `js/data.js`: Added `mappuzzle` case study entry containing complete overview, problem, responsibilities, architecture, challenges/solutions, features, stack, achievements, process, and lessons.
+- `index.html`: Added `mappuzzle` card (`data-project="mappuzzle"`, cover badge `MP`), normalized `tradewall` and `traderoute` to standard 2-column cards, and updated subtitle to "Fifteen systems".
+- `css/style.css`: Added `.work-cover[data-cover="mappuzzle"]` gradient styling.
+
+#### Validation
+
+- `node --check js/data.js` passed with zero errors.
+
+---
+
 ### 2026-10-22 — Add Cloudinary Media Assets for Sikh History Interactive Timeline Kiosk
 
 #### Request

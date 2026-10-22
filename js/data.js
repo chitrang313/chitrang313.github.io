@@ -826,6 +826,125 @@ window.CASE_STUDIES = {
     ]
   },
 
+  /* ---------------------------------------------------- MAP Art Puzzle Kiosk */
+  mappuzzle: {
+    title: 'MAP Art Puzzle',
+    kicker: 'Interactive Sliding Puzzle Kiosk for Museum of Art & Photography',
+    year: '2022 — 2023',
+    role: 'Interactive Systems Engineer — kiosk architecture, puzzle algorithms, touch interactions',
+    org: 'ViitorCloud Technologies · Museum of Art & Photography (MAP)',
+    stackLine: 'Unity (URP) · C# · Dynamic Texture Slicing · Parity Solvability Engine · Mobile QR Upload · Touch Gestures',
+    hero: { type: 'placeholder', label: 'Hero shot — MAP Art Puzzle on large 90-inch gallery kiosk screen', caption: 'Drop assets/img/projects/mappuzzle-hero.jpg' },
+
+    overview: [
+      'Built for the Museum of Art & Photography (MAP) in Bengaluru, this interactive touchscreen installation transforms fine art appreciation into an engaging, tactile game. Deployed across gallery screens up to 90 inches in both portrait and landscape orientations, the installation was designed to encourage visitors—especially younger audiences and families—to slow down and explore the nuanced brushwork, color palettes, and compositions of artworks they might otherwise glance past.',
+      'Visitors can select masterpieces from the museum collection or scan an on-screen QR code with their smartphone to upload their own photo directly into the game. After zooming, panning, and cropping into a custom composition, the image scrambles into a sliding tile puzzle. Visitors race against the clock to restore the artwork, check high scores, and uncover hidden details through hands-on play.'
+    ],
+
+    problem: [
+      'Museum galleries struggle with visitor passivity: studies show average guests spend less than ten seconds in front of a painting, barely registering technical mastery or historical significance. MAP needed an installation that converts passive observing into active, prolonged visual exploration while maintaining museum-grade presentation on ultra-large displays.',
+      'From an engineering perspective, the system faced critical constraints: puzzles scrambled at random have a 50% chance of being mathematically unsolvable; public visitors could not be permitted to connect phones via physical cables or unverified networks; and the software had to run seamlessly across heterogeneous screen sizes (55" to 90") and orientations (landscape and portrait) without asset distortion or frame drops.'
+    ],
+
+    responsibilities: [
+      'Architected and implemented the entire touchscreen puzzle client application in Unity (URP) and C#.',
+      'Engineered a mathematically validated tile shuffling algorithm that guarantees 100% inversion parity solvability.',
+      'Designed a zero-allocation GPU texture UV remapping shader to slice high-resolution 4K/8K paintings into tiles without memory spikes or seams.',
+      'Developed an interactive multi-touch crop canvas supporting simultaneous two-finger pinch-to-zoom, pan momentum, and 90-degree rotation.',
+      'Built a frictionless smartphone upload bridge using temporary QR code session pairing and an ephemeral local HTTP transfer pipeline.',
+      'Created an adaptive responsive UI layout engine accommodating 16:9 landscape and 9:16 portrait kiosk enclosures up to 90 inches.',
+      'Implemented local leaderboard tracking, high-score persistence, and unattended kiosk watchdog routines with automatic idle resets.'
+    ],
+
+    architecture: {
+      paragraphs: [
+        'The application utilizes a modular component architecture separating artwork catalog indexing, gesture transformation, puzzle mathematics, and rendering. When an artwork is selected or uploaded, it passes into an image processing pipeline that normalizes aspect ratios and computes affine transformation matrices for user crops.',
+        'Rather than generating multiple sub-textures on the CPU, each puzzle tile references the single source texture in GPU memory via dynamic UV offsets. The sliding tile engine tracks grid coordinates in an N × N state matrix, validating Manhattan adjacency and moving tiles with smooth spring-damper interpolation.'
+      ],
+      layers: [
+        ['Kiosk Shell & Attract', 'Full-screen kiosk mode, idle attract screensaver, auto-reset timeout, hidden staff settings'],
+        ['Collection & Search Engine', 'Metadata indexing by artist, department, date, origin; real-time search filtering'],
+        ['Mobile QR Ingestion Bridge', 'Session-keyed QR generation, ephemeral smartphone upload page, secure memory-only ingestion'],
+        ['Multi-Touch Crop Engine', 'Pinch-to-zoom, pan, 90° rotation, homography mapping, aspect-ratio constraint clamping'],
+        ['Sliding Puzzle Mathematics', 'Inversion parity verification, guaranteed solvability, Manhattan distance heuristics'],
+        ['GPU UV Tile Slicer', 'Instanced quad rendering, dynamic UV offset mapping, high-res texture streaming'],
+        ['High Score & Analytics', 'Local SQLite leaderboard per artwork, completion time benchmarking, session telemetry']
+      ]
+    },
+
+    challenges: [
+      {
+        challenge: 'Preventing unsolvable sliding puzzle permutations from frustrating gallery visitors.',
+        solution: 'Implemented an inversion parity check algorithm on scrambled states. For an N-puzzle, solvability depends strictly on permutation inversions combined with blank tile row position. Any invalid permutation is either adjusted or generated via valid backward random walks from the solved state, ensuring 100% solvability.'
+      },
+      {
+        challenge: 'Slicing heavy 4K/8K archival museum images into dynamic tiles in real time without CPU lag or GC spikes.',
+        solution: 'Avoided CPU texture blitting entirely. Developed a custom shader that maps each tile mesh quad directly to UV regions of the master texture in VRAM, eliminating runtime memory allocations and maintaining a steady 60 FPS.'
+      },
+      {
+        challenge: 'Allowing visitors to upload personal smartphone photos without security vulnerabilities or complex Wi-Fi setups.',
+        solution: 'Created an ephemeral QR code pairing system. Visitors scan a unique QR code on the kiosk screen, opening a lightweight web upload page that transmits the image over a secured local socket directly to runtime memory with strict filetype and dimension sanitization.'
+      },
+      {
+        challenge: 'Supporting diverse screen formats up to 90 inches in both landscape and portrait gallery installations.',
+        solution: 'Built an adaptive UI architecture using anchor-proportional layouts and minimum 48mm touch-target constraints, ensuring tiles remain easy to reach and manipulate for both children and adults regardless of kiosk enclosure.'
+      }
+    ],
+
+    features: [
+      'Comprehensive collection browser with filtering by artist, department, period, and place of origin',
+      'Ephemeral mobile upload bridge via QR code letting visitors puzzle their own photos',
+      'Intuitive multi-touch gesture canvas: pinch-to-zoom, pan, rotate, and custom crop',
+      'Multiple difficulty levels (3x3, 4x4, 5x5) with adjustable tile counts and timer challenge',
+      'Mathematically verified 100% solvable puzzle shuffling with inversion parity checks',
+      'Instant "Preview" overlay enabling quick peeks at the original master artwork',
+      'Artwork-specific high-score leaderboards tracking fastest completion times',
+      'Dual orientation support (portrait and landscape) optimized for 55" to 90" touch displays',
+      'Automated kiosk resilience: unattended idle timeout, attract loop, and hidden admin controls'
+    ],
+
+    stack: [
+      ['Platform', 'In-Gallery Touchscreen Kiosks (55" to 90", Portrait & Landscape)'],
+      ['Engine & Language', 'Unity (URP), C#'],
+      ['Algorithms', 'Parity-Checked Sliding Tile Generator, Affine UV Homography'],
+      ['Networking & Bridge', 'Ephemeral Web Upload Bridge, QR Code Session Pairing'],
+      ['UI & Graphics', 'Custom Multi-Touch Gesture Recognizer, Instanced Quad UV Shaders'],
+      ['Persistence', 'Local SQLite Leaderboard & Performance Telemetry']
+    ],
+
+    achievements: [
+      'Successfully deployed on ultra-large touch displays at the Museum of Art & Photography (MAP), Bengaluru.',
+      'Significantly extended visitor dwell time with fine art, transforming average 10-second glances into multi-minute collaborative sessions.',
+      '100% solvability guarantee eliminated visitor frustration and abandoned sessions.',
+      'Smartphone QR upload feature became a major hit for families and school tour groups.'
+    ],
+
+    process: [
+      ['Curatorial & UX research', 'Studied visitor dwell patterns and established artwork selection criteria with MAP curators'],
+      ['Math & algorithm design', 'Developed and unit-tested inversion parity validation to guarantee solvable shuffles'],
+      ['Touch & gesture engine', 'Iterated multi-touch zoom/pan/crop controls calibrated for massive 90-inch touchscreens'],
+      ['Mobile upload bridge', 'Engineered frictionless QR upload mechanism with robust memory security safeguards'],
+      ['On-site deployment', 'Calibrated touch responses, visual fidelity, and multi-orientation kiosk frames in Bengaluru']
+    ],
+
+    lessons: [
+      'Gamifying fine art observation dramatically increases attention to subtle compositional details, proving interactive software can deepen rather than cheapen museum education.',
+      'Hardware scale matters: interactions that feel intuitive on a tablet or mobile screen need distinct touch ergonomics and reachability considerations on 90-inch public touchscreens.'
+    ],
+
+    gallery: [
+      { type: 'placeholder', label: 'Artwork collection browser and search interface', caption: 'Drop assets/img/projects/mappuzzle-01.jpg' },
+      { type: 'placeholder', label: 'Multi-touch zoom, rotate and crop tool', caption: 'Drop assets/img/projects/mappuzzle-02.jpg' },
+      { type: 'placeholder', label: 'Active sliding tile puzzle gameplay on 90-inch display', caption: 'Drop assets/img/projects/mappuzzle-03.jpg' },
+      { type: 'placeholder', label: 'Mobile photo upload via QR code and leaderboard', caption: 'Drop assets/img/projects/mappuzzle-04.jpg' }
+    ],
+
+    links: [
+      { label: 'Museum of Art & Photography (MAP) Bengaluru', url: 'https://map-india.org/' },
+      { label: 'ViitorCloud Technologies', url: 'https://viitorcloud.com/' }
+    ]
+  },
+
   /* ------------------------------------------------------------------ SoReal */
   soreal: {
     title: 'SoReal',
