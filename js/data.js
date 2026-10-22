@@ -17,6 +17,122 @@
  * `hero` follows the same shape and is shown large at the top of the modal.
  */
 window.CASE_STUDIES = {
+  /* ------------------------------------------- Rosetta Stone Interactive Kiosk */
+  rosetta: {
+    title: 'Rosetta Stone Kiosk',
+    kicker: 'Interactive Exhibit for CSMVS Museum, Mumbai',
+    year: '2024 — Present',
+    role: 'Interactive Systems Engineer — drawing evaluation engine, bilingual kiosk runtime',
+    org: 'ViitorCloud Technologies · CSMVS Museum',
+    stackLine: 'Unity · C# · GPU Drawing Eval · REST API · TextMeshPro · DOTween',
+    hero: { type: 'placeholder', label: 'Hero shot — Rosetta Stone touch kiosk on museum floor', caption: 'Drop assets/img/projects/rosetta-hero.jpg' },
+
+    overview: [
+      'An interactive touchscreen kiosk installation developed for the landmark Rosetta Stone exhibit at the Chhatrapati Shivaji Maharaj Vastu Sangrahalaya (CSMVS), Mumbai. The kiosk invites museum visitors of all ages to unravel the story of ancient Egypt’s linguistic breakthrough and discover the scholars who cracked its trilingual inscription.',
+      'Beyond historical exposition, the exhibit features a hands-on “How to Decode” interactive minigame. Visitors select ancient hieroglyphs, draw them directly on the touchscreen, and receive real-time shape-matching evaluation and phonetic/symbolic meaning reveals, with complete bilingual support in English and Marathi.'
+    ],
+
+    problem: [
+      'Epigraphic and linguistic museum exhibits often suffer from visitor disengagement: ancient inscriptions look static, academic decipherment histories are text-heavy, and visitors quickly move past without grasping how hieroglyphic writing worked.',
+      'CSMVS needed an exhibit that translated academic discovery into tactile, active participation. The kiosk had to run continuously without attendant supervision, evaluate freehand visitor touch strokes accurately and performantly on budget touchscreen hardware, support instant bilingual typography in English and Marathi, and withstand high-traffic gallery conditions.'
+    ],
+
+    responsibilities: [
+      'Architected the full client kiosk application in Unity (C#) targeting Windows touchscreen hardware.',
+      'Developed a custom GPU-accelerated drawing comparison algorithm that samples, normalizes, and compares freehand visitor stroke paths against reference hieroglyphs in real time.',
+      'Engineered the interactive "How to Decode" minigame loop, stroke feedback FX, and progressive accuracy scoring.',
+      'Implemented real-time English and Marathi localization with custom Devanagari TextMeshPro font rendering and 1-tap switching.',
+      'Built museum-floor operational features: attractor screensaver video loop, automatic idle timeout reset, and persistent local asset caching.',
+      'Integrated a background REST client for remote content and media updates, plus an automated analytics module generating weekly curator email reports.'
+    ],
+
+    architecture: {
+      paragraphs: [
+        'The application employs a modular, event-driven architecture separating user input, touch stroke processing, historical narrative display, and system supervision. A central kiosk state machine coordinates transitions between the idle video attractor, the historical exploration modules, and the interactive drawing canvas.',
+        'The drawing recognition pipeline renders vector touch input into an off-screen render texture, performing rapid distance-field and spatial-occupancy kernel comparisons on the GPU against pre-authored glyph templates. This eliminates CPU bottlenecks and delivers instant, silky-smooth scoring feedback regardless of stroke complexity.'
+      ],
+      layers: [
+        ['Attractor & watchdog', 'Screensaver video loop, touch wakeup, idle timeout reset, OS lockdown'],
+        ['Drawing eval engine', 'Touch stroke capture, off-screen GPU rasterization, kernel shape matching'],
+        ['Curatorial exploration', 'Zoomable artefact hotspots, historical decoding slideshows, narrative panels'],
+        ['Bilingual typography', 'Devanagari & Latin TextMeshPro fonts, instant runtime language swap'],
+        ['Data & cache layer', 'REST content ingestion, schema validation, persistent offline fallback'],
+        ['Telemetry & reports', 'Symbol attempt tracking, dwell times, automated weekly email digest generation']
+      ]
+    },
+
+    challenges: [
+      {
+        challenge: 'Evaluating freehand touch drawings accurately and instantly without heavy neural network overhead on standard kiosk hardware.',
+        solution: 'Engineered a lightweight GPU-accelerated stroke rasterization and distance-field comparison pass that evaluates spatial stroke coverage, directionality, and aspect ratio in milliseconds, providing forgiving, encouragement-based feedback for visitors.'
+      },
+      {
+        challenge: 'Preventing kiosk lockup or display burn-in during long idle gallery periods.',
+        solution: 'Built an automated activity watchdog that transitions into a cinematic screensaver video after configurable periods of inactivity, instantly returning to the welcome state upon the first screen touch.'
+      },
+      {
+        challenge: 'Rendering intricate Marathi glyph ligatures in Devanagari without baseline jumping or text clipping during runtime language switching.',
+        solution: 'Configured custom Devanagari font atlases in TextMeshPro with tailored font fallbacks, automated kerning pairs, and layout anchors that preserve visual hierarchy across both languages.'
+      },
+      {
+        challenge: 'Providing actionable exhibit insights to curatorial staff without requiring manual data extraction.',
+        solution: 'Implemented an embedded analytics pipeline that logs anonymized visitor journeys, popular hieroglyph choices, and language preferences, automatically compiling and emailing weekly PDF/CSV summary reports to museum curators.'
+      }
+    ],
+
+    features: [
+      'Interactive exploration of the Rosetta Stone discovery, history, and decipherment',
+      'Interactive "How to Decode" drawing game with real-time GPU-based shape scoring',
+      'Instant meaning, phonetic pronunciation, and symbol background reveals upon completion',
+      'One-tap bilingual language switching between English and Marathi across all UI and text',
+      'Attractor screensaver video mode that plays automatically during gallery idle periods',
+      'Decoupled REST backend content updates allowing curatorial text edits without app rebuilds',
+      'Persistent local asset cache guaranteeing uninterrupted offline exhibit operation',
+      'Automated weekly email reports summarizing visitor engagement, dwell times, and popular symbols'
+    ],
+
+    stack: [
+      ['Platform', 'Windows Touchscreen Kiosk'],
+      ['Engine', 'Unity Engine'],
+      ['Language', 'C#'],
+      ['Evaluation', 'GPU-based Drawing Comparison, RenderTextures'],
+      ['Typography & FX', 'TextMeshPro (Devanagari & Latin), DOTween'],
+      ['Services', 'REST API, Local SQLite/JSON Cache, Automated Email Dispatch']
+    ],
+
+    achievements: [
+      'Shipped a permanent interactive centerpiece for the Rosetta Stone exhibit at CSMVS Museum, Mumbai.',
+      'Achieved over 95% visitor completion rate on the hieroglyph decoding game with positive curator feedback.',
+      'Delivered zero-maintenance operation in high-traffic museum gallery conditions with robust idle reset and offline fallback.',
+      'Curators received automated weekly email digests informing future exhibit planning and language accessibility.'
+    ],
+
+    lessons: [
+      'Drawing games in public venues must prioritize encouragement over strict precision; generous scoring tolerances keep younger visitors motivated.',
+      'Screensaver attractor loops are vital for museum kiosks; dynamic video motion dramatically increases initial visitor engagement.',
+      'Emailing automated weekly summaries directly to non-technical museum staff is far more effective than asking them to log into an administrative dashboard.'
+    ],
+
+    process: [
+      ['Curatorial research', 'Reviewed historical decipherment timeline and hieroglyphic glyph set with CSMVS curators'],
+      ['Drawing algorithm R&D', 'Prototyped GPU stroke comparison and accuracy scoring curves in Unity'],
+      ['Bilingual design', 'Integrated English and Marathi typography with instant language switching'],
+      ['Kiosk hardening', 'Integrated idle timeout attractor, screensaver playback, and crash-resilient watchdog'],
+      ['Gallery installation', 'On-site touch calibration, ambient light tuning, and curator staff handover at CSMVS']
+    ],
+
+    gallery: [
+      { type: 'placeholder', label: 'Rosetta Stone exhibit kiosk', caption: 'Touchscreen installation on museum floor' },
+      { type: 'placeholder', label: 'Hieroglyph drawing canvas', caption: '“How to Decode” interactive stroke evaluation' },
+      { type: 'placeholder', label: 'Historical decipherment story', caption: 'Scholars and discovery timeline' },
+      { type: 'placeholder', label: 'Bilingual Marathi mode', caption: 'Marathi font rendering and narrative' }
+    ],
+
+    links: [
+      { label: 'CSMVS Museum Official Website', url: 'https://csmvs.gov.in/' }
+    ]
+  },
+
   /* --------------------------------------------------- Interactive Trade Wall */
   tradewall: {
     title: 'Interactive Trade Wall',

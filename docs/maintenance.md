@@ -50,6 +50,36 @@ Possible Next Step: <Recommended follow-up>
 
 <!-- Add entries only for meaningful work. Do not create fictional history. -->
 
+### 2026-10-22 — Add Rosetta Stone Interactive Kiosk for CSMVS Museum
+
+#### Request
+
+Add Rosetta Stone Interactive Kiosk, CSMVS Museum, Mumbai into the portfolio, then commit and push.
+
+#### Investigation
+
+- Examined Rosetta Stone exhibit specifics: interactive hieroglyph drawing evaluation game ("How to Decode"), trilingual history exploration, idle attractor video screensaver, English/Marathi Devanagari typography, and automated weekly email digests.
+- Structured work grid to align 9 total projects: Row 1 groups all 3 CSMVS Museum interactive exhibits (`rosetta`, `tradewall`, `traderoute`) across 6 columns (span 2 each).
+
+#### Changes
+
+- Added `rosetta` case study entry to `js/data.js` covering overview, problem statement, responsibilities, GPU-accelerated drawing comparison architecture, challenges, features, stack, achievements, lessons, process, gallery placeholders, and official CSMVS link.
+- Added `rosetta` card (`data-project="rosetta"`, badge `RS`) to `index.html`, updated section subtitle to "Nine systems", and balanced Row 1 as a three-kiosk gallery suite.
+- Added `.work-cover[data-cover="rosetta"]` gradient tint in `css/style.css`.
+
+#### Validation
+
+- Validated JavaScript syntax using `node --check js/data.js` and `node --check js/main.js`.
+- Verified git status and diff across all modified files.
+
+#### Remaining Work
+
+- Replace media placeholders with photography/video assets when available.
+
+#### Notes for Future Agents
+
+- Case study ID is `rosetta`. Cover mono badge is `RS`.
+
 ### 2026-10-22 — Add Interactive Trade Wall: A Touch-Screen Museum Experience for CSMVS
 
 #### Request
