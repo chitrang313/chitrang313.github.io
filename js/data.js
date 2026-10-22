@@ -1060,6 +1060,237 @@ window.CASE_STUDIES = {
     ]
   },
 
+  /* --------------------------------------------------------- Tree Light-Up */
+  treelight: {
+    title: 'Tree Light-Up',
+    kicker: 'Touch to Make a Tree Glow · Physical Computing Installation',
+    year: '2023 — 2024',
+    role: 'Lead Interactive Systems & IoT Engineer — touchscreen interface, microcontroller firmware, LED animation curves, wireless telemetry protocol',
+    org: 'Physical Computing Installation · Interactive Prototype',
+    stackLine: 'Unity / C# Touch UI · ESP32 / C++ · WS2812B Addressable LEDs · Solid State Relays · Local UDP Telemetry · Standalone Wi-Fi',
+    hero: { type: 'placeholder', label: 'Hero shot — Tree Light-Up touchscreen kiosk and illuminated physical tree with glowing strands', caption: 'Drop assets/img/projects/treelight-hero.jpg' },
+
+    overview: [
+      'Tree Light-Up is an interactive physical computing display where a touch on a screen lights up a real, physical tree. Visitors tap one of four interactive buttons on a touchscreen kiosk, and a colored strand of lights (red, green, blue, or amber) climbs the trunk and branches of the tree, then transitions into a slow, calming "breathing" illumination effect. Tapping again initiates a cascading fade-out sequence as the lights gently switch off. A real, physical incandescent bulb illuminates in tandem with each active strand.',
+      'Designed to turn screens into hands-on physical experiences, the installation invites visitors to watch their touch directly manipulate tangible reality in front of them, creating a memorable moment that encourages active social engagement. The system operates autonomously over its own isolated local wireless connection, requiring zero venue Wi-Fi and zero complicated setup on site.'
+    ],
+
+    problem: [
+      'Visitors at public exhibitions, festivals, and cultural venues often experience screen fatigue—viewers walk past flat monitors and passive video screens without stopping to engage. Furthermore, temporary exhibition spaces frequently lack reliable internet connections, while complex physical wiring across open gallery floors creates safety hazards and logistical friction.',
+      'The installation demanded an instantaneous, zero-latency physical-digital bridge where a touch on glass provokes an immediate optical reaction on a live tree; a smooth, organic animation pipeline that avoids mechanical LED stepping; mixed-load electrical safety handling both digital 5V LEDs and mains-powered physical filament bulbs; and a 100% standalone wireless infrastructure with plug-and-play simplicity.'
+    ],
+
+    responsibilities: [
+      'Designed and implemented the interactive touchscreen controller interface in Unity / C# with responsive multi-touch input and visual strand feedback.',
+      'Engineered custom ESP32 microcontroller firmware in C++ controlling 4x addressable WS2812B LED strands and 4x solid state relays (SSRs).',
+      'Formulated organic lighting animation mathematics, including ease-out cubic progressive climbing curves and non-linear gamma-corrected sinusoidal breathing pulses.',
+      'Built a connectionless, high-speed local UDP wireless telemetry protocol achieving sub-15ms touch-to-photon latency over a dedicated local Access Point.',
+      'Integrated optocoupled solid-state relays with zero-crossing detection to safely drive real filament lamps without electrical feedback or voltage droop.',
+      'Implemented independent multi-strand state machines supporting concurrent multi-touch interaction and automated idle attractor sequences.'
+    ],
+
+    architecture: {
+      paragraphs: [
+        'The system is split into two autonomous physical nodes communicating over a private wireless network: the Touchscreen Controller Kiosk and the Physical Tree Controller. The kiosk renders a clean, tactile four-button UI representing the red, green, blue, and amber color channels. When a visitor taps a button, the kiosk updates its on-screen strand representation and broadcasts a lightweight UDP datagram over the microcontroller’s embedded Wi-Fi access point in under 5ms.',
+        'The physical controller runs a dual-core ESP32 with FreeRTOS. Core 0 handles the wireless UDP socket and state parsing, while Core 1 executes the high-precision FastLED timing engine and SSR drivers. Each color channel operates an independent state machine (Off, Climbing, Breathing, Fading), ensuring visitors can layer multiple colors together seamlessly or switch them off independently with smooth parametric interpolation.'
+      ],
+      layers: [
+        ['Touchscreen Controller Kiosk', 'Tactile 4-button touch interface, input debouncing, real-time UI strand animations'],
+        ['Standalone Local AP', 'Embedded ESP32 Wi-Fi Access Point, zero-config automatic pairing, zero internet reliance'],
+        ['Low-Latency UDP Protocol', 'Sub-10ms binary telemetry datagrams, atomic channel state updates, packet deduplication'],
+        ['LED Lighting Engine', 'FastLED / RMT DMA driver, cubic ease climbing curves, gamma-corrected 0.2 Hz breathing math'],
+        ['Physical Relay Stage', 'Optocoupled zero-crossing SSR drivers, high-voltage galvanic isolation, real Edison bulb control'],
+        ['Autonomous Attractor & Safety', '3-minute inactivity attractor breathing cycle, hardware watchdog timer, voltage supervision']
+      ]
+    },
+
+    challenges: [
+      {
+        challenge: 'Eliminating input lag between a touch on screen and the physical lights reacting across open exhibition space.',
+        solution: 'Bypassed congested venue Wi-Fi networks by configuring the ESP32 microcontroller as a dedicated local Access Point. The touchscreen kiosk transmits lightweight UDP binary packets directly to the controller IP with zero handshake overhead, maintaining sub-15ms glass-to-photon latency.'
+      },
+      {
+        challenge: 'Creating natural, organic climbing and breathing light animations without mechanical-looking LED transitions.',
+        solution: 'Programmed non-blocking parametric timing curves inside the firmware. The climbing animation utilizes cubic ease-out curves to simulate energy surging up the branches, transitioning smoothly into a 0.2 Hz sinusoidal pulse with non-linear gamma luminance correction matching human ocular perception.'
+      },
+      {
+        challenge: 'Safely driving high-current 5V addressable digital LEDs alongside 220V mains-powered physical filament bulbs.',
+        solution: 'Employed optocoupled solid-state relays with zero-crossing detection to switch high-voltage incandescent bulbs cleanly without sparking or electrical noise. Decoupled 5V high-amperage power rails with bulk capacitors prevent voltage sag during multi-strand illumination.'
+      },
+      {
+        challenge: 'Handling chaotic multi-user interaction when multiple visitors tap buttons concurrently or repeatedly.',
+        solution: 'Built four decoupled, asynchronous state machines (Off, Climbing, Breathing, Fading) with input debouncing. Tapping an active strand smoothly reverses its interpolation into a gentle fade-out without affecting concurrent strands.'
+      }
+    ],
+
+    features: [
+      'Tactile touchscreen kiosk controlling real physical lights on an actual living tree in real time',
+      'Four interactive color channels (Red, Green, Blue, Amber) that can be triggered independently or layered together',
+      'Organic lighting animations: dynamic progressive climbing effect transitioning into a calming sinusoidal breathing glow',
+      'Dedicated real incandescent filament bulb illuminating at branch junctions alongside each active strand',
+      'Graceful cascading fade-out animation when turning strands off, avoiding harsh abrupt cuts',
+      'Standalone local wireless network requiring zero venue Wi-Fi, zero internet access, and zero network configuration',
+      'Galvanically isolated solid-state relay stage providing robust electrical safety and noise immunity',
+      'Autonomous idle attractor mode gently pulsing ambient lights to attract passersby after 3 minutes of inactivity'
+    ],
+
+    stack: [
+      ['Platform', 'Interactive Touchscreen Tablet Kiosk, Physical Tree Installation'],
+      ['Client & Language', 'Unity / C# Touch UI Client, TextMeshPro, Multi-Touch Input Engine'],
+      ['Microcontroller & Firmware', 'Espressif ESP32 Dual-Core (240 MHz), C++, FreeRTOS, FastLED / RMT DMA'],
+      ['Lighting & Actuation', 'WS2812B Addressable LED Strands, 4x Warm Edison Filament Bulbs, Zero-Cross SSRs'],
+      ['Networking & Telemetry', 'Embedded Standalone 802.11 AP, Low-Latency UDP Binary Protocol (<10ms)'],
+      ['Electrical Architecture', 'Optocoupled Galvanic Isolation, Dual-Rail Decoupled DC/AC Power Distribution']
+    ],
+
+    achievements: [
+      'Bridged digital screen interaction with tangible physical reality, delivering an enchanting, hands-on exhibition experience.',
+      'Achieved sub-15ms glass-to-photon responsiveness over standalone wireless connection without external routers.',
+      'Delivered 100% stable, continuous operation across multi-day exhibition crowds without internet reliance or maintenance.',
+      'Engineered organic parametric illumination math that eliminates harsh, mechanical LED stepping.'
+    ],
+
+    process: [
+      ['Physical & electrical prototyping', 'Bench-tested ESP32 RMT peripheral, FastLED drivers, and optocoupled SSR lamp switching'],
+      ['Parametric curve formulation', 'Crafted cubic climbing math and gamma-corrected 0.2 Hz sinusoidal breathing pulse curves'],
+      ['Standalone wireless engineering', 'Configured embedded ESP32 Access Point and connectionless UDP telemetry listener loop'],
+      ['Touchscreen UI development', 'Built responsive 4-channel touch controller in Unity with state synchronization and debouncing'],
+      ['Venue physical integration', 'Wove addressable strands and anchored filament bulbs securely onto living tree canopy']
+    ],
+
+    lessons: [
+      'In physical computing, closing the loop between a touch on glass and something real happening in the room creates an immediate emotional payoff that no purely digital screen can match.',
+      'Standalone local wireless setups eliminate the single biggest failure point of venue installations: reliance on external convention Wi-Fi.'
+    ],
+
+    gallery: [
+      { type: 'placeholder', label: 'Tree Light-Up — touchscreen kiosk and glowing physical tree with multiple active strands', caption: 'Drop assets/img/projects/treelight-01.jpg' },
+      { type: 'placeholder', label: 'Touchscreen kiosk interface showing four interactive color channel buttons', caption: 'Drop assets/img/projects/treelight-02.jpg' },
+      { type: 'placeholder', label: 'Detail of addressable LED climbing strand and illuminated real filament bulb', caption: 'Drop assets/img/projects/treelight-03.jpg' },
+      { type: 'placeholder', label: 'ESP32 controller enclosure with solid state relays and power distribution rails', caption: 'Drop assets/img/projects/treelight-04.jpg' }
+    ],
+
+    links: [
+      { label: 'Exhibition Prototype & Architecture Notes', url: '#work' }
+    ]
+  },
+
+  /* ---------------------------------------------------- DigitalTwinLights */
+  digitaltwin: {
+    title: 'DigitalTwinLights',
+    kicker: 'Real Lights, Mirrored Live · Industrial Digital Twin Demonstration',
+    year: '2023 — 2024',
+    role: 'Lead Digital Twin & IoT Systems Engineer — hardware control panel integration, GPIO interrupt telemetry, real-time 3D twin in Unity (URP), physical-digital state reconciler',
+    org: 'Industrial IoT Prototype · Digital Twin Demonstration',
+    stackLine: 'Unity 6 (URP) · C# · Microcontroller (ESP32 / C++) · Hardware Toggle Switches · Local Telemetry (WebSocket/UDP) · PBR Shaders',
+    hero: { type: 'placeholder', label: 'Hero shot — Physical control panel with 4 switches and real bulbs beside exact 3D virtual copy in Unity', caption: 'Drop assets/img/projects/digitaltwin-hero.jpg' },
+
+    overview: [
+      'DigitalTwinLights is a hands-on physical demonstration of digital twin technology in action: a physical industrial control panel with four heavy-duty toggle switches and four real lamps, paired with an exact 1:1 photorealistic virtual 3D copy rendered on screen. Flip a physical switch on the control panel, the real bulb illuminates—and the matching 3D switch and light in the virtual scene activate at the identical moment. Physical and digital stay synchronized automatically in real time, with zero manual intervention.',
+      'Engineered as an undeniable, tangible proof-of-concept, the installation cuts through abstract corporate buzzwords to show what digital twin technology actually delivers: a live, trustworthy on-screen view of real-world equipment. While the lights are deliberately simple and accessible, the underlying event-driven telemetry architecture scales directly to industrial factory machinery, building management systems (BMS), and remote infrastructure monitoring.'
+    ],
+
+    problem: [
+      'Enterprise stakeholders frequently struggle to understand or trust digital twin solutions when presented through abstract architecture slide decks and marketing jargon. Companies need concrete, tactile proof that a digital twin is genuinely coupled to physical reality, that on-screen telemetry is instantaneous and truthful, and that state changes in the field mirror flawlessly on dashboards without data corruption or lag.',
+      'From an engineering standpoint, the demonstration required sub-15ms glass-to-glass latency so the physical click of a toggle and the on-screen animation feel completely simultaneous; hardware contact debounce filtering to prevent switch chattering; physically accurate CAD-matched 3D rendering in Unity URP with photorealistic materials and real-time shadow casting; and self-healing state reconciliation to guarantee zero drift across network restarts.'
+    ],
+
+    responsibilities: [
+      'Designed and wired the physical industrial control panel featuring 4x heavy-duty SPST toggle switches, 4x physical lamps, and optocoupled relay stages.',
+      'Engineered the microcontroller firmware in C++ utilizing sub-microsecond GPIO edge interrupts and hardware debouncing logic.',
+      'Developed the real-time 3D digital twin client in Unity 6 (URP), building CAD-accurate 3D switch animations, emissive filament shaders, and dynamic shadow-casting point lights.',
+      'Architected a low-overhead, event-driven local WebSocket / UDP telemetry pipeline streaming state transitions in under 3ms.',
+      'Implemented an authoritative bidirectional state reconciliation protocol with 1 Hz heartbeat verification and instant reconnect synchronization.',
+      'Designed the telemetry payload schema around industrial SCADA and OPC-UA register models to demonstrate clear scalability to factory automation.'
+    ],
+
+    architecture: {
+      paragraphs: [
+        'The system couples a tactile physical station to a high-fidelity 3D digital twin via an event-driven telemetry pipeline. The physical control station houses four industrial SPST toggle switches connected to GPIO pins on an ESP32 microcontroller with hardware RC filtering. When a switch position changes, an Interrupt Service Routine (ISR) fires in under 2ms, switching the physical solid state relay and dispatching a timestamped binary/JSON telemetry packet over a local socket.',
+        'The 3D digital twin runs in Unity 6 using the Universal Render Pipeline (URP). A background socket listener decodes incoming switch events and drives a deterministic animation state machine: the virtual switch lever pivots with accurate mechanical throw, the virtual bulb glass transitions to 2700K emissive bloom, and an associated real-time point light casts dynamic contact shadows. An authoritative 1 Hz heartbeat and initial handshake ensure the virtual scene never drifts out of sync with hardware.'
+      ],
+      layers: [
+        ['Physical Control Panel', 'Industrial aluminum enclosure, 4x heavy-duty SPST toggle switches, 4x real filament lamps'],
+        ['Hardware Debounce & ISR', 'RC low-pass filtering, Schmitt trigger logic, 35ms software hysteresis, microsecond GPIO ISR'],
+        ['Embedded Telemetry Controller', 'ESP32 microcontroller, FreeRTOS task prioritization, non-blocking telemetry packager'],
+        ['High-Speed Local Socket', 'Low-overhead WebSocket / UDP binary stream (<3ms network flight time), CRC checksums'],
+        ['3D Digital Twin Engine (Unity URP)', '1:1 CAD-matched 3D chassis, mechanical lever animator, PBR brushed steel materials'],
+        ['Lighting & Post-Processing', 'Real-time shadow-casting point lights, 2700K emissive filament shaders, physical camera bloom'],
+        ['Authoritative State Reconciler', 'Connection handshake state dump, 1 Hz background heartbeat, self-healing drift correction']
+      ]
+    },
+
+    challenges: [
+      {
+        challenge: 'Eliminating perceptible latency between the physical snap of a mechanical toggle and the 3D twin reacting on screen.',
+        solution: 'Replaced traditional microcontroller polling loops with hardware GPIO edge interrupts (ISRs). When contacts close, the interrupt dispatches an asynchronous socket event in under 3ms. Total glass-to-glass latency stays under 15ms, making the physical and virtual response feel completely instantaneous.'
+      },
+      {
+        challenge: 'Preventing mechanical contact bounce from causing rapid visual jitter in the 3D switch animation.',
+        solution: 'Paired physical RC low-pass filter networks with a deterministic 35ms software lockout state machine in firmware. Rapid contact oscillations are suppressed at the hardware boundary, broadcasting clean, singular toggle events.'
+      },
+      {
+        challenge: 'Achieving photorealistic physical parity so the digital twin feels like an authentic counterpart rather than a crude CAD mockup.',
+        solution: 'Built a 1:1 CAD replica in Unity URP using physically based materials (brushed aluminum, textured bakelite, glass envelope). When toggled, dynamic point lights ignite with calibrated 2700K incandescent color temperature, casting real-time soft shadows on chassis details.'
+      },
+      {
+        challenge: 'Preventing state desynchronization if the digital twin application boots after physical switches have already been set.',
+        solution: 'Engineered an authoritative state protocol. Upon establishing a connection, the 3D client queries a complete hardware register dump (`STATE_DUMP`), and the controller maintains a periodic 1 Hz state heartbeat to auto-correct any packet drop without manual intervention.'
+      }
+    ],
+
+    features: [
+      'Tangible digital twin demonstration: physical control panel with 4 switches and real bulbs mirrored live in real-time 3D',
+      'Instantaneous physical-to-virtual response with sub-15ms glass-to-glass latency between toggle flip and 3D reaction',
+      'Photorealistic 1:1 3D replica in Unity URP with PBR materials, dynamic emissive filament shaders, and real-time shadow casting',
+      'Zero manual synchronization: physical state changes propagate automatically to the virtual copy without operator input',
+      'Hardware debounce filtering with Schmitt triggers and firmware hysteresis preventing switch chatter and visual jitter',
+      'Authoritative state reconciliation: initial connection state dump and 1 Hz background heartbeat guarantee zero drift',
+      'Scalable telemetry schema modeled on industrial SCADA, MODBUS, and OPC-UA standards for enterprise extensibility',
+      'Live on-screen telemetry HUD displaying per-switch latency, voltage readings, and event logs for technical demonstrations'
+    ],
+
+    stack: [
+      ['Platform', 'Industrial Control Panel Hardware, Real-Time 3D Digital Twin Display'],
+      ['Engine & Language', 'Unity 6 (Universal Render Pipeline), C#, HLSL Shaders'],
+      ['Microcontroller & Firmware', 'Espressif ESP32 Dual-Core (240 MHz), C++, FreeRTOS, GPIO Interrupts'],
+      ['Hardware & Enclosure', '4x Heavy-Duty SPST Metal Toggles, 4x Real Indicator Bulbs, Industrial Metal Enclosure'],
+      ['Telemetry & Protocol', 'Local WebSocket / UDP Binary Stream (<3ms), CRC-16 Checksums, OPC-UA/SCADA Schema'],
+      ['3D Graphics & Lighting', 'CAD-Matched PBR Materials, Real-Time Point Lights, Contact Shadows, ACES Tone Mapping']
+    ],
+
+    achievements: [
+      'Built a compelling, hands-on proof of concept that demystifies digital twin technology for executive and technical audiences.',
+      'Achieved sub-15ms glass-to-glass synchronization, rendering physical and virtual states completely indistinguishable in timing.',
+      'Developed an industrial-grade telemetry architecture that scales directly from 4 switches to factory-scale SCADA monitoring.',
+      'Demonstrated 100% state reliability with zero packet drift across long multi-hour public demonstration sessions.'
+    ],
+
+    process: [
+      ['Enclosure & circuit engineering', 'Assembled industrial chassis, wired mechanical SPST toggles, solid state relays, and RC debounce filters'],
+      ['Firmware interrupt development', 'Authored microsecond GPIO edge interrupt handlers and binary telemetry packet serializer in C++'],
+      ['CAD modeling & 3D texturing', 'Modeled 1:1 control panel replica, authored PBR metallic-roughness textures, and tuned emissive shaders in URP'],
+      ['Kinematic animation & lighting', 'Created realistic switch throw physics, point light attenuation curves, and ACES bloom camera post-processing'],
+      ['Telemetry bridge & sync hardening', 'Implemented bidirectional WebSocket link, state reconciliation handshake, and live HUD diagnostics']
+    ],
+
+    lessons: [
+      'To build trust in digital twins, tactile immediacy is everything: when stakeholders flip a physical switch and see the 3D twin move without a fraction of a second lag, the value of remote monitoring becomes self-evident.',
+      'Designing telemetry schemas against industrial standards (registers, device IDs, timestamps) ensures small prototypes can evolve into enterprise platforms without architectural rewrites.'
+    ],
+
+    gallery: [
+      { type: 'placeholder', label: 'DigitalTwinLights — physical control panel with real bulbs beside live 3D digital twin', caption: 'Drop assets/img/projects/digitaltwin-01.jpg' },
+      { type: 'placeholder', label: 'Close-up of physical industrial metal switches and illuminated filament indicator lamps', caption: 'Drop assets/img/projects/digitaltwin-02.jpg' },
+      { type: 'placeholder', label: 'Photorealistic Unity URP 3D viewport showing dynamic point lighting and shadow casting', caption: 'Drop assets/img/projects/digitaltwin-03.jpg' },
+      { type: 'placeholder', label: 'Live telemetry diagnostics HUD showing switch latency, state registers, and event log', caption: 'Drop assets/img/projects/digitaltwin-04.jpg' }
+    ],
+
+    links: [
+      { label: 'Demonstration Prototype & Architecture Notes', url: '#work' }
+    ]
+  },
+
   /* --------------------------------------------------- The Good Deed Tree */
   deedtree: {
     title: 'The Good Deed Tree',

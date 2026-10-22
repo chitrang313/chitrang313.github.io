@@ -25,8 +25,10 @@ project-data/
 │   └── art-puzzle-kiosk.md            # Interactive sliding puzzle kiosk on up to 90" displays
 │
 ├── rnd/                               # Research & Development / Unpublished Museum & Public Prototypes
+│   ├── digital-twin-lights.md         # DigitalTwinLights real-time hardware-to-3D twin mirror
 │   ├── good-deed-tree.md              # The Good Deed Tree interactive kindness wall & 4K living 3D tree
-│   └── tirthankaras-museum-journey.md # 24 Tirthankaras interactive map & multi-plane parallax journey
+│   ├── tirthankaras-museum-journey.md # 24 Tirthankaras interactive map & multi-plane parallax journey
+│   └── tree-light-up.md               # Tree Light-Up interactive physical tree lighting over local wireless
 │
 ├── cuenect/                           # Cuenect
 │   └── interactive-3d-showcase.md     # Tri-app 3D showcase & Sony Spatial Reality Display
@@ -69,7 +71,9 @@ Interactive museum installation built at ViitorCloud Technologies:
 - **`art-puzzle-kiosk.md`**: Large-format touchscreen sliding puzzle kiosk (up to 90" displays in portrait and landscape) featuring collection search, mobile photo upload bridge via QR code, interactive crop/zoom/rotate, and parity-checked solvable tile scrambling.
 
 ### 4. `rnd/` — Research & Development (Cultural Heritage & Interactive Prototypes)
-Independent museum and public exhibition prototypes developed by Chitrang Patel:
+Independent museum, digital twin, and public exhibition prototypes developed by Chitrang Patel:
+- **`tree-light-up.md`**: An interactive physical computing display where touching a screen lights up a real physical tree with four color strands, progressive climbing animations, soothing breathing effects, and physical filament bulbs over an isolated local wireless connection.
+- **`digital-twin-lights.md`**: A hands-on digital twin demonstration pairing an industrial 4-switch physical control panel with an exact virtual 3D copy in Unity URP, mirroring switch positions, dynamic lighting, and bulb illumination in real time without manual sync.
 - **`good-deed-tree.md`**: A multi-screen interactive collective art installation pairing a tablet kiosk with a 4K living 3D tree display, featuring swipe-to-release physics, GPU foliage instancing, Trie-based real-time profanity filtering, and an atmospheric idle attractor.
 - **`tirthankaras-museum-journey.md`**: An interactive touch-screen exhibition prototype exploring the lives and sacred geography of the 24 Jain Tirthankaras through a dual-state map of India (Janma vs Moksha Bhumi), calm multi-plane parallax scenes, and an iconographic archival book reader.
 

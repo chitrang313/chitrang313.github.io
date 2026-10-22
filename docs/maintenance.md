@@ -50,6 +50,46 @@ Possible Next Step: <Recommended follow-up>
 
 <!-- Add entries only for meaningful work. Do not create fictional history. -->
 
+### 2026-10-22 — Add Tree Light-Up and DigitalTwinLights IoT Installations
+
+#### Request
+
+Add two interactive hardware-software installations into the portfolio and `project-data/rnd/`:
+1. "Tree Light-Up: Touch to Make a Tree Glow" (Interactive physical computing display connecting a touchscreen kiosk to a physical tree with four color strands, organic climbing/breathing animations, physical bulbs, and standalone wireless connectivity).
+2. "DigitalTwinLights — Real Lights, Mirrored Live" (Hands-on digital twin demonstration pairing a physical 4-switch control panel with an exact virtual 3D replica in Unity URP, mirroring states live with sub-15ms latency).
+This brings the total portfolio projects to 20 systems.
+
+#### Investigation
+
+- Examined project mechanics:
+  - Tree Light-Up: Physical computing installation decoupling touchscreen UI from physical tree actuation; four independent color strands (red, green, blue, amber); cubic ease-out progressive climbing curves; non-linear gamma-corrected 0.2 Hz sinusoidal breathing pulses; optocoupled zero-crossing SSR drivers for real Edison filament bulbs; standalone local ESP32 Wi-Fi Access Point and connectionless UDP telemetry (<15ms glass-to-photon latency) with zero venue network setup.
+  - DigitalTwinLights: Industrial IoT digital twin demonstration; heavy-duty industrial toggle switches with RC debouncing; microsecond GPIO edge interrupts (ISRs); sub-3ms binary telemetry packet streaming over local socket; CAD-accurate 3D control panel replica in Unity 6 (URP) with PBR materials, dynamic emissive filament shaders, and real-time shadow-casting point lights; authoritative state reconciler with initial state dump and 1 Hz background heartbeat.
+- Balanced 6-column work grid across 20 total systems into 7 full rows (42 columns total, exactly 0 orphaned slots):
+  - Row 1 (Sikh History Museum — 3 cards x 2 cols = 6 cols): `goldentemple`, `dualgallery`, `sikhtimeline`
+  - Row 2 (CSMVS Museum Kiosks — 3 cards x 2 cols = 6 cols): `feedback`, `motw`, `rosetta`
+  - Row 3 (CSMVS Trade & MAP Bengaluru — 3 cards x 2 cols = 6 cols): `tradewall`, `traderoute`, `mappuzzle`
+  - Row 4 (Physical Computing, IoT & Living Tree Installations — 3 cards x 2 cols = 6 cols): `treelight`, `digitaltwin`, `deedtree`
+  - Row 5 (Featured 3D Interactive Platforms — 2 cards x 3 cols = 6 cols): `cuenect` (is-feature), `soreal` (is-feature)
+  - Row 6 (Cultural Systems, Sports & Multiplayer Simulations — 3 cards x 2 cols = 6 cols): `tirthankaras`, `icc`, `ludo`
+  - Row 7 (Classic Game Engines & Simulators — 3 cards x 2 cols = 6 cols): `cards`, `bus`, `arena`
+
+#### Changes
+
+- `project-data/rnd/tree-light-up.md`: Created detailed project documentation detailing the physical-digital IoT architecture, non-blocking parametric climbing/breathing math, optocoupled SSR safety, and standalone AP resilience.
+- `project-data/rnd/digital-twin-lights.md`: Created comprehensive digital twin documentation covering hardware interrupt routines, low-latency socket telemetry, Unity URP PBR shaders, state reconciliation, and industrial SCADA/PLC scalability.
+- `project-data/README.md`: Updated directory tree and folder summary section 4 with `tree-light-up.md` and `digital-twin-lights.md`.
+- `js/data.js`: Added comprehensive `treelight` and `digitaltwin` case study objects to `window.CASE_STUDIES` complete with overview, problem, responsibilities, architecture layers, challenges/solutions, features, stack, achievements, process, lessons, gallery placeholders, and links.
+- `css/style.css`: Added `.work-cover[data-cover="treelight"]` and `.work-cover[data-cover="digitaltwin"]` gradient tints.
+- `index.html`: Updated subtitle to "Twenty systems", inserted cards for `treelight` (monogram badge `TL`) and `digitaltwin` (monogram badge `DL`), styled `cuenect` and `soreal` as `is-feature` (span 3), and balanced Row 4, 5, 6, 7 across the 6-column grid.
+
+#### Validation
+
+- Validated JavaScript syntax using `node --check js/data.js` and `node --check js/main.js` (both exit code 0).
+- Validated runtime parsing of `js/data.js` via Node vm, verifying all 20 case study keys are properly registered.
+- Verified grid column mathematics: 18 standard cards x 2 cols + 2 feature cards x 3 cols = 36 + 6 = 42 columns / 6 columns per row = exactly 7 full rows (zero orphaned slots).
+
+---
+
 ### 2026-10-22 — Add The Good Deed Tree Interactive Kindness Wall
 
 #### Request
