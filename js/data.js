@@ -17,6 +17,122 @@
  * `hero` follows the same shape and is shown large at the top of the modal.
  */
 window.CASE_STUDIES = {
+  /* --------------------------------------------------- Interactive Trade Wall */
+  tradewall: {
+    title: 'Interactive Trade Wall',
+    kicker: 'A Touch-Screen Museum Experience for CSMVS',
+    year: '2024 — Present',
+    role: 'Lead Interactive Engineer — dual-screen synchronization, kiosk architecture',
+    org: 'ViitorCloud Technologies · CSMVS Museum',
+    stackLine: 'Unity · C# · DOTween · REST API · Dual-Screen Sync · Kiosk Analytics',
+    hero: { type: 'placeholder', label: 'Hero shot — two-screen interactive installation', caption: 'Drop assets/img/projects/tradewall-hero.jpg' },
+
+    overview: [
+      'A bilingual, two-screen interactive installation built for the Chhatrapati Shivaji Maharaj Vastu Sangrahalaya (CSMVS Museum), Mumbai. Visitors interact with an on-screen digital book of ancient trade commodities—such as lapis lazuli, shell, bitumen, carnelian, agate, cotton, gold, and silver.',
+      'The touch book acts as the visitor’s personal controller, while a large companion display renders the spatial narrative. Tapping any material opens its historical significance and origin story in English or Marathi, simultaneously triggering dynamic animations on the large wall map showing where the material originated and how it traversed ancient trade corridors.'
+    ],
+
+    problem: [
+      'Single-screen kiosks often force a painful compromise between readable long-form curatorial stories and broad geographic context. Visitors trying to read detailed historical narratives on a large wall display suffer poor ergonomics, while cramming both the map and deep stories onto a small touchscreen makes the map illegible.',
+      'CSMVS required a decoupled, two-screen architecture: a tactile, ergonomic touch-book kiosk for visitor interaction and reading, paired with an eye-level wall display for cinematic trade route animations. The system had to stay synchronized with sub-second latency, support instant bilingual switching, update content remotely via a REST backend without application rebuilds, and run continuously in gallery conditions.'
+    ],
+
+    responsibilities: [
+      'Architected the inter-screen communication pipeline synchronizing the tabletop touch-book controller with the large wall map display.',
+      'Built the interactive digital book interface, animated page turns, material inspection panels, and route visualization triggers using Unity and DOTween.',
+      'Implemented real-time English and Marathi localization with single-tap switching that updates both displays simultaneously.',
+      'Engineered a dynamic backend content pipeline allowing museum curators to update narratives, materials, and route coordinates via REST APIs without client redeployment.',
+      'Integrated an offline-first storage and caching layer ensuring 100% exhibit availability during gallery network outages.',
+      'Developed an onboard analytics module that tracks visitor interactions (most inspected materials, route paths, language selection) and compiles automated weekly curator reports.'
+    ],
+
+    architecture: {
+      paragraphs: [
+        'The installation operates on a synchronized dual-display topology. The touch book serves as the primary input and narrative terminal, broadcasting material selection events, language toggles, and state changes to the map wall display runtime via low-latency local inter-process messaging.',
+        'Data flows through a decoupled CMS-ready repository. On boot and during scheduled maintenance windows, the application polls the REST API for updated material manifests, route waypoint geometries, and bilingual copy, validating content hashes against local cache before applying changes on the fly.'
+      ],
+      layers: [
+        ['Dual-screen sync', 'Low-latency event messaging coordinating touch-book controller and map wall display'],
+        ['Touch book interface', 'Interactive digital book, material selector, bilingual narrative reader'],
+        ['Map animation engine', 'DOTween-driven path drawing, waypoint reveals, camera focus transitions'],
+        ['Localization layer', 'Synchronized bilingual switching across both screens without frame drops'],
+        ['Backend & cache layer', 'REST content ingestion, schema validation, persistent offline fallback'],
+        ['Analytics & telemetry', 'Interaction event logging, material popularity metrics, automated weekly digests']
+      ]
+    },
+
+    challenges: [
+      {
+        challenge: 'Maintaining tight, glitch-free synchronization between two separate displays under erratic visitor tapping.',
+        solution: 'Implemented an authoritative event dispatcher that debounces rapid touch inputs and queues animation sequences, ensuring the wall display map draws smoothly while the touch book immediately updates curatorial text.'
+      },
+      {
+        challenge: 'Enabling museum curators to revise historical content and add materials without requiring software builds or developer intervention.',
+        solution: 'Built a data-driven content pipeline consuming structured JSON and media from a REST backend, with strict validation and local fallback caching so content edits reflect immediately upon approval.'
+      },
+      {
+        challenge: 'Delivering rich Marathi typography alongside English without layout clipping or font-rendering artifacts.',
+        solution: 'Engineered custom TextMeshPro font assets with comprehensive Devanagari Unicode glyph support, automated line-height adjustments, and language-aware layout constraints.'
+      },
+      {
+        challenge: 'Capturing exhibit engagement insights in a public setting without requiring network access or compromising visitor privacy.',
+        solution: 'Created an offline analytics engine that logs anonymized interaction timestamps and generates clean, structured weekly CSV/PDF reporting digests for museum administration.'
+      }
+    ],
+
+    features: [
+      'Two synchronized screens: interactive touch-book controller and large map display',
+      'Interactive exploration of ancient materials: lapis lazuli, shell, bitumen, carnelian, agate, cotton, gold, silver',
+      'Simultaneous animated trade route rendering across historical maps upon material selection',
+      'One-tap bilingual switching between English and Marathi across both screens',
+      'Dynamic backend-driven content updates with zero client rebuilds required',
+      'Full offline resiliency with automated local storage caching',
+      'Custom Windows kiosk lockdown preventing visitor access to operating system',
+      'Built-in privacy-preserving analytics engine generating weekly visitor engagement reports'
+    ],
+
+    stack: [
+      ['Platform', 'Windows Touch Kiosk (Dual-screen hardware)'],
+      ['Engine', 'Unity Engine'],
+      ['Language', 'C#'],
+      ['Animation', 'DOTween'],
+      ['Backend & Sync', 'REST API, Local Inter-Process Messaging, JSON Cache'],
+      ['Localization', 'English & Marathi (Devanagari TMP)']
+    ],
+
+    achievements: [
+      'Engineered and deployed a flagship dual-display interactive installation at CSMVS Museum, Mumbai.',
+      'Achieved seamless multi-display synchronization with zero visitor-facing latency or desync issues.',
+      'Empowered museum curatorial teams to publish text and route corrections via REST APIs with zero code changes.',
+      'Weekly automated analytics enabled museum leadership to quantify visitor engagement across all exhibited materials.'
+    ],
+
+    lessons: [
+      'Dual-screen installations multiply visual impact, but interaction must remain centralized: one screen asks for input, the other rewards attention.',
+      'Multi-lingual typography in Devanagari requires generous vertical leading and careful baseline testing compared to Latin scripts.',
+      'Curators should never need a Unity developer to fix a typo or swap an image; data-driven content pipelines are essential for cultural institutions.'
+    ],
+
+    process: [
+      ['Conceptual alignment', 'Defined the two-screen interaction paradigm and material list with CSMVS curators'],
+      ['Prototyping & sync', 'Engineered the dual-display communication bridge and map animation timings'],
+      ['Bilingual content pipeline', 'Integrated REST data models, Devanagari font rendering, and asset caching'],
+      ['Kiosk integration', 'Calibrated touch responsiveness, dual-monitor windowing, and system lockdown'],
+      ['Museum deployment', 'On-site installation at CSMVS gallery, stress testing, and staff training']
+    ],
+
+    gallery: [
+      { type: 'placeholder', label: 'Two-screen installation', caption: 'Touch book and map wall in gallery' },
+      { type: 'placeholder', label: 'Digital trade book', caption: 'Material selection on touch controller' },
+      { type: 'placeholder', label: 'Animated wall map', caption: 'Trade route illumination on large display' },
+      { type: 'placeholder', label: 'Bilingual Marathi view', caption: 'Marathi curatorial story panel' }
+    ],
+
+    links: [
+      { label: 'CSMVS Museum Official Website', url: 'https://csmvs.gov.in/' }
+    ]
+  },
+
   /* ------------------------------------------------------------- Trade Route */
   traderoute: {
     title: 'Trade Route',

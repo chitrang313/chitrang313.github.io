@@ -50,6 +50,37 @@ Possible Next Step: <Recommended follow-up>
 
 <!-- Add entries only for meaningful work. Do not create fictional history. -->
 
+### 2026-10-22 — Add Interactive Trade Wall: A Touch-Screen Museum Experience for CSMVS
+
+#### Request
+
+Add Interactive Trade Wall: A Touch-Screen Museum Experience for CSMVS project into the portfolio as an additional, separate CSMVS exhibit, then commit and push.
+
+#### Investigation
+
+- Verified dual-display museum kiosk architecture: digital touch-book controller paired with large wall map display.
+- Integrated material exploration stories (lapis lazuli, shell, bitumen, carnelian, agate, cotton, gold, silver) and animated trade corridor mapping.
+- Updated 6-column work grid to cleanly accommodate eight total case studies in balanced pairs and triplets.
+
+#### Changes
+
+- Added `tradewall` case study entry to `js/data.js` with full technical breakdown (dual-screen sync, runtime Marathi/English localization, backend content pipeline, offline resilience, kiosk lockdown, and weekly visitor analytics).
+- Added `tradewall` card to `index.html` as a featured project card, updated section count to "Eight systems", and formatted `icc` alongside `soreal` for balanced 6-column rows.
+- Added `.work-cover[data-cover="tradewall"]` gradient tint in `css/style.css`.
+
+#### Validation
+
+- Validated JavaScript syntax using `node --check js/data.js` and `node --check js/main.js`.
+- Verified git status and diff across all modified files.
+
+#### Remaining Work
+
+- Replace media placeholders with photography/video assets when available.
+
+#### Notes for Future Agents
+
+- Case study ID is `tradewall`. Cover mono badge is `TW`.
+
 ### 2026-10-22 — Add Trade Route: Interactive Museum Kiosk for CSMVS
 
 #### Request
