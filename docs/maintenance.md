@@ -50,6 +50,37 @@ Possible Next Step: <Recommended follow-up>
 
 <!-- Add entries only for meaningful work. Do not create fictional history. -->
 
+### 2026-10-22 — Add Museum on the Wheel: Interactive Trade Wall for CSMVS
+
+#### Request
+
+Add Museum on the Wheel — Interactive Trade Wall: Mobile museum kiosk experience for rural India (CSMVS Museum, Mumbai) into the portfolio, then commit and push.
+
+#### Investigation
+
+- Examined mobile travelling museum vehicle constraints: 4-wheel tempo visiting rural villages across India with zero internet connectivity.
+- Analysed interaction paradigm: tap-only visual navigation for first-time touchscreen users, offline persistent media/data caching, Tauri Windows wrapper, and automated weekly email reporting.
+- Re-aligned 6-column work grid across 10 total projects: Row 1 & 2 accommodate the four CSMVS interactive exhibits in featured pairs (`is-feature`, span 3 each).
+
+#### Changes
+
+- Added `motw` case study entry to `js/data.js` covering overview, rural outreach challenges, offline-first architecture, tap-first UI, bilingual English/Marathi pipeline, Tauri kiosk wrapper, and automated email telemetry.
+- Added `motw` card (`data-project="motw"`, badge `MW`) to `index.html`, updated section subtitle to "Ten systems", and balanced museum cards across two featured rows.
+- Added `.work-cover[data-cover="motw"]` gradient tint in `css/style.css`.
+
+#### Validation
+
+- Validated JavaScript syntax using `node --check js/data.js` and `node --check js/main.js`.
+- Verified git status and diff across all modified files.
+
+#### Remaining Work
+
+- Replace media placeholders with photography/video assets from mobile vehicle tours when available.
+
+#### Notes for Future Agents
+
+- Case study ID is `motw`. Cover mono badge is `MW`.
+
 ### 2026-10-22 — Add Rosetta Stone Interactive Kiosk for CSMVS Museum
 
 #### Request

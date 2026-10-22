@@ -17,6 +17,122 @@
  * `hero` follows the same shape and is shown large at the top of the modal.
  */
 window.CASE_STUDIES = {
+  /* ------------------------------- Museum on the Wheel: Interactive Trade Wall */
+  motw: {
+    title: 'Museum on the Wheel',
+    kicker: 'Interactive Trade Wall for Rural India (CSMVS)',
+    year: '2024 — Present',
+    role: 'Interactive Systems Engineer — mobile kiosk architecture, offline runtime',
+    org: 'ViitorCloud Technologies · CSMVS Museum',
+    stackLine: 'Unity 6 · C# · Tauri · Offline File Caching · REST Backend · Bilingual Pipeline',
+    hero: { type: 'placeholder', label: 'Hero shot — Museum on the Wheel tempo touchscreens in rural village', caption: 'Drop assets/img/projects/motw-hero.jpg' },
+
+    overview: [
+      'Museum on the Wheel is a landmark outreach initiative by the Chhatrapati Shivaji Maharaj Vastu Sangrahalaya (CSMVS), Mumbai—a travelling museum built on a 4-wheel tempo that journeys from village to village across India, carrying ancient heritage to communities far from any metropolitan museum.',
+      'Mounted on the vehicle are multiple large touchscreen displays running this custom Unity application. Villagers walk up, touch, and explore ancient Harappan trade routes, materials, and civilizations through a tap-first, zero-barrier visual interface available in English and Marathi.'
+    ],
+
+    problem: [
+      'Deploying digital interactive exhibits onto a mobile outreach vehicle travelling through rural India presents extreme environmental and infrastructural challenges: erratic or non-existent cellular reception in remote villages, power fluctuations, intense dust and sunlight, and diverse audiences including first-time digital users.',
+      'The application had to be 100% offline-resilient—caching all curatorial narratives, high-resolution media, and trade route data during initial setup so it operates permanently without internet connectivity. It demanded an intuitive tap-only interface requiring zero instruction, an impenetrable full-screen kiosk lockdown, and an autonomous analytics collector that records community engagement and transmits weekly digests back to museum curators.'
+    ],
+
+    responsibilities: [
+      'Engineered the complete touchscreen application in Unity 6 and C#, packaged with a lightweight Tauri wrapper for robust Windows desktop kiosk deployment.',
+      'Architected the zero-connectivity offline file caching subsystem that synchronizes full curatorial databases and media once online, then operates permanently offline.',
+      'Designed a tap-only, gesture-free interaction paradigm tailored for accessibility across rural school students and first-time touchscreen users.',
+      'Implemented real-time English and Marathi bilingual localization with seamless 1-tap switching across all narratives and trade maps.',
+      'Built the full-screen kiosk lockdown shell, preventing unauthorized operating system access or exit during unattended public use.',
+      'Created a silent analytics tracking module that records dwell times, product popularity, and language choices per village, automatically emailing weekly summaries when connectivity is detected.'
+    ],
+
+    architecture: {
+      paragraphs: [
+        'The application is built around a local-first repository architecture. At base camp or during scheduled maintenance online, the client probes the CSMVS REST content server, validates asset hashes, and persists all structured trade narratives, trade route coordinates, and image packages directly into local storage.',
+        'The UI layer uses a pure tap-first navigation model without complex multi-finger gestures or keyboards. All interactive trade points on the ancient map trigger immediate visual feedback and open bilingual inspection cards with pre-cached media, maintaining 60 FPS in high-ambient-temperature conditions.'
+      ],
+      layers: [
+        ['Kiosk & shell lockdown', 'Tauri/Windows wrapper, full-screen lockdown, watchdog auto-restart, gesture trap'],
+        ['Tap-first interaction', 'Zero-keyboard input model, high-contrast touch targets, animated waypoint triggers'],
+        ['Trade map & story engine', 'Harappan and ancient trade corridors, material origins (carnelian, bitumen, textiles)'],
+        ['Bilingual typography', 'English & Marathi Devanagari font rendering with instant toggle'],
+        ['Offline cache repository', 'Complete local asset persistence, checksum verification, REST synchronization'],
+        ['Silent telemetry', 'Per-village session tracking, product interest metrics, automated weekly email digest']
+      ]
+    },
+
+    challenges: [
+      {
+        challenge: 'Operating in remote Indian villages with zero cellular reception or internet access.',
+        solution: 'Designed a strict offline-first architecture where the complete exhibit database, typography, and media bundle reside in local persistent storage. A single sync at the museum base prepares the kiosk for months of uninterrupted offline road travel.'
+      },
+      {
+        challenge: 'Designing for diverse rural audiences, many encountering interactive touchscreens for the first time.',
+        solution: 'Removed all complex navigation, pinching, or text input in favor of self-revealing, large touch targets and visual cues. Tapping any point instantly rewards curiosity with vibrant imagery and stories in their native Marathi language.'
+      },
+      {
+        challenge: 'Unattended public operation on the exterior of a travelling vehicle throughout the day.',
+        solution: 'Hardened the desktop environment with a Tauri shell that traps all OS hotkeys, hides taskbars and window borders, and features an automated watchdog that resets the app to the welcome map after visitor inactivity.'
+      },
+      {
+        challenge: 'Measuring educational impact across dozens of rural stops without manual surveyor paperwork.',
+        solution: 'Built a silent local analytics recorder that catalogs interaction logs per session. Whenever the vehicle passes through an area with cellular data, the app automatically dispatches accumulated weekly engagement reports directly to museum curators.'
+      }
+    ],
+
+    features: [
+      'Interactive map of ancient Harappan trade corridors and mercantile networks',
+      'Rich product histories exploring carnelian, bitumen, textiles, shells, and precious metals',
+      'Complete bilingual English and Marathi localization with instantaneous 1-tap switching',
+      'Tap-first intuitive interface engineered for children, elders, and first-time digital users',
+      '100% offline-ready operation with robust local file caching and one-time REST synchronization',
+      'Tamper-proof Windows kiosk lockdown with automatic idle reset',
+      'Silent analytics tracking user engagement, language selection, and popular products',
+      'Automated weekly reporting digests emailed directly to the CSMVS curatorial team'
+    ],
+
+    stack: [
+      ['Platform', 'Windows Desktop Kiosk (Mounted on mobile vehicle)'],
+      ['Engine & Language', 'Unity 6, C#'],
+      ['Shell Wrapper', 'Tauri'],
+      ['Data & Storage', 'Offline File Caching, Local JSON/SQLite, REST Backend'],
+      ['Animation & UI', 'DOTween, TextMeshPro (English & Marathi Devanagari)'],
+      ['Domain', 'Cultural Outreach, Mobile Museum, Offline-First Architecture']
+    ],
+
+    achievements: [
+      'Shipped the interactive touch software for CSMVS’s travelling Museum on the Wheel, reaching thousands of rural citizens across Maharashtra.',
+      'Achieved zero software downtime across rural tours through complete offline resiliency and kiosk lockdown.',
+      'Demonstrated high engagement rates among rural school children through native Marathi language accessibility.',
+      'Curators received empirical field data on rural audience interests via automated weekly email reports.'
+    ],
+
+    lessons: [
+      'Accessibility is not just contrast ratios; in rural outreach, accessibility means zero assumed digital literacy and native mother-tongue support.',
+      'Offline-first is the only reliable architecture for hardware that moves through varied terrain.',
+      'The most durable kiosk interface is the simplest one: tap to explore, learn immediately, reset automatically.'
+    ],
+
+    process: [
+      ['Curatorial discovery', 'Reviewed Harappan trade routes and rural outreach goals with CSMVS museum educators'],
+      ['Accessibility prototyping', 'Tested high-contrast visual cues and tap-only interactions for rural audiences'],
+      ['Offline & sync engine', 'Engineered local file caching pipeline and background REST synchronization'],
+      ['Tauri & kiosk hardening', 'Packaged with Tauri shell, tested full-screen lockdown and idle reset timers'],
+      ['Vehicle deployment', 'Calibrated touch monitors mounted on the tempo, verified vibration resistance and audio levels']
+    ],
+
+    gallery: [
+      { type: 'placeholder', label: 'Museum on the Wheel tempo', caption: 'Mobile museum vehicle in rural outreach' },
+      { type: 'placeholder', label: 'Villagers at touch kiosk', caption: 'Interactive trade wall on vehicle exterior' },
+      { type: 'placeholder', label: 'Ancient Harappan trade map', caption: 'Interactive trade route navigation' },
+      { type: 'placeholder', label: 'Marathi trade goods story', caption: 'Bilingual carnelian and textile narrative' }
+    ],
+
+    links: [
+      { label: 'CSMVS Museum on the Wheel Program', url: 'https://csmvs.gov.in/' }
+    ]
+  },
+
   /* ------------------------------------------- Rosetta Stone Interactive Kiosk */
   rosetta: {
     title: 'Rosetta Stone Kiosk',
