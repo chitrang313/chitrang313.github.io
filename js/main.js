@@ -1,23 +1,26 @@
 /**
  * Portfolio behaviour — vanilla ES2021, no dependencies.
  *
- * Responsibilities, in order of appearance:
- *   1. Footer year
- *   2. Mobile navigation sheet
- *   3. Scroll spy + reading progress
- *   4. Reveal-on-scroll (respects prefers-reduced-motion)
- *   5. Case-study modal (native <dialog>: focus trap + Esc for free)
- *   6. Media gallery + lightbox
- *   7. Contact form -> mail client (no third-party endpoint)
+ *   1. Boot (js class, footer year)
+ *   2. Navigation: mobile sheet, current section, progress bar
+ *   4. Work grid: filters + cards from js/work.js (window.WORK)
+ *   5. Case-study modal from js/data.js (window.CASE_STUDIES)
+ *   6. Media lightbox
+ *   7. Contact form -> visitor's own mail client (no third-party endpoint)
+ *
+ * Sound: this file never plays audio. It dispatches `sfx` events on document;
+ * js/sound.js (uisfx) decides whether and how to play them.
  */
 (function () {
   'use strict';
 
-  const REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* ------------------------------------------------------------ 1. Boot */
+  document.documentElement.classList.add('js');
+
   const $ = (sel, root) => (root || document).querySelector(sel);
   const $$ = (sel, root) => Array.from((root || document).querySelectorAll(sel));
 
-  /** Escape text before injecting into markup. */
+  /** Escape untrusted text before it goes into markup. */
   function esc(value) {
     return String(value == null ? '' : value)
       .replace(/&/g, '&amp;')
@@ -27,454 +30,429 @@
       .replace(/'/g, '&#39;');
   }
 
-  /* ------------------------------------------------------------ 1. Footer year */
-  const yearEl = $('#foot-year');
-  if (yearEl) {
-    yearEl.textContent = String(new Date().getFullYear());
+  /** Only allow http(s) links from data files. */
+  function safeUrl(url) {
+    try {
+      const u = new URL(url, window.location.href);
+      return u.protocol === 'https:' || u.protocol === 'http:' ? u.href : null;
+    } catch (_) {
+      return null;
+    }
   }
 
-  /* ------------------------------------------------------- 2. Mobile navigation */
-  const head = $('#site-head');
-  const nav = $('#site-nav');
+  function sfx(name) {
+    document.dispatchEvent(new CustomEvent('sfx', { detail: name }));
+  }
+
+  const yearEl = $('#foot-year');
+  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+  const STUDIES = window.CASE_STUDIES || {};
+  const WORK = window.WORK || { work: [], filters: [], cdn: null };
+  if (!window.CASE_STUDIES) console.error('[portfolio] js/data.js did not load: case studies unavailable.');
+  if (!window.WORK) console.error('[portfolio] js/work.js did not load: project grid unavailable.');
+
+  /* ------------------------------------------------------------ 1b. Theme toggle
+     The stored choice is applied before paint by js/enter.js. With no stored choice the
+     page follows the OS, and keeps following it live until the visitor picks one. */
+  const themeToggle = $('#theme-toggle');
+  const metaTheme = $('#meta-theme');
+  const osLight = window.matchMedia('(prefers-color-scheme: light)');
+
+  function currentTheme() {
+    const set = document.documentElement.getAttribute('data-theme');
+    return set === 'light' || set === 'dark' ? set : (osLight.matches ? 'light' : 'dark');
+  }
+  function reflectTheme() {
+    const t = currentTheme();
+    if (themeToggle) {
+      const next = t === 'light' ? 'dark' : 'light';
+      themeToggle.setAttribute('aria-label', `Switch to ${next} theme`);
+      themeToggle.setAttribute('title', `Switch to ${next} theme`);
+    }
+    if (metaTheme) metaTheme.setAttribute('content', t === 'light' ? '#ffffff' : '#0f0f0f');
+    document.dispatchEvent(new CustomEvent('themechange', { detail: t }));
+  }
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const next = currentTheme() === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      try { window.localStorage.setItem('cp-theme', next); } catch (_) { /* not remembered */ }
+      reflectTheme();
+      sfx(next === 'light' ? 'toggle-on' : 'toggle-off');
+    });
+  }
+  osLight.addEventListener('change', () => {
+    if (!document.documentElement.hasAttribute('data-theme')) reflectTheme();
+  });
+  reflectTheme();
+
+  /* ------------------------------------------------------------ 2. Navigation */
   const navToggle = $('#nav-toggle');
+  const nav = $('#site-nav');
 
   function setNav(open) {
-    if (!nav || !navToggle) return;
     document.body.classList.toggle('nav-open', open);
-    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    if (navToggle) {
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Menu');
+    }
   }
-
   if (navToggle) {
-    navToggle.addEventListener('click', function () {
-      setNav(!document.body.classList.contains('nav-open'));
+    navToggle.addEventListener('click', () => {
+      const open = !document.body.classList.contains('nav-open');
+      setNav(open);
+      sfx(open ? 'open' : 'close');
     });
   }
-
-  if (nav) {
-    nav.addEventListener('click', function (event) {
-      if (event.target.closest('a')) setNav(false);
-    });
-  }
-
-  document.addEventListener('keydown', function (event) {
-    if (event.key === 'Escape' && document.body.classList.contains('nav-open')) {
+  if (nav) nav.addEventListener('click', (e) => { if (e.target.closest('a')) setNav(false); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && document.body.classList.contains('nav-open')) {
       setNav(false);
       if (navToggle) navToggle.focus();
     }
   });
 
-  /* -------------------------------------------- 3. Scroll spy + reading progress */
   const navLinks = $$('.nav-link');
-  const sections = navLinks
-    .map((link) => document.getElementById(link.getAttribute('href').slice(1)))
-    .filter(Boolean);
+  const sections = navLinks.map((a) => document.getElementById(a.getAttribute('href').slice(1))).filter(Boolean);
   const progress = $('#head-progress');
-
   let ticking = false;
 
   function onScroll() {
     if (ticking) return;
     ticking = true;
-    window.requestAnimationFrame(function () {
+    requestAnimationFrame(() => {
       const y = window.scrollY;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      if (progress) progress.style.transform = `scaleX(${max > 0 ? Math.min(1, y / max) : 0})`;
 
-      if (head) head.classList.toggle('is-stuck', y > 24);
-
-      if (progress) {
-        const max = document.documentElement.scrollHeight - window.innerHeight;
-        progress.style.transform = 'scaleX(' + (max > 0 ? Math.min(y / max, 1) : 0) + ')';
-      }
-
-      // Active section = the last one whose top has passed the reading line.
-      const line = y + window.innerHeight * 0.32;
-      let current = sections[0];
-      sections.forEach(function (section) {
-        if (section.offsetTop <= line) current = section;
+      const probe = y + window.innerHeight * 0.35;
+      let current = null;
+      for (const s of sections) if (s.offsetTop <= probe) current = s.id;
+      navLinks.forEach((a) => {
+        const on = a.getAttribute('href') === `#${current}`;
+        a.classList.toggle('is-current', on);
+        if (on) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current');
       });
-      if (current) {
-        navLinks.forEach(function (link) {
-          const isCurrent = link.getAttribute('href') === '#' + current.id;
-          link.classList.toggle('is-current', isCurrent);
-          if (isCurrent) {
-            link.setAttribute('aria-current', 'true');
-          } else {
-            link.removeAttribute('aria-current');
-          }
-        });
-      }
-
       ticking = false;
     });
   }
-
   window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
-
-  // Background tabs pause requestAnimationFrame, which can leave `ticking` latched.
-  document.addEventListener('visibilitychange', function () {
-    if (!document.hidden) {
-      ticking = false;
-      onScroll();
-    }
-  });
-
   onScroll();
 
-  /* ------------------------------------------------------ 4. Reveal on scroll */
-  const revealables = $$('.reveal');
-  if (REDUCED_MOTION || !('IntersectionObserver' in window)) {
-    revealables.forEach((el) => el.classList.add('is-visible'));
-  } else {
-    const observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { rootMargin: '0px 0px -8% 0px', threshold: 0.08 }
-    );
-    revealables.forEach((el) => observer.observe(el));
+  /* ------------------------------------------------------------ 4. Work grid */
+  const grid = $('#work-grid');
+  const filtersEl = $('#work-filters');
+  const statusEl = $('#work-status');
+  const cdn = WORK.cdn;
+  const byKey = new Map(WORK.work.map((w) => [w.key, w]));
+
+  /** Normalise [kind, version, id, caption?] tuples. */
+  function mediaOf(item) {
+    return (item && item.media ? item.media : []).map(([kind, v, id, label]) => ({ kind, v, id, label: label || '' }));
   }
 
-  /* -------------------------------------------------------- 5. Case-study modal */
-  const caseModal = $('#case-modal');
-  const caseInner = $('#case-inner');
-  const caseClose = $('#case-close');
-  const studies = window.CASE_STUDIES || {};
-  let activeGallery = [];
-
-  function mediaFigure(item, index, large) {
-    const cls = large ? 'case-hero-media' : 'gallery-item';
-    const caption = item.caption ? '<figcaption>' + esc(item.caption) + '</figcaption>' : '';
-
-    if (item.type === 'image') {
-      return (
-        '<figure class="' + cls + '">' +
-        '<button class="media-open" type="button" data-media="' + index + '" aria-label="Open ' +
-        esc(item.alt || item.caption || 'image') + ' full screen">' +
-        '<img src="' + esc(item.src) + '" alt="' + esc(item.alt || '') + '" loading="lazy" decoding="async">' +
-        '<span class="media-badge" aria-hidden="true"><svg class="icon"><use href="#i-expand"></use></svg></span>' +
-        '</button>' + caption + '</figure>'
-      );
+  function coverHtml(item, study) {
+    const media = mediaOf(item);
+    const lead = media.find((m) => m.kind === 'v') || media[0];
+    const alt = study ? `${study.title} — ${item.type}` : item.key;
+    if (!lead) {
+      const mono = (study ? study.title : item.key).replace(/[^A-Za-z0-9 ]/g, '').split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
+      return `<div class="card-cover"><span class="card-mono" aria-hidden="true">${esc(mono)}</span></div>`;
     }
+    const src = lead.kind === 'v' ? cdn.poster(lead.id, lead.v, 800) : cdn.image(lead.id, lead.v, 800);
+    const src2x = lead.kind === 'v' ? cdn.poster(lead.id, lead.v, 1200) : cdn.image(lead.id, lead.v, 1200);
+    const videos = media.filter((m) => m.kind === 'v').length;
+    const images = media.length - videos;
+    const badge = [videos ? `${videos} video${videos > 1 ? 's' : ''}` : '', images ? `${images} screen${images > 1 ? 's' : ''}` : ''].filter(Boolean).join(' · ');
+    return `<div class="card-cover">
+        <img src="${esc(src)}" srcset="${esc(src)} 800w, ${esc(src2x)} 1200w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 420px"
+             alt="${esc(alt)}" width="800" height="500" loading="lazy" decoding="async">
+        <span class="card-badge"><svg class="icon" aria-hidden="true"><use href="#${videos ? 'i-play' : 'i-image'}"></use></svg>${esc(badge)}</span>
+      </div>`;
+  }
 
-    if (item.type === 'video' || item.type === 'youtube') {
-      const label = item.type === 'youtube' ? 'Play video' : 'Play clip';
-      const poster = item.poster
-        ? '<img src="' + esc(item.poster) + '" alt="" loading="lazy" decoding="async">'
-        : '<span class="media-placeholder-art" aria-hidden="true"></span>';
-      return (
-        '<figure class="' + cls + ' is-video">' +
-        '<button class="media-open" type="button" data-media="' + index + '" aria-label="' + label + '">' +
-        poster +
-        '<span class="media-badge" aria-hidden="true"><svg class="icon"><use href="#i-play"></use></svg></span>' +
-        '</button>' + caption + '</figure>'
-      );
+  function cardHtml(item) {
+    const study = STUDIES[item.key];
+    if (!study) {
+      console.warn(`[portfolio] no case study for "${item.key}" in js/data.js; card skipped.`);
+      return '';
     }
-
-    // Designed empty slot — intentional, never a broken image.
-    return (
-      '<figure class="' + cls + ' is-slot">' +
-      '<span class="media-slot" aria-hidden="true">' +
-      '<span class="media-slot-art"></span>' +
-      '<span class="media-slot-label">' + esc(item.label || 'Media slot') + '</span>' +
-      '</span>' +
-      caption + '</figure>'
-    );
+    // Tech chips live in the case study (Stack); the card keeps meta, title and summary.
+    return `<article class="card" data-group="${esc(item.group)}" data-key="${esc(item.key)}">
+        ${coverHtml(item, study)}
+        <div class="card-body">
+          <p class="card-meta">${esc(item.client)} · ${esc(study.year)}</p>
+          <h3 class="card-title">${esc(study.title)}</h3>
+          <p class="card-desc">${esc(item.desc)}</p>
+          <button class="card-open" type="button" data-open="${esc(item.key)}" data-sfx="open">
+            Open case study<span class="visually-hidden">: ${esc(study.title)}</span>
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+          </button>
+        </div>
+      </article>`;
   }
 
-  function pairList(pairs, className) {
-    return (
-      '<dl class="' + className + '">' +
-      pairs
-        .map((pair) => '<div><dt>' + esc(pair[0]) + '</dt><dd>' + esc(pair[1]) + '</dd></div>')
-        .join('') +
-      '</dl>'
-    );
+  let activeFilter = 'museum';
+
+  function applyFilter(key) {
+    activeFilter = key;
+    let shown = 0;
+    $$('.card', grid).forEach((card) => {
+      const on = key === 'all' || card.dataset.group === key;
+      card.hidden = !on;
+      if (on) shown += 1;
+    });
+    $$('.filter', filtersEl).forEach((b) => b.setAttribute('aria-pressed', b.dataset.filter === key ? 'true' : 'false'));
+    if (statusEl) statusEl.textContent = `${shown} project${shown === 1 ? '' : 's'} shown`;
   }
 
-  function paras(list) {
-    return (list || []).map((text) => '<p>' + esc(text) + '</p>').join('');
+  if (grid && filtersEl && cdn) {
+    grid.innerHTML = WORK.work.map(cardHtml).join('');
+    const counts = WORK.work.reduce((acc, w) => { acc[w.group] = (acc[w.group] || 0) + 1; return acc; }, {});
+    filtersEl.innerHTML = WORK.filters.map((f) => {
+      const n = f.key === 'all' ? WORK.work.length : counts[f.key] || 0;
+      return `<button class="filter" type="button" data-filter="${esc(f.key)}" aria-pressed="false">${esc(f.label)}<span class="filter-count">${n}</span></button>`;
+    }).join('');
+    filtersEl.addEventListener('click', (e) => {
+      const b = e.target.closest('.filter');
+      if (!b || b.dataset.filter === activeFilter) return;
+      applyFilter(b.dataset.filter);
+      sfx('select');
+    });
+    applyFilter(activeFilter);
   }
 
-  function bullets(list) {
-    return (
-      '<ul class="case-list">' +
-      (list || []).map((text) => '<li>' + esc(text) + '</li>').join('') +
-      '</ul>'
-    );
+  /* ------------------------------------------------------------ 5. Case-study modal */
+  const modal = $('#case-modal');
+  const modalInner = $('#case-inner');
+  const modalClose = $('#case-close');
+  let lastTrigger = null;
+  let currentMedia = [];
+
+  const list = (items) => `<ul class="case-list">${items.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>`;
+  const paras = (items) => items.map((t) => `<p>${esc(t)}</p>`).join('');
+  const table = (rows) => `<table class="case-table"><tbody>${rows.map(([a, b]) => `<tr><th scope="row">${esc(a)}</th><td>${esc(b)}</td></tr>`).join('')}</tbody></table>`;
+  const section = (title, body, wide) => `<section class="case-section${wide ? ' is-wide' : ''}"><h3 class="case-h">${esc(title)}</h3>${body}</section>`;
+  const has = (v) => Array.isArray(v) ? v.length > 0 : Boolean(v);
+
+  function heroMediaHtml(media, title) {
+    const lead = media.find((m) => m.kind === 'v') || media[0];
+    if (!lead) return '';
+    if (lead.kind === 'v') {
+      return `<div class="case-hero">
+          <video controls playsinline preload="metadata" poster="${esc(cdn.poster(lead.id, lead.v, 1600))}" title="${esc(title)} — project video">
+            <source src="${esc(cdn.video(lead.id, lead.v, 1600))}" type="video/mp4">
+            <source src="${esc(cdn.videoOriginal(lead.id, lead.v))}" type="video/mp4">
+          </video>
+        </div>`;
+    }
+    return `<div class="case-hero"><img src="${esc(cdn.image(lead.id, lead.v, 1600))}" alt="${esc(title)} — screen 1" width="1600" height="900"></div>`;
   }
 
-  function renderCase(id) {
-    const data = studies[id];
-    if (!data || !caseInner) return false;
+  function galleryHtml(media, title) {
+    if (media.length < 2) return '';
+    const thumbs = media.map((m, i) => {
+      const src = m.kind === 'v' ? cdn.poster(m.id, m.v, 600) : cdn.image(m.id, m.v, 600);
+      const label = m.label ? `${title} — ${m.label}` : `${title} — ${m.kind === 'v' ? 'video' : 'screen'} ${i + 1}`;
+      return `<button class="thumb" type="button" data-lb="${i}" aria-label="Open ${esc(label)}" data-sfx="expand">
+          <img src="${esc(src)}" alt="" width="600" height="375" loading="lazy" decoding="async">
+          ${m.kind === 'v' ? '<span class="thumb-play" aria-hidden="true"><svg class="icon"><use href="#i-play-solid"></use></svg></span>' : ''}
+        </button>`;
+    }).join('');
+    return section('Video and screens', `<div class="case-gallery">${thumbs}</div>`, true);
+  }
 
-    activeGallery = [].concat(data.hero ? [data.hero] : [], data.gallery || []);
+  function renderCase(key) {
+    const d = STUDIES[key];
+    const item = byKey.get(key);
+    if (!d) return false;
+    const media = mediaOf(item);
+    currentMedia = media.map((m) => ({ ...m, title: d.title }));
 
-    const blocks = [
-      '<section class="case-block"><h3>Overview</h3>' + paras(data.overview) + '</section>',
-      '<section class="case-block"><h3>Problem statement</h3>' + paras(data.problem) + '</section>',
-      '<section class="case-block"><h3>My responsibilities</h3>' + bullets(data.responsibilities) + '</section>',
-      '<section class="case-block"><h3>Architecture</h3>' +
-        paras(data.architecture && data.architecture.paragraphs) +
-        (data.architecture && data.architecture.layers
-          ? pairList(data.architecture.layers, 'case-layers')
-          : '') +
-        '</section>',
-      '<section class="case-block"><h3>Challenges &amp; solutions</h3><div class="case-cs">' +
-        (data.challenges || [])
-          .map(
-            (row) =>
-              '<div class="cs-row">' +
-              '<p class="cs-challenge"><span>Challenge</span>' + esc(row.challenge) + '</p>' +
-              '<p class="cs-solution"><span>Solution</span>' + esc(row.solution) + '</p>' +
-              '</div>'
-          )
-          .join('') +
-        '</div></section>',
-      '<section class="case-block"><h3>Features</h3><ul class="case-features">' +
-        (data.features || [])
-          .map(
-            (f) =>
-              '<li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>' + esc(f) + '</li>'
-          )
-          .join('') +
-        '</ul></section>',
-      '<section class="case-block"><h3>Technology stack</h3>' + pairList(data.stack || [], 'case-stack') + '</section>',
-      '<section class="case-block"><h3>Key achievements</h3>' + bullets(data.achievements) + '</section>',
-      '<section class="case-block"><h3>Development process</h3><ol class="case-process">' +
-        (data.process || [])
-          .map((step) => '<li><strong>' + esc(step[0]) + '</strong><span>' + esc(step[1]) + '</span></li>')
-          .join('') +
-        '</ol></section>',
-      '<section class="case-block"><h3>Lessons learned</h3>' + bullets(data.lessons) + '</section>'
-    ].join('');
+    const meta = [
+      ['Year', d.year], ['Role', d.role], ['Organisation', d.org], ['Stack', d.stackLine]
+    ].filter(([, v]) => has(v)).map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('');
 
-    const galleryHtml = (data.gallery || []).length
-      ? '<section class="case-block case-gallery-block"><h3>Gallery</h3>' +
-        '<div class="case-gallery" role="group" aria-label="Project media">' +
-        (data.gallery || []).map((item, i) => mediaFigure(item, i + 1, false)).join('') +
-        '</div></section>'
-      : '';
+    const parts = [];
+    if (has(d.overview)) parts.push(section('Overview', paras(d.overview)));
+    if (has(d.problem)) parts.push(section('The problem', paras(d.problem)));
+    if (has(d.responsibilities)) parts.push(section('What I did', list(d.responsibilities)));
+    if (d.architecture && (has(d.architecture.paragraphs) || has(d.architecture.layers))) {
+      parts.push(section('Architecture',
+        (has(d.architecture.paragraphs) ? paras(d.architecture.paragraphs) : '') +
+        (has(d.architecture.layers) ? table(d.architecture.layers) : ''), true));
+    }
+    if (has(d.challenges)) {
+      parts.push(section('Challenges and solutions', `<dl class="case-pairs">${d.challenges.map((c) =>
+        `<div class="case-pair"><dt>${esc(c.challenge)}</dt><dd>${esc(c.solution)}</dd></div>`).join('')}</dl>`, true));
+    }
+    if (has(d.features)) parts.push(section('Features', list(d.features)));
+    if (has(d.stack)) parts.push(section('Stack', table(d.stack)));
+    if (has(d.achievements)) parts.push(section('Outcomes', list(d.achievements)));
+    if (has(d.whatWentWell)) parts.push(section('What went well', list(d.whatWentWell)));
+    if (has(d.whatIdDoDifferently)) parts.push(section('What I would do differently', list(d.whatIdDoDifferently)));
+    if (has(d.lessons)) parts.push(section('Lessons', list(d.lessons)));
+    if (has(d.process)) parts.push(section('Process', table(d.process)));
+    parts.push(galleryHtml(media, d.title));
 
-    const linksHtml = (data.links || []).length
-      ? '<section class="case-block"><h3>Related links</h3><ul class="case-links">' +
-        data.links
-          .map(
-            (link) =>
-              '<li><a href="' + esc(link.url) + '" target="_blank" rel="noopener">' +
-              esc(link.label) +
-              '<svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></a></li>'
-          )
-          .join('') +
-        '</ul></section>'
-      : '';
+    const links = (d.links || []).map((l) => {
+      const href = safeUrl(l.url);
+      return href ? `<a class="btn btn-tonal" href="${esc(href)}" target="_blank" rel="noopener" data-sfx="press">Visit ${esc(l.label)}<svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></a>` : '';
+    }).join('');
+    if (links) parts.push(section('Links', `<div class="case-links">${links}</div>`));
 
-    caseInner.innerHTML =
-      '<header class="case-head">' +
-      '<p class="case-eyebrow">' + esc(data.year) + ' · ' + esc(data.org) + '</p>' +
-      '<h2 class="case-title" id="case-title">' + esc(data.title) + '</h2>' +
-      '<p class="case-kicker">' + esc(data.kicker) + '</p>' +
-      '<dl class="case-facts">' +
-      '<div><dt>Role</dt><dd>' + esc(data.role) + '</dd></div>' +
-      '<div><dt>Timeline</dt><dd>' + esc(data.year) + '</dd></div>' +
-      '<div><dt>Stack</dt><dd>' + esc(data.stackLine) + '</dd></div>' +
-      '</dl>' +
-      '</header>' +
-      (data.hero ? mediaFigure(data.hero, 0, true) : '') +
-      '<div class="case-body">' + blocks + galleryHtml + linksHtml + '</div>';
-
+    modalInner.innerHTML = `
+      ${heroMediaHtml(media, d.title)}
+      <div class="case-body">
+        <header class="case-head">
+          <p class="case-kicker">${esc(d.kicker)}</p>
+          <h2 class="case-title" id="case-title">${esc(d.title)}</h2>
+        </header>
+        <dl class="case-meta">${meta}</dl>
+        ${parts.join('')}
+      </div>`;
+    modalInner.scrollTop = 0;
     return true;
   }
 
-  function openCase(id) {
-    if (!caseModal || !renderCase(id)) return;
-    document.body.classList.add('is-locked');
-    caseModal.showModal();
-    caseInner.scrollTop = 0;
-    caseInner.focus();
-  }
-
-  $$('[data-open]').forEach(function (button) {
-    button.addEventListener('click', function () {
-      openCase(button.getAttribute('data-open'));
-    });
-  });
-
-  // Whole card is clickable, without nesting interactive elements.
-  $$('.work-card').forEach(function (card) {
-    card.addEventListener('click', function (event) {
-      if (event.target.closest('a, button')) return;
-      openCase(card.getAttribute('data-project'));
-    });
-  });
-
-  /**
-   * Idempotent teardown. Bound to `close` and `cancel` and also called directly by our
-   * own close paths, because the `close` event is not reliable in every engine.
-   */
-  function cleanupCase() {
-    if (!caseModal || caseModal.open) return;
-    document.body.classList.remove('is-locked');
-    if (caseInner) caseInner.innerHTML = '';
-    activeGallery = [];
+  function openCase(key, trigger) {
+    if (!modal || !renderCase(key)) return;
+    lastTrigger = trigger || document.activeElement;
+    modal.showModal();
+    modalInner.focus({ preventScroll: true });
+    history.replaceState(null, '', `#project-${key}`);
   }
 
   function closeCase() {
-    if (!caseModal) return;
-    caseModal.close();
-    cleanupCase();
+    if (!modal || !modal.open) return;
+    $$('video', modalInner).forEach((v) => v.pause());
+    modal.close();
   }
 
-  if (caseClose) {
-    caseClose.addEventListener('click', closeCase);
-  }
-
-  if (caseModal) {
-    // Click on the backdrop area (the dialog element itself) closes.
-    caseModal.addEventListener('click', function (event) {
-      if (event.target === caseModal) closeCase();
+  if (modal) {
+    modal.addEventListener('close', () => {
+      $$('video', modalInner).forEach((v) => v.pause());
+      if (location.hash.startsWith('#project-')) history.replaceState(null, '', '#work');
+      if (lastTrigger && document.contains(lastTrigger)) lastTrigger.focus({ preventScroll: true });
+      sfx('close');
     });
-    caseModal.addEventListener('close', cleanupCase);
-    // Esc: `cancel` fires first, before the dialog is actually closed.
-    caseModal.addEventListener('cancel', function () {
-      window.setTimeout(cleanupCase, 0);
+    // click on the backdrop closes
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeCase(); });
+    if (modalClose) modalClose.addEventListener('click', closeCase);
+    modalInner.addEventListener('click', (e) => {
+      const t = e.target.closest('[data-lb]');
+      if (t) openLightbox(Number(t.dataset.lb), t);
     });
   }
 
-  /* ------------------------------------------------------------- 6. Lightbox */
-  const lightbox = $('#lightbox');
+  document.addEventListener('click', (e) => {
+    const t = e.target.closest('[data-open]');
+    if (t) openCase(t.dataset.open, t);
+  });
+
+  // Deep link: #project-<key> opens that case study on load.
+  const deep = location.hash.match(/^#project-([a-z0-9-]+)$/i);
+  if (deep && STUDIES[deep[1]]) {
+    requestAnimationFrame(() => {
+      const w = $('#work');
+      if (w) w.scrollIntoView();
+      openCase(deep[1], null);
+    });
+  }
+
+  /* ------------------------------------------------------------ 6. Lightbox */
+  const lb = $('#lightbox');
   const lbStage = $('#lb-stage');
-  const lbCaption = $('#lb-caption');
+  const lbCount = $('#lb-count');
   const lbPrev = $('#lb-prev');
   const lbNext = $('#lb-next');
   const lbClose = $('#lb-close');
   let lbIndex = 0;
+  let lbTrigger = null;
 
-  function renderLightbox() {
-    const item = activeGallery[lbIndex];
-    if (!item || !lbStage) return;
-
-    if (item.type === 'image') {
-      lbStage.innerHTML =
-        '<img src="' + esc(item.src) + '" alt="' + esc(item.alt || item.caption || '') + '">';
-    } else if (item.type === 'video') {
-      lbStage.innerHTML =
-        '<video src="' + esc(item.src) + '" controls autoplay playsinline' +
-        (item.poster ? ' poster="' + esc(item.poster) + '"' : '') +
-        '></video>';
-    } else if (item.type === 'youtube') {
-      lbStage.innerHTML =
-        '<iframe src="https://www.youtube-nocookie.com/embed/' + esc(item.id) +
-        '?autoplay=1&amp;rel=0" title="' + esc(item.caption || 'Project video') +
-        '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
-    } else {
-      lbStage.innerHTML =
-        '<div class="lb-slot"><span class="media-slot-art"></span><span>' +
-        esc(item.label || 'Media slot') + '</span></div>';
-    }
-
-    if (lbCaption) lbCaption.textContent = item.caption || item.alt || '';
-    const many = activeGallery.length > 1;
-    if (lbPrev) lbPrev.hidden = !many;
-    if (lbNext) lbNext.hidden = !many;
+  function showLb(i) {
+    if (!currentMedia.length) return;
+    lbIndex = (i + currentMedia.length) % currentMedia.length;
+    const m = currentMedia[lbIndex];
+    const label = m.label ? `${m.title} — ${m.label}` : `${m.title} — ${m.kind === 'v' ? 'video' : 'screen'} ${lbIndex + 1}`;
+    $$('video', lbStage).forEach((v) => v.pause());
+    lbStage.innerHTML = m.kind === 'v'
+      ? `<video controls autoplay playsinline poster="${esc(cdn.poster(m.id, m.v, 1920))}" title="${esc(label)}"><source src="${esc(cdn.video(m.id, m.v, 1920))}" type="video/mp4"><source src="${esc(cdn.videoOriginal(m.id, m.v))}" type="video/mp4"></video>`
+      : `<img src="${esc(cdn.image(m.id, m.v, 2000))}" alt="${esc(label)}">`;
+    lbCount.textContent = `${lbIndex + 1} / ${currentMedia.length}`;
+    const single = currentMedia.length < 2;
+    lbPrev.hidden = single;
+    lbNext.hidden = single;
   }
 
-  function openLightbox(index) {
-    if (!lightbox || !activeGallery.length) return;
-    lbIndex = index;
-    renderLightbox();
-    lightbox.showModal();
+  function openLightbox(i, trigger) {
+    if (!lb) return;
+    lbTrigger = trigger;
+    $$('video', modalInner).forEach((v) => v.pause());
+    showLb(i);
+    lb.showModal();
   }
 
-  function stepLightbox(delta) {
-    if (!activeGallery.length) return;
-    lbIndex = (lbIndex + delta + activeGallery.length) % activeGallery.length;
-    renderLightbox();
-  }
-
-  if (caseInner) {
-    caseInner.addEventListener('click', function (event) {
-      const trigger = event.target.closest('.media-open');
-      if (!trigger) return;
-      openLightbox(Number(trigger.getAttribute('data-media')) || 0);
+  if (lb) {
+    lbPrev.addEventListener('click', () => { showLb(lbIndex - 1); sfx('back'); });
+    lbNext.addEventListener('click', () => { showLb(lbIndex + 1); sfx('forward'); });
+    lbClose.addEventListener('click', () => lb.close());
+    lb.addEventListener('click', (e) => { if (e.target === lb || e.target === lbStage) lb.close(); });
+    lb.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); showLb(lbIndex - 1); sfx('back'); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); showLb(lbIndex + 1); sfx('forward'); }
+    });
+    lb.addEventListener('close', () => {
+      $$('video', lbStage).forEach((v) => v.pause());
+      lbStage.innerHTML = '';
+      if (lbTrigger && document.contains(lbTrigger)) lbTrigger.focus({ preventScroll: true });
+      sfx('collapse');
+    });
+    // touch swipe
+    let x0 = null;
+    lbStage.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+    lbStage.addEventListener('touchend', (e) => {
+      if (x0 == null) return;
+      const dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 48) { showLb(lbIndex + (dx < 0 ? 1 : -1)); sfx('swipe'); }
+      x0 = null;
     });
   }
 
-  // Clearing the stage stops video/iframe playback, so it must happen on every close path.
-  function cleanupLightbox() {
-    if (!lightbox || lightbox.open) return;
-    if (lbStage) lbStage.innerHTML = '';
-  }
-
-  function closeLightbox() {
-    if (!lightbox) return;
-    lightbox.close();
-    cleanupLightbox();
-  }
-
-  if (lbPrev) lbPrev.addEventListener('click', () => stepLightbox(-1));
-  if (lbNext) lbNext.addEventListener('click', () => stepLightbox(1));
-  if (lbClose) lbClose.addEventListener('click', closeLightbox);
-
-  if (lightbox) {
-    lightbox.addEventListener('click', function (event) {
-      if (event.target === lightbox || event.target === lbStage) closeLightbox();
-    });
-    lightbox.addEventListener('close', cleanupLightbox);
-    lightbox.addEventListener('cancel', function () {
-      window.setTimeout(cleanupLightbox, 0);
-    });
-    lightbox.addEventListener('keydown', function (event) {
-      if (event.key === 'ArrowLeft') stepLightbox(-1);
-      if (event.key === 'ArrowRight') stepLightbox(1);
-    });
-  }
-
-  /* -------------------------------------------------------- 7. Contact form */
+  /* ------------------------------------------------------------ 7. Contact form */
   const form = $('#contact-form');
-  const status = $('#form-status');
-
-  function showError(id, invalid) {
-    const field = $('#' + id);
-    const error = $('#' + id + '-error');
-    if (field) field.setAttribute('aria-invalid', invalid ? 'true' : 'false');
-    if (error) error.hidden = !invalid;
-    return !invalid;
-  }
-
   if (form) {
-    form.addEventListener('submit', function (event) {
-      event.preventDefault();
+    const fields = {
+      name: { el: $('#cf-name'), err: $('#cf-name-error'), ok: (v) => v.trim().length > 0 },
+      email: { el: $('#cf-email'), err: $('#cf-email-error'), ok: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) },
+      message: { el: $('#cf-message'), err: $('#cf-message-error'), ok: (v) => v.trim().length > 0 }
+    };
+    const status = $('#form-status');
 
-      const name = $('#cf-name').value.trim();
-      const email = $('#cf-email').value.trim();
-      const subject = $('#cf-subject').value.trim() || 'Portfolio enquiry';
-      const message = $('#cf-message').value.trim();
+    function check(f) {
+      const valid = f.ok(f.el.value);
+      f.err.hidden = valid;
+      f.el.setAttribute('aria-invalid', valid ? 'false' : 'true');
+      return valid;
+    }
+    Object.values(fields).forEach((f) => f.el.addEventListener('blur', () => { if (f.el.value) check(f); }));
 
-      const okName = showError('cf-name', name.length === 0);
-      const okEmail = showError('cf-email', !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email));
-      const okMessage = showError('cf-message', message.length === 0);
-
-      if (!okName || !okEmail || !okMessage) {
-        if (status) status.textContent = 'Please complete the highlighted fields.';
-        const firstInvalid = $('[aria-invalid="true"]', form);
-        if (firstInvalid) firstInvalid.focus();
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const results = Object.values(fields).map(check);
+      if (results.includes(false)) {
+        const first = Object.values(fields).find((f) => !f.ok(f.el.value));
+        if (first) first.el.focus();
+        status.textContent = 'Please fix the highlighted fields.';
+        sfx('error');
         return;
       }
-
-      const body = message + '\n\n—\n' + name + '\n' + email;
-      const href =
-        'mailto:chitrang313@outlook.com?subject=' +
-        encodeURIComponent(subject) +
-        '&body=' +
-        encodeURIComponent(body);
-
-      if (status) status.textContent = 'Opening your mail client…';
+      const subject = $('#cf-subject').value.trim().slice(0, 150) || 'Opportunity for Chitrang';
+      const body = `${fields.message.el.value.trim()}\n\n— ${fields.name.el.value.trim()} (${fields.email.el.value.trim()})`;
+      const href = `mailto:chitrang313@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body.slice(0, 4000))}`;
+      status.textContent = 'Opening your mail client with the message filled in.';
+      sfx('send');
       window.location.href = href;
     });
   }
