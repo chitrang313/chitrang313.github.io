@@ -1,48 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-type="software" data-radius="soft">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light">
-  <title>Chitrang Patel — Software Engineer | C#/.NET, real-time systems</title>
-  <meta name="description" content="Chitrang Patel is a software engineer with 8+ years building production C# / .NET applications, real-time client-server systems and interactive platforms shipped across iOS and Android.">
+  <meta name="color-scheme" content="dark light">
+  <meta name="page-type" content="software">
+  <meta name="site-kind" content="software">
+  <meta name="theme-color" content="#0f0f0f" id="meta-theme">
+  <!--
+    Content Security Policy (GitHub Pages cannot send headers, so it lives here).
+    - scripts: this site + jsDelivr (uisfx, pinned to an exact version)
+    - media:   Cloudinary only
+  -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://res.cloudinary.com; media-src https://res.cloudinary.com; connect-src 'self'; frame-src https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'; form-action 'self' mailto:">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <title>Chitrang Patel — Sr. Software Engineer, interactive systems</title>
+  <meta name="description" content="Chitrang Patel is a senior software engineer with 8+ years building production C# / .NET applications, real-time client-server systems, and interactive museum installations.">
   <meta name="author" content="Chitrang Patel">
   <link rel="canonical" href="https://chitrang313.github.io/">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Chitrang Patel">
-  <meta property="og:title" content="Chitrang Patel — Software Engineer">
-  <meta property="og:description" content="8+ years building production C# / .NET applications, real-time client-server systems and interactive platforms shipped across iOS and Android.">
+  <meta property="og:title" content="Chitrang Patel — Sr. Software Engineer">
+  <meta property="og:description" content="8+ years building production C# / .NET applications, real-time client-server systems and interactive museum installations.">
   <meta property="og:url" content="https://chitrang313.github.io/">
   <meta property="og:image" content="https://chitrang313.github.io/assets/img/og-cover.png">
-  <meta property="og:image:alt" content="Chitrang Patel — Software Engineer">
+  <meta property="og:image:alt" content="Chitrang Patel — Sr. Software Engineer">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="en_US">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Chitrang Patel — Software Engineer">
-  <meta name="twitter:description" content="8+ years building production C# / .NET applications, real-time client-server systems and interactive platforms.">
+  <meta name="twitter:title" content="Chitrang Patel — Sr. Software Engineer">
+  <meta name="twitter:description" content="8+ years building production C# / .NET applications, real-time client-server systems and interactive museum installations.">
   <meta name="twitter:image" content="https://chitrang313.github.io/assets/img/og-cover.png">
 
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/img/favicon.svg">
 
-  <!-- Fonts: Instrument Serif (display) + Inter (text) -->
+  <!-- Type: Instrument Sans (tasteskill pairing "instrument") -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inter:wght@400;500;600&amp;display=swap">
+  <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..700&amp;display=swap">
 
-  <link rel="stylesheet" href="css/style.css">
+  <script src="js/enter.js?v=2026.11.12l"></script>
+  <link rel="stylesheet" href="css/style.css?v=2026.11.12l">
+  <link rel="modulepreload" href="assets/moments/moments.js">
+  <link rel="modulepreload" href="assets/moments/lib.js">
+  <link rel="modulepreload" href="assets/moments/word-highlight/moment.js">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Chitrang Patel",
-    "jobTitle": "Software Engineer",
+    "jobTitle": "Sr. Software Engineer",
     "url": "https://chitrang313.github.io/",
     "email": "mailto:chitrang313@outlook.com",
     "address": { "@type": "PostalAddress", "addressLocality": "Ahmedabad", "addressCountry": "India" },
@@ -60,16 +76,9 @@
   </script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- ============================================================
-       ICON SPRITE — one family: 24px grid, 1.6 stroke, round caps.
-       Never mix in other icon sets; add new symbols in this style.
-       ============================================================ -->
+  <!-- ICON SPRITE — one family: 24px grid, 1.6 stroke, round caps. -->
   <svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <g id="i-base" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></g>
-    </defs>
     <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m3 6.5 9 6 9-6"></path></g></symbol>
     <symbol id="i-github" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 5-2 5-5.5a5 5 0 0 0-1-3 4 4 0 0 0-.1-3s-1.6-.5-3.4 1.3a12 12 0 0 0-6.2 0C6.5 1.5 4.9 2 4.9 2a4 4 0 0 0-.1 3 5 5 0 0 0-1 3c0 3.5 2 5.5 5 5.5-.6.6-1 1.6-1 3.5v4"></path><path d="M9 18c-4.5 2-5-2-7-2"></path></g></symbol>
     <symbol id="i-linkedin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8.5a5.5 5.5 0 0 1 5.5 5.5V21h-4v-6.5a2 2 0 0 0-4 0V21h-4V9h4v1.4"></path><rect x="2.5" y="9" width="4" height="12"></rect><circle cx="4.5" cy="4.5" r="2"></circle></g></symbol>
@@ -84,138 +93,157 @@
     <symbol id="i-chevron-left" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m14.5 5-7 7 7 7"></path></g></symbol>
     <symbol id="i-chevron-right" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9.5 5 7 7-7 7"></path></g></symbol>
     <symbol id="i-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"></circle><path d="m10 8.5 6 3.5-6 3.5z"></path></g></symbol>
-    <symbol id="i-expand" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 3.5h6v6"></path><path d="M9.5 20.5h-6v-6"></path><path d="m20.5 3.5-7 7"></path><path d="m3.5 20.5 7-7"></path></g></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3.5" width="18" height="17" rx="2"></rect><circle cx="8.5" cy="9" r="1.8"></circle><path d="m21 15.5-5-5L5 20.5"></path></g></symbol>
     <symbol id="i-code" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m17 16 4-4-4-4"></path><path d="m7 8-4 4 4 4"></path><path d="m14 4-4 16"></path></g></symbol>
     <symbol id="i-server" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="3" width="19" height="7" rx="2"></rect><rect x="2.5" y="14" width="19" height="7" rx="2"></rect><path d="M6.5 6.5h.01M6.5 17.5h.01"></path></g></symbol>
     <symbol id="i-database" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 5.5c0 1.7-3.8 3-8.5 3s-8.5-1.3-8.5-3 3.8-3 8.5-3 8.5 1.3 8.5 3Z"></path><path d="M3.5 5.5v13c0 1.7 3.8 3 8.5 3s8.5-1.3 8.5-3v-13"></path><path d="M20.5 12c0 1.7-3.8 3-8.5 3s-8.5-1.3-8.5-3"></path></g></symbol>
     <symbol id="i-cloud" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17.3 19H9a6.5 6.5 0 1 1 6.2-8.5h2.1a4.25 4.25 0 0 1 0 8.5Z"></path></g></symbol>
     <symbol id="i-layers" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2.7 9 4.3-9 4.3-9-4.3z"></path><path d="m3.4 12 8.6 4.1 8.6-4.1"></path><path d="m3.4 16.6 8.6 4.1 8.6-4.1"></path></g></symbol>
-    <symbol id="i-flask" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2.5v6a2 2 0 0 0 .25 1l5.2 9.5A2 2 0 0 1 17.7 22H6.3a2 2 0 0 1-1.75-3l5.2-9.5A2 2 0 0 0 10 8.5v-6"></path><path d="M8.5 2.5h7"></path><path d="M7.2 16.5h9.6"></path></g></symbol>
+    <symbol id="i-flask" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2.5v6a2 2 0 0 0 .25 1l5.2 9.5A2 2 0 0 1 17.7 22H6.3a2 2 0 0 1-1.750-3l5.2-9.5A2 2 0 0 0 10 8.5v-6"></path><path d="M8.5 2.5h7"></path><path d="M7.2 16.5h9.6"></path></g></symbol>
     <symbol id="i-sparkles" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m11 3.5-1.6 4.6a2 2 0 0 1-1.3 1.3L3.5 11l4.6 1.6a2 2 0 0 1 1.3 1.3L11 18.5l1.6-4.6a2 2 0 0 1 1.3-1.3L18.5 11l-4.6-1.6a2 2 0 0 1-1.3-1.3z"></path><path d="M18.5 17v4M16.5 19h4"></path></g></symbol>
     <symbol id="i-git" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 4.5v10"></path><circle cx="6.5" cy="18" r="2.6"></circle><circle cx="17.5" cy="6" r="2.6"></circle><path d="M17.5 8.6c0 4.4-3.1 6.4-8 6.4"></path></g></symbol>
-    <symbol id="i-users" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 20.5v-1.6a3.9 3.9 0 0 0-3.9-3.9H6.4a3.9 3.9 0 0 0-3.9 3.9v1.6"></path><circle cx="9" cy="7.5" r="3.7"></circle><path d="M21.5 20.5v-1.6a3.9 3.9 0 0 0-2.9-3.75"></path><path d="M16 4a3.7 3.7 0 0 1 0 7.1"></path></g></symbol>
-    <symbol id="i-monitor" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="3.5" width="19" height="13" rx="2"></rect><path d="M8.5 20.5h7M12 16.5v4"></path></g></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 20.5v-1.6a3.900 3.900 0 0 0-3.9-3.9H6.4a3.9 3.9 0 0 0-3.9 3.9v1.6"></path><circle cx="9" cy="7.5" r="3.7"></circle><path d="M21.5 20.5v-1.6a3.9 3.9 0 0 0-2.9-3.75"></path><path d="M16 4a3.7 3.7 0 0 1 0 7.1"></path></g></symbol>
     <symbol id="i-briefcase" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="7" width="19" height="13.5" rx="2"></rect><path d="M8.5 20.5V5.5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v15"></path></g></symbol>
     <symbol id="i-award" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"></circle><path d="M15.6 13.7 17 22l-5-2.9L7 22l1.4-8.3"></path></g></symbol>
     <symbol id="i-bulb" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14.5c.2-1 .8-1.8 1.6-2.6A6 6 0 1 0 6 8c0 1.5.6 2.9 1.4 3.9.8.8 1.4 1.6 1.6 2.6"></path><path d="M9 18h6M10 21.5h4"></path></g></symbol>
     <symbol id="i-target" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"></circle><circle cx="12" cy="12" r="5.2"></circle><circle cx="12" cy="12" r="1.4"></circle></g></symbol>
     <symbol id="i-menu" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7h17M3.5 12h17M3.5 17h17"></path></g></symbol>
-    <symbol id="i-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6.5-10.5 11L4 12"></path></g></symbol>
     <symbol id="i-cap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 8.5 12 4 2 8.5l10 4.5z"></path><path d="M6 10.7V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-5.3"></path></g></symbol>
-    <symbol id="i-globe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"></circle><path d="M2.8 12h18.4"></path><path d="M12 2.8c2.4 2.5 3.7 5.8 3.7 9.2S14.4 18.7 12 21.2C9.6 18.7 8.3 15.4 8.3 12S9.6 5.3 12 2.8Z"></path></g></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"></circle><path d="M2.8 12h18.4"></path><path d="M12 2.8c2.4 2.5 3.7 5.8 3.7 9.2S14.4 18.700 12 21.2C9.6 18.7 8.3 15.4 8.3 12S9.6 5.3 12 2.8Z"></path></g></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5v14M15 5v14"></path></g></symbol>
+    <symbol id="i-play-solid" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m8 5 11 7-11 7z"></path></g></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"></path></g></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z"></path></g></symbol>
+    <symbol id="i-sound-on" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4z"></path><path d="M15.5 8.5a5 5 0 0 1 0 7"></path><path d="M18.5 5.5a9 9 0 0 1 0 13"></path></g></symbol>
+    <symbol id="i-sound-off" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4z"></path><path d="m16 9.5 5 5M21 9.5l-5 5"></path></g></symbol>
   </svg>
 
+  <!--
+    tasteskill deal (plan line 2): kind software · palette soot-pale-lime (the client asked for a dark,
+    immersive page; it is the dark palette dealt for software) · type instrument · radius soft ·
+    hero: head row over the WebGL point field (stage video removed at the client's request) · effect: WebGL point field
+    across the hero · nav mega (single bar) · footer statement · close type · rhythm space ·
+    buttons arrow · mark arc.
+  -->
+
   <!-- ============================== NAV ============================== -->
-  <header class="site-head" id="site-head">
-    <div class="shell site-head-inner">
-      <a class="brand" href="#top" aria-label="Chitrang Patel — back to top">
-        <span class="brand-mark" aria-hidden="true">CP</span>
-        <span class="brand-text">Chitrang&nbsp;Patel</span>
+  <header class="nav site-head" id="site-head">
+    <div class="wrap site-head-inner">
+      <a class="skip-link" href="#main">Skip to content</a>
+      <a class="brand" href="#top" aria-label="Chitrang Patel, back to top" data-sfx="press">
+        <svg class="brand-mark" viewBox="0 0 28 28" aria-hidden="true"><path d="M4 22a10 10 0 0 1 20 0" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"></path><circle cx="14" cy="22" r="2.4" fill="currentColor"></circle></svg>
+        <span class="brand-text">Chitrang Patel</span>
       </a>
 
-      <nav class="site-nav" id="site-nav" aria-label="Section navigation">
+      <nav class="site-nav" id="site-nav" aria-label="Sections">
         <ul class="nav-list">
-          <li><a class="nav-link is-current" href="#top">Home</a></li>
+          <li><a class="nav-link" href="#work">Work</a></li>
           <li><a class="nav-link" href="#about">About</a></li>
           <li><a class="nav-link" href="#experience">Experience</a></li>
-          <li><a class="nav-link" href="#work">Projects</a></li>
           <li><a class="nav-link" href="#skills">Skills</a></li>
           <li><a class="nav-link" href="#resume">Résumé</a></li>
           <li><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
       </nav>
 
-      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
-        <svg class="icon" aria-hidden="true"><use href="#i-menu"></use></svg>
-      </button>
+      <div class="head-actions">
+        <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+          <svg class="icon" aria-hidden="true"><use href="#i-menu"></use></svg>
+        </button>
+        <button class="icon-btn theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme">
+          <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"></use></svg>
+          <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"></use></svg>
+        </button>
+        <button class="icon-btn sound-toggle" id="sound-toggle" type="button" aria-pressed="false" aria-label="Interface sounds" title="Interface sounds">
+          <svg class="icon icon-off" aria-hidden="true"><use href="#i-sound-off"></use></svg>
+          <svg class="icon icon-on" aria-hidden="true"><use href="#i-sound-on"></use></svg>
+        </button>
+      </div>
     </div>
     <div class="head-progress" id="head-progress" aria-hidden="true"></div>
   </header>
 
   <main id="main">
     <!-- ============================== HERO ============================== -->
-    <section class="hero" id="top">
-      <div class="shell hero-grid">
-        <div class="hero-body">
-          <p class="eyebrow reveal">
-            <span class="eyebrow-dot" aria-hidden="true"></span>
-            Ahmedabad, India · Available for senior engineering roles
+    <section class="hero" id="top" aria-labelledby="hero-title" data-enter>
+      <!-- The page's one effect: WebGL point field (js/scene.js). Decorative. -->
+      <canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas>
+
+      <div class="wrap">
+      <div class="cols hero-head">
+        <h1 class="hero-title col-l" id="hero-title">
+          <span class="line line-1"><span>Chitrang Patel,</span></span>
+          <span class="line line-2"><span>senior software engineer</span></span>
+        </h1>
+        <div class="hero-side col-r">
+          <p class="hero-lede">
+            Eight years shipping C# and .NET software: museum touchscreen installations, real-time
+            multi-user 3D platforms and mobile games released on iOS and Android.
           </p>
-
-          <h1 class="hero-title reveal">
-            Chitrang&nbsp;Patel
-          </h1>
-
-          <p class="hero-role reveal">
-            Sr. Software Engineer
-          </p>
-
-          <p class="hero-lede reveal">
-            Eight years of shipping production software: real-time client-server platforms,
-            REST APIs, and interactive 3D applications released on iOS and Android. I care about
-            architecture that survives its second year, and about the small details users feel
-            but never name.
-          </p>
-
-          <div class="hero-actions reveal">
-            <a class="btn btn-primary" href="#work">
-              View projects
+          <div class="btn-row">
+            <a class="btn btn-primary" href="#work" data-sfx="press">
+              See the work
               <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
             </a>
-            <a class="btn btn-ghost" href="assets/resume/Chitrang-Patel-Resume.pdf" download>
+            <a class="btn btn-tonal" href="assets/resume/Chitrang-Patel-Resume.pdf" download data-sfx="press">
               Download résumé
               <svg class="icon" aria-hidden="true"><use href="#i-download"></use></svg>
             </a>
-            <a class="btn btn-quiet" href="#contact">Get in touch</a>
           </div>
-
-          <dl class="hero-stats reveal">
-            <div class="stat">
-              <dt>Years shipping</dt>
-              <dd>8<span class="stat-unit">+</span></dd>
-            </div>
-            <div class="stat">
-              <dt>Products released</dt>
-              <dd>10<span class="stat-unit">+</span></dd>
-            </div>
-            <div class="stat">
-              <dt>Cycle time cut</dt>
-              <dd>30<span class="stat-unit">%</span></dd>
-            </div>
-            <div class="stat">
-              <dt>Platforms</dt>
-              <dd>iOS<span class="stat-unit"> · Android</span></dd>
-            </div>
+          <dl class="facts">
+          <div class="fact"><dt>Years shipping</dt><dd>8<small>+</small></dd></div>
+          <div class="fact"><dt>Products released</dt><dd>10<small>+</small></dd></div>
+          <div class="fact"><dt>Feature cycle time cut</dt><dd>30<small>%</small></dd></div>
+          <div class="fact"><dt>Platforms</dt><dd>iOS <small>· Android</small></dd></div>
           </dl>
         </div>
-
-        <aside class="hero-aside reveal" aria-label="Portrait and current role">
-          <figure class="portrait">
-            <div class="portrait-frame">
-              <img src="assets/img/portrait.png" alt="Portrait of Chitrang Patel" width="720" height="720" class="portrait-img">
-            </div>
-            <figcaption class="portrait-caption">
-              <span class="portrait-now">Currently</span>
-              Sr. Software Engineer at <strong>ViitorCloud Technologies</strong>, building real-time,
-              multi-user product experiences.
-            </figcaption>
-          </figure>
-        </aside>
       </div>
+      </div>
+    </section>
 
-      <p class="scroll-cue" aria-hidden="true"><span></span>Scroll</p>
+    <!-- ============================== WORK ============================== -->
+    <section class="band g2" id="work" aria-labelledby="work-title">
+      <div class="wrap">
+        <header class="band-head">
+          <h2 class="band-title" id="work-title">Selected projects</h2>
+          <p class="band-sub">
+            Museum installations for CSMVS Mumbai, the Sikh History Museum and MAP Bengaluru, real-time
+            products and earlier games. Each project opens its case study with video and screens.
+          </p>
+        </header>
+
+        <div class="filters" role="group" aria-label="Filter projects" id="work-filters">
+          <!-- filter buttons: js/main.js, from js/work.js -->
+        </div>
+        <p class="visually-hidden" id="work-status" role="status" aria-live="polite"></p>
+
+        <div class="work-grid" id="work-grid">
+          <!-- cards: js/main.js -->
+        </div>
+
+        <noscript>
+          <p class="noscript-note">The project cards need JavaScript. Every case study is also written up in the project-data folder of this site's repository.</p>
+        </noscript>
+      </div>
+    </section>
+
+    <!-- ============================== STATEMENT (dealt moment: word-highlight) ============================== -->
+    <!-- The sentence is the client's own, from the previous site's hero. -->
+    <section class="band statement" id="approach" data-moment="word-highlight" aria-label="Approach">
+      <div class="wrap">
+        <p class="mo-wh__text">I care about architecture that survives its <strong>second year</strong>, and about the small details users feel but never name.</p>
+      </div>
     </section>
 
     <!-- ============================== ABOUT ============================== -->
     <section class="band" id="about" aria-labelledby="about-title">
-      <div class="shell">
-        <header class="band-head reveal">
-          <p class="band-index">01 — About</p>
+      <div class="wrap">
+        <header class="band-head">
           <h2 class="band-title" id="about-title">Engineering as craft, not output</h2>
         </header>
 
-        <div class="about-grid">
-          <div class="prose reveal">
+        <div class="cols about-grid">
+          <div class="prose col-l">
             <p class="prose-lead">
               I started in 2017 writing gameplay code for small Android titles, where the feedback loop
               was brutally honest: if an interaction felt wrong, the store reviews said so within a day.
@@ -244,69 +272,36 @@
             </p>
           </div>
 
-          <aside class="about-side reveal" aria-label="How I work">
-            <h3 class="side-title">How I work</h3>
-            <ul class="principles">
-              <li>
-                <svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg>
-                <div>
-                  <strong>Boundaries first.</strong>
-                  Small modules with honest interfaces. OOP and SOLID as tools, not ceremony.
-                </div>
-              </li>
-              <li>
-                <svg class="icon" aria-hidden="true"><use href="#i-target"></use></svg>
-                <div>
-                  <strong>Make it observable.</strong>
-                  Structured error handling, retries, and logs that explain themselves at 2&nbsp;a.m.
-                </div>
-              </li>
-              <li>
-                <svg class="icon" aria-hidden="true"><use href="#i-flask"></use></svg>
-                <div>
-                  <strong>Determinism where it counts.</strong>
-                  Behaviour you can unit test and tune beats behaviour you can only admire.
-                </div>
-              </li>
-              <li>
-                <svg class="icon" aria-hidden="true"><use href="#i-users"></use></svg>
-                <div>
-                  <strong>Review as mentoring.</strong>
-                  CI-gated pull requests, shared standards, fewer defects reaching QA.
-                </div>
-              </li>
-              <li>
-                <svg class="icon" aria-hidden="true"><use href="#i-bulb"></use></svg>
-                <div>
-                  <strong>Keep learning in public.</strong>
-                  New tooling adopted deliberately, measured against real delivery outcomes.
-                </div>
-              </li>
-            </ul>
-          </aside>
+          <div class="about-side col-r">
+
+            <div>
+              <h3 class="side-title">How I work</h3>
+              <ul class="principles">
+                <li><svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg><div><strong>Boundaries first.</strong> Small modules with honest interfaces. OOP and SOLID as tools, not ceremony.</div></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-target"></use></svg><div><strong>Make it observable.</strong> Structured error handling, retries, and logs that explain themselves at 2&nbsp;a.m.</div></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-flask"></use></svg><div><strong>Determinism where it counts.</strong> Behaviour you can unit test and tune beats behaviour you can only admire.</div></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-users"></use></svg><div><strong>Review as mentoring.</strong> CI-gated pull requests, shared standards, fewer defects reaching QA.</div></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-bulb"></use></svg><div><strong>Keep learning in public.</strong> New tooling adopted deliberately, measured against real delivery outcomes.</div></li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ============================== EXPERIENCE ============================== -->
-    <section class="band band-alt" id="experience" aria-labelledby="exp-title">
-      <div class="shell">
-        <header class="band-head reveal">
-          <p class="band-index">02 — Experience</p>
-          <h2 class="band-title" id="exp-title">Eight years, four teams, one habit</h2>
+    <section class="band band-alt g2" id="experience" aria-labelledby="exp-title">
+      <div class="wrap">
+        <header class="band-head">
+          <h2 class="band-title" id="exp-title">Eight years, four teams</h2>
           <p class="band-sub">Ship it, then make it maintainable enough to ship the next thing faster.</p>
         </header>
 
         <ol class="timeline">
-          <li class="tl-item reveal">
-            <div class="tl-marker" aria-hidden="true"></div>
-            <div class="tl-card">
-              <p class="tl-period">Apr 2023 — Present</p>
+          <li class="tl-item cols">
+            <div class="tl-when col-l"><p class="tl-period">Apr 2023 — Present</p><p class="tl-org">ViitorCloud Technologies · Ahmedabad</p></div>
+            <div class="tl-body col-r">
               <h3 class="tl-role">Software Engineer</h3>
-              <p class="tl-org">
-                <svg class="icon" aria-hidden="true"><use href="#i-briefcase"></use></svg>
-                ViitorCloud Technologies · Ahmedabad
-              </p>
               <ul class="tl-points">
                 <li>Cut feature development time ~30% with reusable, extensible modules governed by OOP and SOLID principles — consistent on-time delivery against every client commitment.</li>
                 <li>Architected modular, component-based systems that lowered regression risk and shortened the path to shipping new features on existing products.</li>
@@ -315,970 +310,202 @@
                 <li>Optimised runtime performance and memory via profiling, asset streaming and object pooling.</li>
                 <li>Recognised as <strong>Entrant of the Quarter</strong> for engineering contribution and delivery consistency.</li>
               </ul>
-              <ul class="chips">
-                <li class="chip">C#</li>
-                <li class="chip">.NET</li>
-                <li class="chip">Photon Networking</li>
-                <li class="chip">Socket.IO</li>
-                <li class="chip">Addressables</li>
-                <li class="chip">DOTween</li>
-                <li class="chip">Git · CI/CD</li>
-              </ul>
+              <ul class="chips"><li class="chip">C#</li><li class="chip">.NET</li><li class="chip">Photon Networking</li><li class="chip">Socket.IO</li><li class="chip">Addressables</li><li class="chip">DOTween</li><li class="chip">Git · CI/CD</li></ul>
             </div>
           </li>
-
-          <li class="tl-item reveal">
-            <div class="tl-marker" aria-hidden="true"></div>
-            <div class="tl-card">
-              <p class="tl-period">Dec 2020 — Mar 2023</p>
+          <li class="tl-item cols">
+            <div class="tl-when col-l"><p class="tl-period">Dec 2020 — Mar 2023</p><p class="tl-org">nCore Games · Bangalore</p></div>
+            <div class="tl-body col-r">
               <h3 class="tl-role">Software Engineer</h3>
-              <p class="tl-org">
-                <svg class="icon" aria-hidden="true"><use href="#i-briefcase"></use></svg>
-                nCore Games · Bangalore
-              </p>
               <ul class="tl-points">
                 <li>Owned core application logic, decision-making AI, statistics and mathematics subsystems for a globally released, officially licensed sports simulation.</li>
                 <li>Designed an AI decision engine using goal-oriented action planning — probabilistic models turned into deterministic, testable, tunable behaviour.</li>
                 <li>Built the statistics and mathematics layer, guaranteeing numerical correctness across a large simulation state space.</li>
                 <li>Reviewed peer code through CI/CD-gated pull requests, raising baseline quality and reducing defects reaching QA.</li>
               </ul>
-              <ul class="chips">
-                <li class="chip">C#</li>
-                <li class="chip">GOAP</li>
-                <li class="chip">State machines</li>
-                <li class="chip">Algorithms</li>
-                <li class="chip">CI/CD</li>
-                <li class="chip">SourceTree</li>
-              </ul>
+              <ul class="chips"><li class="chip">C#</li><li class="chip">GOAP</li><li class="chip">State machines</li><li class="chip">Algorithms</li><li class="chip">CI/CD</li><li class="chip">SourceTree</li></ul>
             </div>
           </li>
-
-          <li class="tl-item reveal">
-            <div class="tl-marker" aria-hidden="true"></div>
-            <div class="tl-card">
-              <p class="tl-period">Dec 2019 — Dec 2020</p>
+          <li class="tl-item cols">
+            <div class="tl-when col-l"><p class="tl-period">Dec 2019 — Dec 2020</p><p class="tl-org">Vasundhara Vision · Surat</p></div>
+            <div class="tl-body col-r">
               <h3 class="tl-role">Senior Unity Game Developer</h3>
-              <p class="tl-org">
-                <svg class="icon" aria-hidden="true"><use href="#i-briefcase"></use></svg>
-                Vasundhara Vision · Surat
-              </p>
               <ul class="tl-points">
                 <li>Delivered 5+ production applications for iOS and Android from architecture through store release, owning technical decisions end to end.</li>
                 <li>Built online multiplayer backend services with Node.js, Express.js and Socket.IO — session and room management, authoritative server logic, real-time event broadcasting.</li>
                 <li>Implemented in-app purchases, leaderboards and ad network integrations with server-side transaction validation.</li>
                 <li>Led a small engineering team: set code standards, ran reviews, mentored developers, met every release date.</li>
               </ul>
-              <ul class="chips">
-                <li class="chip">C#</li>
-                <li class="chip">Node.js</li>
-                <li class="chip">Express.js</li>
-                <li class="chip">Socket.IO</li>
-                <li class="chip">IAP</li>
-                <li class="chip">AdMob</li>
-              </ul>
+              <ul class="chips"><li class="chip">C#</li><li class="chip">Node.js</li><li class="chip">Express.js</li><li class="chip">Socket.IO</li><li class="chip">IAP</li><li class="chip">AdMob</li></ul>
             </div>
           </li>
-
-          <li class="tl-item reveal">
-            <div class="tl-marker" aria-hidden="true"></div>
-            <div class="tl-card">
-              <p class="tl-period">Oct 2017 — Oct 2019</p>
+          <li class="tl-item cols">
+            <div class="tl-when col-l"><p class="tl-period">Oct 2017 — Oct 2019</p><p class="tl-org">Escrow Infotech · Surat</p></div>
+            <div class="tl-body col-r">
               <h3 class="tl-role">Unity Game Developer</h3>
-              <p class="tl-org">
-                <svg class="icon" aria-hidden="true"><use href="#i-briefcase"></use></svg>
-                Escrow Infotech · Surat
-              </p>
               <ul class="tl-points">
                 <li>Designed and implemented application logic, interactive UI and animation systems for consumer mobile products on Android.</li>
                 <li>Drove a 20% increase in user retention through iterative UX refinement informed by user feedback and store review analysis.</li>
                 <li>Established reusable UI and animation components adopted across multiple projects, removing duplicated effort.</li>
               </ul>
-              <ul class="chips">
-                <li class="chip">C#</li>
-                <li class="chip">UI/UX</li>
-                <li class="chip">Animation systems</li>
-                <li class="chip">Android</li>
-              </ul>
+              <ul class="chips"><li class="chip">C#</li><li class="chip">UI/UX</li><li class="chip">Animation systems</li><li class="chip">Android</li></ul>
             </div>
           </li>
         </ol>
       </div>
     </section>
 
-    <!-- ============================== PROJECTS ============================== -->
-    <section class="band" id="work" aria-labelledby="work-title">
-      <div class="shell">
-        <header class="band-head reveal">
-          <p class="band-index">03 — Selected work</p>
-          <h2 class="band-title" id="work-title">Case studies</h2>
-          <p class="band-sub">
-            Twenty-one systems, chosen for what they demanded rather than how they looked. Open any card
-            for the problem, the architecture, and what I would do differently.
-          </p>
-        </header>
-
-        <div class="work-grid">
-          <!-- ---------- Golden Temple Video Gallery (Sikh History Museum) ---------- -->
-          <article class="work-card reveal" data-project="goldentemple">
-            <div class="work-cover" data-cover="goldentemple">
-              <!-- COVER SLOT: replace with <img src="assets/img/projects/goldentemple-cover.jpg" alt="" width="1200" height="750" loading="lazy" class="work-cover-img"> -->
-              <span class="work-cover-mono" aria-hidden="true">GT</span>
-              <span class="work-cover-note">Cover slot</span>
-            </div>
-            <div class="work-body">
-              <p class="work-meta"><span>Client: Sikh History Museum</span><span class="dot" aria-hidden="true"></span><span>Touchscreen Kiosk</span></p>
-              <h3 class="work-title">Golden Temple Video Gallery</h3>
-              <p class="work-kicker">Interactive Museum Touchscreen Kiosk</p>
-              <p class="work-desc">
-                An interactive video wall kiosk letting museum visitors explore Golden Temple documentaries with scroll-snap touch browsing, remote branding/color theming, and a live information ticker.
-              </p>
-              <ul class="chips chips-sm">
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>C#</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-monitor"></use></svg>Unity 6</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-cloud"></use></svg>REST (Auth)</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-sparkles"></use></svg>Remote Theme</li>
-              </ul>
-              <button class="work-more" type="button" data-open="goldentemple">
-                Read case study
-                <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
-              </button>
-            </div>
-          </article>
-
-          <!-- ---------- Dual Gallery Interactive Display (Sikh History Museum) ---------- -->
-          <article class="work-card reveal" data-project="dualgallery">
-            <div class="work-cover" data-cover="dualgallery">
-              <!-- COVER SLOT: replace with <img src="assets/img/projects/dualgallery-cover.jpg" alt="" width="1200" height="750" loading="lazy" class="work-cover-img"> -->
-              <span class="work-cover-mono" aria-hidden="true">DG</span>
-              <span class="work-cover-note">Cover slot</span>
-            </div>
-            <div class="work-body">
-              <p class="work-meta"><span>Client: Sikh History Museum</span><span class="dot" aria-hidden="true"></span><span>Touchscreen Kiosk</span></p>
-              <h3 class="work-title">Dual Gallery Interactive Display</h3>
-              <p class="work-kicker">Touchscreen Multimedia Kiosk for Sikh History Museum</p>
-              <p class="work-desc">
-                An interactive touch kiosk bringing the stories of Guru Nanak and the Ten Gurus to life through archival imagery, documentary video, TextMeshPro typography, and automatic offline caching.
-              </p>
-              <ul class="chips chips-sm">
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>C#</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-monitor"></use></svg>Unity 6 (URP)</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-cloud"></use></svg>REST API</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-server"></use></svg>Offline cache</li>
-              </ul>
-              <button class="work-more" type="button" data-open="dualgallery">
-                Read case study
-                <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
-              </button>
-            </div>
-          </article>
-
-          <!-- ---------- Sikh History Timeline (Sikh History Museum) ---------- -->
-          <article class="work-card reveal" data-project="sikhtimeline">
-            <div class="work-cover" data-cover="sikhtimeline">
-              <img src="https://res.cloudinary.com/dpl3xzmwx/image/upload/v1792654240/InteractiveTimeline_1080p_07.05.2026_10-37-23_hzvexl.webp" alt="Sikh History Interactive Timeline Kiosk" width="1200" height="750" loading="lazy" decoding="async" class="work-cover-img">
-            </div>
-            <div class="work-body">
-              <p class="work-meta"><span>Client: Sikh History Museum</span><span class="dot" aria-hidden="true"></span><span>Touchscreen Kiosk</span></p>
-              <h3 class="work-title">Sikh History Timeline</h3>
-              <p class="work-kicker">Interactive Museum Timeline Kiosk</p>
-              <p class="work-desc">
-                An interactive touchscreen kiosk exploring Sikh heritage from 1469 through three themed chapters, archival artwork, kinetic touch scrolling, and dynamic QR smartphone links.
-              </p>
-              <ul class="chips chips-sm">
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>C#</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-monitor"></use></svg>Unity (URP)</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg>JSON data</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-globe"></use></svg>Dynamic QR</li>
-              </ul>
-              <button class="work-more" type="button" data-open="sikhtimeline">
-                Read case study
-                <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
-              </button>
-            </div>
-          </article>
-
-          <!-- ---------- Visitor Feedback Kiosk (CSMVS Museum) ---------- -->
-          <article class="work-card reveal" data-project="feedback">
-            <div class="work-cover" data-cover="feedback">
-              <!-- COVER SLOT: replace with <img src="assets/img/projects/feedback-cover.jpg" alt="" width="1200" height="750" loading="lazy" class="work-cover-img"> -->
-              <span class="work-cover-mono" aria-hidden="true">VF</span>
-              <span class="work-cover-note">Cover slot</span>
-            </div>
-            <div class="work-body">
-              <p class="work-meta"><span>Client: CSMVS Museum</span><span class="dot" aria-hidden="true"></span><span>Touchscreen Kiosk</span></p>
-              <h3 class="work-title">Visitor Feedback Kiosk</h3>
-              <p class="work-kicker">Touchscreen Experience for CSMVS Mumbai</p>
-              <p class="work-desc">
-                A trilingual touchscreen feedback kiosk for CSMVS Museum. Visitors share exhibition impressions in English, Hindi, or Marathi with custom on-screen keyboards and offline sync.
-              </p>
-              <ul class="chips chips-sm">
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>C#</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-monitor"></use></svg>Unity</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-globe"></use></svg>Trilingual</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-server"></use></svg>Offline queue</li>
-              </ul>
-              <button class="work-more" type="button" data-open="feedback">
-                Read case study
-                <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
-              </button>
-            </div>
-          </article>
-
-          <!-- ---------- Museum on the Wheel (CSMVS Museum) ---------- -->
-          <article class="work-card reveal" data-project="motw">
-            <div class="work-cover" data-cover="motw">
-              <!-- COVER SLOT: replace with <img src="assets/img/projects/motw-cover.jpg" alt="" width="1200" height="750" loading="lazy" class="work-cover-img"> -->
-              <span class="work-cover-mono" aria-hidden="true">MW</span>
-              <span class="work-cover-note">Cover slot</span>
-            </div>
-            <div class="work-body">
-              <p class="work-meta"><span>Client: CSMVS Museum</span><span class="dot" aria-hidden="true"></span><span>Mobile Museum Kiosk</span></p>
-              <h3 class="work-title">Museum on the Wheel</h3>
-              <p class="work-kicker">Interactive Trade Wall for Rural India</p>
-              <p class="work-desc">
-                A travelling museum on a 4-wheel tempo bringing ancient Harappan trade history to rural villages across India via large touchscreens, zero-connectivity offline operation, and English/Marathi support.
-              </p>
-              <ul class="chips chips-sm">
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>C#</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-monitor"></use></svg>Unity 6</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg>Tauri</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-server"></use></svg>Offline cache</li>
-              </ul>
-              <button class="work-more" type="button" data-open="motw">
-                Read case study
-                <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
-              </button>
-            </div>
-          </article>
-
-          <!-- ---------- Rosetta Stone Interactive Kiosk (CSMVS Museum) ---------- -->
-          <article class="work-card reveal" data-project="rosetta">
-            <div class="work-cover" data-cover="rosetta">
-              <!-- COVER SLOT: replace with <img src="assets/img/projects/rosetta-cover.jpg" alt="" width="1200" height="750" loading="lazy" class="work-cover-img"> -->
-              <span class="work-cover-mono" aria-hidden="true">RS</span>
-              <span class="work-cover-note">Cover slot</span>
-            </div>
-            <div class="work-body">
-              <p class="work-meta"><span>Client: CSMVS Museum</span><span class="dot" aria-hidden="true"></span><span>Touchscreen Kiosk</span></p>
-              <h3 class="work-title">Rosetta Stone Kiosk</h3>
-              <p class="work-kicker">CSMVS Museum, Mumbai</p>
-              <p class="work-desc">
-                An interactive touchscreen kiosk for the Rosetta Stone exhibit. Visitors explore its story, discover who cracked its code, and practice drawing ancient hieroglyphs in English or Marathi.
-              </p>
-              <ul class="chips chips-sm">
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>C#</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-monitor"></use></svg>Unity</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-target"></use></svg>GPU Drawing Eval</li>
-              </ul>
-              <button class="work-more" type="button" data-open="rosetta">
-                Read case study
-                <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
-              </button>
-            </div>
-          </article>
-
-          <!-- ---------- Interactive Trade Wall (CSMVS Museum) ---------- -->
-          <article class="work-card reveal" data-project="tradewall">
-            <div class="work-cover" data-cover="tradewall">
-              <!-- COVER SLOT: replace with <img src="assets/img/projects/tradewall-cover.jpg" alt="" width="1200" height="750" loading="lazy" class="work-cover-img"> -->
-              <span class="work-cover-mono" aria-hidden="true">TW</span>
-              <span class="work-cover-note">Cover slot</span>
-            </div>
-            <div class="work-body">
-              <p class="work-meta"><span>Client: CSMVS Museum</span><span class="dot" aria-hidden="true"></span><span>Dual-Screen Kiosk</span></p>
-              <h3 class="work-title">Interactive Trade Wall</h3>
-              <p class="work-kicker">A Touch-Screen Museum Experience for CSMVS</p>
-              <p class="work-desc">
-                A bilingual, two-screen interactive kiosk built for CSMVS, Mumbai. Visitors browse an on-screen book of ancient trade materials; tapping one reveals its history and animates its route across a large wall display.
-              </p>
-              <ul class="chips chips-sm">
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>C#</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-monitor"></use></svg>Unity</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg>DOTween</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-server"></use></svg>Dual-screen sync</li>
-              </ul>
-              <button class="work-more" type="button" data-open="tradewall">
-                Read case study
-                <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
-              </button>
-            </div>
-          </article>
-
-          <!-- ---------- Trade Route (CSMVS Museum) ---------- -->
-          <article class="work-card reveal" data-project="traderoute">
-            <div class="work-cover" data-cover="traderoute">
-              <!-- COVER SLOT: replace with <img src="assets/img/projects/traderoute-cover.jpg" alt="" width="1200" height="750" loading="lazy" class="work-cover-img"> -->
-              <span class="work-cover-mono" aria-hidden="true">TR</span>
-              <span class="work-cover-note">Cover slot</span>
-            </div>
-            <div class="work-body">
-              <p class="work-meta"><span>Client: CSMVS Museum</span><span class="dot" aria-hidden="true"></span><span>Touchscreen Kiosk</span></p>
-              <h3 class="work-title">Trade Route</h3>
-              <p class="work-kicker">Interactive Museum Kiosk for CSMVS</p>
-              <p class="work-desc">
-                An interactive touchscreen kiosk built for CSMVS Museum. Visitors explore four ancient trade routes through a zoomable map and real artefacts, in English and Marathi.
-              </p>
-              <ul class="chips chips-sm">
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>C#</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-monitor"></use></svg>Unity 6 · URP</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg>DOTween</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-cloud"></use></svg>REST backend</li>
-              </ul>
-              <button class="work-more" type="button" data-open="traderoute">
-                Read case study
-                <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
-              </button>
-            </div>
-          </article>
-
-          <!-- ---------- MAP Art Puzzle (Museum of Art & Photography) ---------- -->
-          <article class="work-card reveal" data-project="mappuzzle">
-            <div class="work-cover" data-cover="mappuzzle">
-              <!-- COVER SLOT: replace with <img src="assets/img/projects/mappuzzle-cover.jpg" alt="" width="1200" height="750" loading="lazy" class="work-cover-img"> -->
-              <span class="work-cover-mono" aria-hidden="true">MP</span>
-              <span class="work-cover-note">Cover slot</span>
-            </div>
-            <div class="work-body">
-              <p class="work-meta"><span>Client: MAP Bengaluru</span><span class="dot" aria-hidden="true"></span><span>Touchscreen Kiosk</span></p>
-              <h3 class="work-title">MAP Art Puzzle</h3>
-              <p class="work-kicker">Interactive Sliding Puzzle Kiosk for MAP</p>
-              <p class="work-desc">
-                A touch-screen puzzle game for MAP Bengaluru. Visitors pick collection paintings or upload smartphone photos, crop custom details, and solve sliding tile puzzles on up to 90" screens.
-              </p>
-              <ul class="chips chips-sm">
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>C#</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-monitor"></use></svg>Unity (URP)</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-target"></use></svg>Parity Solvable</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-cloud"></use></svg>QR Upload</li>
-              </ul>
-              <button class="work-more" type="button" data-open="mappuzzle">
-                Read case study
-                <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
-              </button>
-            </div>
-          </article>
-
-          <!-- ---------- TouchWall ---------- -->
-          <article class="work-card reveal" data-project="touchwall">
-            <div class="work-cover" data-cover="touchwall">
-              <!-- COVER SLOT: replace with <img src="assets/img/projects/touchwall-cover.jpg" alt="" width="1200" height="750" loading="lazy" class="work-cover-img"> -->
-              <span class="work-cover-mono" aria-hidden="true">TC</span>
-              <span class="work-cover-note">Cover slot</span>
-            </div>
-            <div class="work-body">
-              <p class="work-meta"><span>Interactive Installation</span><span class="dot" aria-hidden="true"></span><span>Invisible Touch Projection</span></p>
-              <h3 class="work-title">TouchWall</h3>
-              <p class="work-kicker">Touch the Wall, the Story Plays · Zero Visible Hardware</p>
-              <p class="work-desc">
-                An interactive installation where touching a plain architectural wall plays bright, large-format story videos via laser projection and optical touch tracking, with zero hardware in sight.
-              </p>
-              <ul class="chips chips-sm">
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>C#</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-monitor"></use></svg>Unity 6 (URP)</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-target"></use></svg>Optical Touch</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-play"></use></svg>UST Projection</li>
-              </ul>
-              <button class="work-more" type="button" data-open="touchwall">
-                Read case study
-                <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
-              </button>
-            </div>
-          </article>
-
-          <!-- ---------- Tree Light-Up ---------- -->
-          <article class="work-card reveal" data-project="treelight">
-            <div class="work-cover" data-cover="treelight">
-              <!-- COVER SLOT: replace with <img src="assets/img/projects/treelight-cover.jpg" alt="" width="1200" height="750" loading="lazy" class="work-cover-img"> -->
-              <span class="work-cover-mono" aria-hidden="true">TL</span>
-              <span class="work-cover-note">Cover slot</span>
-            </div>
-            <div class="work-body">
-              <p class="work-meta"><span>Physical Computing</span><span class="dot" aria-hidden="true"></span><span>Touch &amp; IoT Installation</span></p>
-              <h3 class="work-title">Tree Light-Up</h3>
-              <p class="work-kicker">Touch to Make a Tree Glow · Standalone Wireless</p>
-              <p class="work-desc">
-                An interactive physical installation where a touch on a screen lights up an actual tree. Visitors tap four color buttons to send climbing light strands and calming breathing glows up the branches, illuminating physical bulbs.
-              </p>
-              <ul class="chips chips-sm">
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>C# · C++</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-bulb"></use></svg>WS2812B &amp; Bulbs</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-sparkles"></use></svg>Breathing Light</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-server"></use></svg>Local Wi-Fi</li>
-              </ul>
-              <button class="work-more" type="button" data-open="treelight">
-                Read case study
-                <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
-              </button>
-            </div>
-          </article>
-
-          <!-- ---------- The Good Deed Tree ---------- -->
-          <article class="work-card reveal" data-project="deedtree">
-            <div class="work-cover" data-cover="deedtree">
-              <!-- COVER SLOT: replace with <img src="assets/img/projects/deedtree-cover.jpg" alt="" width="1200" height="750" loading="lazy" class="work-cover-img"> -->
-              <span class="work-cover-mono" aria-hidden="true">DT</span>
-              <span class="work-cover-note">Cover slot</span>
-            </div>
-            <div class="work-body">
-              <p class="work-meta"><span>Interactive Installation</span><span class="dot" aria-hidden="true"></span><span>Tablet &amp; 4K Wall</span></p>
-              <h3 class="work-title">The Good Deed Tree</h3>
-              <p class="work-kicker">An Interactive Kindness Wall · 4K Living Tree</p>
-              <p class="work-desc">
-                An interactive installation pairing a tablet kiosk with a 4K living 3D tree display. Visitors pledge acts of kindness and swipe their leaf to grow on the communal tree, thanked personally by name.
-              </p>
-              <ul class="chips chips-sm">
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>C#</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-monitor"></use></svg>Unity 6 (URP)</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-server"></use></svg>Local IPC</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-sparkles"></use></svg>GPU Instancing</li>
-              </ul>
-              <button class="work-more" type="button" data-open="deedtree">
-                Read case study
-                <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
-              </button>
-            </div>
-          </article>
-
-          <!-- ---------- DigitalTwinLights ---------- -->
-          <article class="work-card reveal" data-project="digitaltwin">
-            <div class="work-cover" data-cover="digitaltwin">
-              <!-- COVER SLOT: replace with <img src="assets/img/projects/digitaltwin-cover.jpg" alt="" width="1200" height="750" loading="lazy" class="work-cover-img"> -->
-              <span class="work-cover-mono" aria-hidden="true">DL</span>
-              <span class="work-cover-note">Cover slot</span>
-            </div>
-            <div class="work-body">
-              <p class="work-meta"><span>Digital Twin</span><span class="dot" aria-hidden="true"></span><span>Real Lights, Mirrored Live</span></p>
-              <h3 class="work-title">DigitalTwinLights</h3>
-              <p class="work-kicker">Live Hardware-to-3D Mirror · Industrial Telemetry</p>
-              <p class="work-desc">
-                A hands-on digital twin demonstration: an industrial control panel with four physical light switches paired with an exact 3D virtual copy in Unity URP, mirroring switch flips and lighting live with sub-15ms latency.
-              </p>
-              <ul class="chips chips-sm">
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>C#</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-monitor"></use></svg>Unity 6 (URP)</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-bulb"></use></svg>Real-Time Mirror</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-server"></use></svg>Telemetry (IoT)</li>
-              </ul>
-              <button class="work-more" type="button" data-open="digitaltwin">
-                Read case study
-                <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
-              </button>
-            </div>
-          </article>
-
-          <!-- ---------- 24 Tirthankaras (Museum Exhibition R&D) ---------- -->
-          <article class="work-card reveal" data-project="tirthankaras">
-            <div class="work-cover" data-cover="tirthankaras">
-              <!-- COVER SLOT: replace with <img src="assets/img/projects/tirthankaras-cover.jpg" alt="" width="1200" height="750" loading="lazy" class="work-cover-img"> -->
-              <span class="work-cover-mono" aria-hidden="true">24</span>
-              <span class="work-cover-note">Cover slot</span>
-            </div>
-            <div class="work-body">
-              <p class="work-meta"><span>R&amp;D Prototype</span><span class="dot" aria-hidden="true"></span><span>Interactive Museum Journey</span></p>
-              <h3 class="work-title">24 Tirthankaras</h3>
-              <p class="work-kicker">Interactive Museum Journey · Exhibition R&amp;D</p>
-              <p class="work-desc">
-                An interactive touch-screen exhibition prototype exploring the 24 Jain Tirthankaras. Visitors navigate an interactive map of India (Janma vs Moksha Bhumi) and step into serene multi-plane parallax diorama scenes.
-              </p>
-              <ul class="chips chips-sm">
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>C#</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-monitor"></use></svg>Unity (URP)</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-compass"></use></svg>Vector Map</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg>4-Plane Parallax</li>
-              </ul>
-              <button class="work-more" type="button" data-open="tirthankaras">
-                Read case study
-                <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
-              </button>
-            </div>
-          </article>
-
-          <!-- ---------- Cuenect ---------- -->
-          <article class="work-card reveal" data-project="cuenect">
-            <div class="work-cover" data-cover="cuenect">
-              <!-- COVER SLOT: replace with <img src="assets/img/projects/cuenect-cover.jpg" alt="" width="1200" height="750" loading="lazy" class="work-cover-img"> -->
-              <span class="work-cover-mono" aria-hidden="true">CU</span>
-              <span class="work-cover-note">Cover slot</span>
-            </div>
-            <div class="work-body">
-              <p class="work-meta"><span>Client: Cuenect</span><span class="dot" aria-hidden="true"></span><span>Interactive 3D &amp; Spatial Reality</span></p>
-              <h3 class="work-title">Cuenect</h3>
-              <p class="work-kicker">Interactive 3D Product Showcase</p>
-              <p class="work-desc">
-                An offline interactive 3D showcase system for exhibitions and showrooms. Businesses present products as 3D models on large screens and Sony’s Spatial Reality Display, controlled by presenters from an Android remote.
-              </p>
-              <ul class="chips chips-sm">
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>C#</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-monitor"></use></svg>Unity (URP)</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-sparkles"></use></svg>Sony Spatial 3D</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-server"></use></svg>Offline Tri-App</li>
-              </ul>
-              <button class="work-more" type="button" data-open="cuenect">
-                Read case study
-                <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
-              </button>
-            </div>
-          </article>
-
-          <!-- ---------- SoReal ---------- -->
-          <article class="work-card reveal" data-project="soreal">
-            <div class="work-cover" data-cover="soreal">
-              <!-- COVER SLOT: replace with <img src="assets/img/projects/soreal-cover.jpg" alt="" width="1200" height="750" loading="lazy" class="work-cover-img"> -->
-              <span class="work-cover-mono" aria-hidden="true">SR</span>
-              <span class="work-cover-note">Cover slot</span>
-            </div>
-            <div class="work-body">
-              <p class="work-meta"><span>2023 — Present</span><span class="dot" aria-hidden="true"></span><span>Lead client engineer</span></p>
-              <h3 class="work-title">SoReal</h3>
-              <p class="work-kicker">Interactive real-estate visualisation platform</p>
-              <p class="work-desc">
-                A multi-user 3D property walkthrough used in live client engagements — synchronised
-                sessions over unreliable networks, large scenes inside a mobile memory budget.
-              </p>
-              <ul class="chips chips-sm">
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>C#</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-server"></use></svg>Real-time networking</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-cloud"></use></svg>REST APIs</li>
-              </ul>
-              <button class="work-more" type="button" data-open="soreal">
-                Read case study
-                <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
-              </button>
-            </div>
-          </article>
-
-          <!-- ---------- ICC Cricket Mobile ---------- -->
-          <article class="work-card reveal" data-project="icc">
-            <div class="work-cover" data-cover="icc">
-              <span class="work-cover-mono" aria-hidden="true">IC</span>
-              <span class="work-cover-note">Cover slot</span>
-            </div>
-            <div class="work-body">
-              <p class="work-meta"><span>2020 — 2023</span><span class="dot" aria-hidden="true"></span><span>Core systems &amp; AI</span></p>
-              <h3 class="work-title">ICC Cricket Mobile</h3>
-              <p class="work-kicker">Officially licensed sports simulation</p>
-              <p class="work-desc">
-                Batting, bowling and fielding mechanics plus an AI decision layer built from scratch with
-                goal-oriented action planning — believable behaviour that still unit tests cleanly.
-              </p>
-              <ul class="chips chips-sm">
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>C#</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg>GOAP</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-flask"></use></svg>Deterministic sim</li>
-              </ul>
-              <button class="work-more" type="button" data-open="icc">
-                Read case study
-                <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
-              </button>
-            </div>
-          </article>
-
-          <!-- ---------- Ludo Multiplayer ---------- -->
-          <article class="work-card reveal" data-project="ludo">
-            <div class="work-cover" data-cover="ludo">
-              <span class="work-cover-mono" aria-hidden="true">LD</span>
-              <span class="work-cover-note">Cover slot</span>
-            </div>
-            <div class="work-body">
-              <p class="work-meta"><span>2019 — 2020</span><span class="dot" aria-hidden="true"></span><span>Full-stack owner</span></p>
-              <h3 class="work-title">Ludo Multiplayer</h3>
-              <p class="work-kicker">Real-time real-money platform</p>
-              <p class="work-desc">
-                Online and offline modes, bot opponents, and transaction-facing error handling with
-                graceful mid-session disconnect recovery.
-              </p>
-              <ul class="chips chips-sm">
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-server"></use></svg>Node.js</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-cloud"></use></svg>Socket.IO</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>C#</li>
-              </ul>
-              <button class="work-more" type="button" data-open="ludo">
-                Read case study
-                <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
-              </button>
-            </div>
-          </article>
-
-          <!-- ---------- Card engine ---------- -->
-          <article class="work-card reveal" data-project="cards">
-            <div class="work-cover" data-cover="cards">
-              <span class="work-cover-mono" aria-hidden="true">CE</span>
-              <span class="work-cover-note">Cover slot</span>
-            </div>
-            <div class="work-body">
-              <p class="work-meta"><span>2019 — 2020</span><span class="dot" aria-hidden="true"></span><span>Architecture &amp; delivery</span></p>
-              <h3 class="work-title">Configurable Card Engine</h3>
-              <p class="work-kicker">One engine, two shipped titles</p>
-              <p class="work-desc">
-                A data-driven rules engine with eight variants toggleable at runtime, AI bots and
-                monetisation — no conditional-logic sprawl.
-              </p>
-              <ul class="chips chips-sm">
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>C#</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg>Data-driven rules</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-cloud"></use></svg>IAP · Ads</li>
-              </ul>
-              <button class="work-more" type="button" data-open="cards">
-                Read case study
-                <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
-              </button>
-            </div>
-          </article>
-
-          <!-- ---------- Bus simulator ---------- -->
-          <article class="work-card reveal" data-project="bus">
-            <div class="work-cover" data-cover="bus">
-              <span class="work-cover-mono" aria-hidden="true">BS</span>
-              <span class="work-cover-note">Cover slot</span>
-            </div>
-            <div class="work-body">
-              <p class="work-meta"><span>2018 — 2019</span><span class="dot" aria-hidden="true"></span><span>Solo developer</span></p>
-              <h3 class="work-title">99.9% Impossible Bus Simulator</h3>
-              <p class="work-kicker">Vehicle physics &amp; content pipeline</p>
-              <p class="work-desc">
-                Sky-road driving challenges with a level-authoring pipeline that let new modes ship from
-                player feedback in days, not weeks.
-              </p>
-              <ul class="chips chips-sm">
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>C#</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-target"></use></svg>Physics tuning</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-monitor"></use></svg>Android</li>
-              </ul>
-              <button class="work-more" type="button" data-open="bus">
-                Read case study
-                <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
-              </button>
-            </div>
-          </article>
-
-          <!-- ---------- Shooting arena ---------- -->
-          <article class="work-card reveal" data-project="arena">
-            <div class="work-cover" data-cover="arena">
-              <span class="work-cover-mono" aria-hidden="true">SA</span>
-              <span class="work-cover-note">Cover slot</span>
-            </div>
-            <div class="work-body">
-              <p class="work-meta"><span>2017 — 2018</span><span class="dot" aria-hidden="true"></span><span>Gameplay systems</span></p>
-              <h3 class="work-title">Shooting Arena: Total Destruction</h3>
-              <p class="work-kicker">Enemy AI &amp; virtual economy</p>
-              <p class="work-desc">
-                Ship controls, state-driven enemy AI, health and damage, plus a currency economy designed
-                to resist exploitation.
-              </p>
-              <ul class="chips chips-sm">
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>C#</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg>State machines</li>
-                <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-cloud"></use></svg>IAP · Ads</li>
-              </ul>
-              <button class="work-more" type="button" data-open="arena">
-                Read case study
-                <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
-              </button>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================== SKILLS ============================== -->
-    <section class="band band-alt" id="skills" aria-labelledby="skills-title">
-      <div class="shell">
-        <header class="band-head reveal">
-          <p class="band-index">04 — Capabilities</p>
-          <h2 class="band-title" id="skills-title">What I bring to a codebase</h2>
+    <!-- ============================== SKILLS + RESUME ============================== -->
+    <section class="band g2" id="skills" aria-labelledby="skills-title">
+      <div class="wrap">
+        <header class="band-head">
+          <h2 class="band-title" id="skills-title">Skills by decision</h2>
           <p class="band-sub">Grouped by the decision each one supports, not by logo count.</p>
         </header>
 
         <div class="skill-grid">
-          <article class="skill-card reveal">
-            <h3 class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>Languages</h3>
-            <ul class="skill-list">
-              <li>C# — primary, 8 years</li>
-              <li>SQL</li>
-              <li>JavaScript</li>
-              <li>TypeScript</li>
-            </ul>
-          </article>
-
-          <article class="skill-card reveal">
-            <h3 class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-server"></use></svg>Backend &amp; APIs</h3>
-            <ul class="skill-list">
-              <li>.NET</li>
-              <li>REST API design &amp; integration</li>
-              <li>WebSocket / real-time messaging</li>
-              <li>Node.js · Express.js · Socket.IO</li>
-              <li>Client-server &amp; authoritative architecture</li>
-              <li>Authentication flows · SDK integration</li>
-            </ul>
-          </article>
-
-          <article class="skill-card reveal">
-            <h3 class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-database"></use></svg>Data</h3>
-            <ul class="skill-list">
-              <li>Microsoft SQL Server</li>
-              <li>Firebase (NoSQL)</li>
-              <li>Data modelling</li>
-              <li>Query optimisation</li>
-            </ul>
-          </article>
-
-          <article class="skill-card reveal">
-            <h3 class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg>Architecture</h3>
-            <ul class="skill-list">
-              <li>OOP · SOLID · design patterns</li>
-              <li>Modular, component-based systems</li>
-              <li>State machines · GOAP</li>
-              <li>System &amp; database design</li>
-              <li>Performance &amp; memory profiling</li>
-            </ul>
-          </article>
-
-          <article class="skill-card reveal">
-            <h3 class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-flask"></use></svg>Quality</h3>
-            <ul class="skill-list">
-              <li>Unit testing</li>
-              <li>Code review at scale</li>
-              <li>Debugging &amp; root-cause analysis</li>
-              <li>Structured error handling</li>
-              <li>Technical documentation</li>
-            </ul>
-          </article>
-
-          <article class="skill-card reveal">
-            <h3 class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-git"></use></svg>Delivery</h3>
-            <ul class="skill-list">
-              <li>Git · branching strategy</li>
-              <li>CI/CD pipelines</li>
-              <li>Agile / Scrum · SDLC</li>
-              <li>Release management (iOS · Android)</li>
-            </ul>
-          </article>
-
-          <article class="skill-card reveal">
-            <h3 class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-cloud"></use></svg>Platforms</h3>
-            <ul class="skill-list">
-              <li>Unity Engine (C#)</li>
-              <li>iOS · Android</li>
-              <li>AR / VR</li>
-              <li>Cloud-backed services</li>
-              <li>Visual Studio</li>
-            </ul>
-          </article>
-
-          <article class="skill-card reveal">
-            <h3 class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-sparkles"></use></svg>AI-assisted engineering</h3>
-            <ul class="skill-list">
-              <li>LLM tooling daily: Claude, ChatGPT, Copilot, Cursor</li>
-              <li>Prompt &amp; context design for production output</li>
-              <li>AI-assisted debugging &amp; test scaffolding</li>
-              <li>Docs and workflow automation</li>
-              <li>Model Context Protocol (MCP) workflows</li>
-            </ul>
-          </article>
-
-          <article class="skill-card reveal">
-            <h3 class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-users"></use></svg>Working with people</h3>
-            <ul class="skill-list">
-              <li>Mentoring &amp; team leadership</li>
-              <li>Cross-functional collaboration (design, QA, product)</li>
-              <li>Requirement translation with clients</li>
-              <li>Written communication</li>
-            </ul>
-          </article>
+          <div class="skill-block"><h3 class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>Languages</h3><ul class="skill-list"><li>C# — primary, 8 years</li><li>SQL</li><li>JavaScript</li><li>TypeScript</li></ul></div>
+          <div class="skill-block"><h3 class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-server"></use></svg>Backend and APIs</h3><ul class="skill-list"><li>.NET</li><li>REST API design and integration</li><li>WebSocket and real-time messaging</li><li>Node.js · Express.js · Socket.IO</li><li>Client-server and authoritative architecture</li><li>Authentication flows · SDK integration</li></ul></div>
+          <div class="skill-block"><h3 class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-database"></use></svg>Data</h3><ul class="skill-list"><li>Microsoft SQL Server</li><li>Firebase (NoSQL)</li><li>Data modelling</li><li>Query optimisation</li></ul></div>
+          <div class="skill-block"><h3 class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg>Architecture</h3><ul class="skill-list"><li>OOP · SOLID · design patterns</li><li>Modular, component-based systems</li><li>State machines · GOAP</li><li>System and database design</li><li>Performance and memory profiling</li></ul></div>
+          <div class="skill-block"><h3 class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-flask"></use></svg>Quality</h3><ul class="skill-list"><li>Unit testing</li><li>Code review at scale</li><li>Debugging and root-cause analysis</li><li>Structured error handling</li><li>Technical documentation</li></ul></div>
+          <div class="skill-block"><h3 class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-git"></use></svg>Delivery</h3><ul class="skill-list"><li>Git · branching strategy</li><li>CI/CD pipelines</li><li>Agile / Scrum · SDLC</li><li>Release management (iOS · Android)</li></ul></div>
+          <div class="skill-block"><h3 class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-cloud"></use></svg>Platforms</h3><ul class="skill-list"><li>Unity Engine (C#)</li><li>iOS · Android</li><li>AR / VR</li><li>Cloud-backed services</li><li>Visual Studio</li></ul></div>
+          <div class="skill-block"><h3 class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-sparkles"></use></svg>AI-assisted engineering</h3><ul class="skill-list"><li>LLM tooling daily: Claude, ChatGPT, Copilot, Cursor</li><li>Prompt and context design for production output</li><li>AI-assisted debugging and test scaffolding</li><li>Docs and workflow automation</li><li>Model Context Protocol (MCP) workflows</li></ul></div>
+          <div class="skill-block"><h3 class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-users"></use></svg>Working with people</h3><ul class="skill-list"><li>Mentoring and team leadership</li><li>Cross-functional collaboration (design, QA, product)</li><li>Requirement translation with clients</li><li>Written communication</li></ul></div>
         </div>
+
       </div>
     </section>
 
-    <!-- ============================== RESUME ============================== -->
-    <section class="band" id="resume" aria-labelledby="resume-title">
-      <div class="shell">
-        <header class="band-head reveal">
-          <p class="band-index">05 — Résumé</p>
-          <h2 class="band-title" id="resume-title">The one-page version</h2>
-        </header>
+  </main>
 
-        <div class="resume-grid">
-          <article class="resume-card reveal">
-            <div class="resume-doc" aria-hidden="true">
-              <span class="resume-doc-name">Chitrang Patel</span>
-              <span class="resume-doc-role">Software Engineer · C# / .NET</span>
-              <span class="resume-doc-rule"></span>
-              <span class="resume-doc-line"></span>
-              <span class="resume-doc-line"></span>
-              <span class="resume-doc-line short"></span>
-              <span class="resume-doc-rule"></span>
-              <span class="resume-doc-line"></span>
-              <span class="resume-doc-line short"></span>
-            </div>
-            <div class="resume-actions">
-              <h3 class="resume-title">Full résumé, PDF</h3>
-              <p class="resume-note">Experience, technical skills, key projects, education and recognition — two pages, no filler.</p>
-              <div class="btn-row">
-                <a class="btn btn-primary" href="assets/resume/Chitrang-Patel-Resume.pdf" download>
-                  Download
-                  <svg class="icon" aria-hidden="true"><use href="#i-download"></use></svg>
-                </a>
-                <a class="btn btn-ghost" href="assets/resume/Chitrang-Patel-Resume.pdf" target="_blank" rel="noopener">
-                  View in browser
-                  <svg class="icon" aria-hidden="true"><use href="#i-file"></use></svg>
-                </a>
-              </div>
-            </div>
-          </article>
+  <!-- ============================== CLOSING (contact + footer) ============================== -->
+  <footer class="closing site-foot g2" id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+        <h2 class="close-title" id="contact-title">Senior engineering roles <span class="muted">start with an email.</span></h2>
+        <p class="close-lede">
+          Open to senior software engineering roles and real-time systems work. The fastest route is
+          email — I reply to everything that isn't a template.
+        </p>
 
-          <div class="credentials reveal">
-            <article class="cred">
-              <h3 class="cred-head"><svg class="icon" aria-hidden="true"><use href="#i-cap"></use></svg>Education</h3>
-              <p class="cred-main">Bachelor of Engineering, Computer Engineering</p>
-              <p class="cred-sub">Dr. D. Y. Patil College of Engineering, Pune · 2012 — 2016</p>
-              <p class="cred-note">Coursework: OOP, data structures &amp; algorithms, database systems, operating systems, computer networks.</p>
-            </article>
-
-            <article class="cred">
-              <h3 class="cred-head"><svg class="icon" aria-hidden="true"><use href="#i-award"></use></svg>Recognition</h3>
-              <p class="cred-main">Entrant of the Quarter</p>
-              <p class="cred-sub">ViitorCloud Technologies</p>
-              <p class="cred-note">Awarded for engineering contribution and consistent delivery performance.</p>
-            </article>
-
-            <article class="cred">
-              <h3 class="cred-head"><svg class="icon" aria-hidden="true"><use href="#i-globe"></use></svg>Spoken languages</h3>
-              <p class="cred-main">English — professional</p>
-              <p class="cred-sub">Hindi — native · Gujarati — native</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================== CONTACT ============================== -->
-    <section class="band band-contact" id="contact" aria-labelledby="contact-title">
-      <div class="shell">
-        <header class="band-head reveal">
-          <p class="band-index">06 — Contact</p>
-          <h2 class="band-title" id="contact-title">Let's build something durable</h2>
-          <p class="band-sub">
-            Open to senior software engineering roles and interesting real-time systems work.
-            The fastest route is email — I reply to everything that isn't a template.
-          </p>
-        </header>
-
-        <div class="contact-grid">
-          <div class="contact-direct reveal">
-            <a class="contact-row" href="mailto:chitrang313@outlook.com">
+        <div class="cols contact-grid">
+          <div class="contact-direct col-l">
+            <a class="contact-row" href="mailto:chitrang313@outlook.com" data-sfx="press">
               <svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg>
-              <span>
-                <span class="contact-label">Email</span>
-                <span class="contact-value">chitrang313@outlook.com</span>
-              </span>
+              <span><span class="contact-label">Email</span><span class="contact-value">chitrang313@outlook.com</span></span>
               <svg class="icon icon-end" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
             </a>
-
-            <a class="contact-row" href="https://www.linkedin.com/in/chitrang313/" target="_blank" rel="noopener">
+            <a class="contact-row" href="https://www.linkedin.com/in/chitrang313/" target="_blank" rel="noopener" data-sfx="press">
               <svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg>
-              <span>
-                <span class="contact-label">LinkedIn</span>
-                <span class="contact-value">in/chitrang313</span>
-              </span>
+              <span><span class="contact-label">LinkedIn</span><span class="contact-value">in/chitrang313</span></span>
               <svg class="icon icon-end" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
             </a>
-
-            <a class="contact-row" href="https://github.com/chitrang313" target="_blank" rel="noopener">
+            <a class="contact-row" href="https://github.com/chitrang313" target="_blank" rel="noopener" data-sfx="press">
               <svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg>
-              <span>
-                <span class="contact-label">GitHub</span>
-                <span class="contact-value">github.com/chitrang313</span>
-              </span>
+              <span><span class="contact-label">GitHub</span><span class="contact-value">github.com/chitrang313</span></span>
               <svg class="icon icon-end" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
             </a>
-
-            <a class="contact-row" href="https://www.youtube.com/@chitrang-313" target="_blank" rel="noopener">
+            <a class="contact-row" href="https://www.youtube.com/@chitrang-313" target="_blank" rel="noopener" data-sfx="press">
               <svg class="icon" aria-hidden="true"><use href="#i-youtube"></use></svg>
-              <span>
-                <span class="contact-label">YouTube</span>
-                <span class="contact-value">@chitrang-313</span>
-              </span>
+              <span><span class="contact-label">YouTube</span><span class="contact-value">@chitrang-313</span></span>
               <svg class="icon icon-end" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
             </a>
-
-            <a class="contact-row" href="https://www.instagram.com/__chitrang/" target="_blank" rel="noopener">
+            <a class="contact-row" href="https://www.instagram.com/__chitrang/" target="_blank" rel="noopener" data-sfx="press">
               <svg class="icon" aria-hidden="true"><use href="#i-instagram"></use></svg>
-              <span>
-                <span class="contact-label">Instagram</span>
-                <span class="contact-value">@__chitrang</span>
-              </span>
+              <span><span class="contact-label">Instagram</span><span class="contact-value">@__chitrang</span></span>
               <svg class="icon icon-end" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
             </a>
-
-            <p class="contact-row is-static">
+            <p class="contact-row">
               <svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>
-              <span>
-                <span class="contact-label">Based in</span>
-                <span class="contact-value">Ahmedabad, India · open to remote</span>
-              </span>
+              <span><span class="contact-label">Based in</span><span class="contact-value">Ahmedabad, India · open to remote</span></span>
             </p>
           </div>
 
-          <div class="contact-form-wrap reveal">
-            <h3 class="form-title">Or write here</h3>
-            <p class="form-note">
-              This form opens your own mail client with the message pre-filled — nothing is sent to a
-              third-party service.
-            </p>
+          <div class="contact-form-wrap col-r">
+            <h3 class="form-title">Write a message</h3>
+            <p class="form-note">The form opens your own mail client with the message filled in. Nothing goes to a third-party service.</p>
             <form class="contact-form" id="contact-form" novalidate>
               <div class="field">
                 <label for="cf-name">Name</label>
-                <input id="cf-name" name="name" type="text" autocomplete="name" required>
+                <input id="cf-name" name="name" type="text" autocomplete="name" maxlength="100" required aria-describedby="cf-name-error">
                 <p class="field-error" id="cf-name-error" hidden>Please add your name.</p>
               </div>
               <div class="field">
                 <label for="cf-email">Email</label>
-                <input id="cf-email" name="email" type="email" autocomplete="email" required>
+                <input id="cf-email" name="email" type="email" autocomplete="email" maxlength="254" required aria-describedby="cf-email-error">
                 <p class="field-error" id="cf-email-error" hidden>Please add a valid email address.</p>
               </div>
               <div class="field">
                 <label for="cf-subject">Subject</label>
-                <input id="cf-subject" name="subject" type="text" value="Opportunity for Chitrang">
+                <input id="cf-subject" name="subject" type="text" maxlength="150" value="Opportunity for Chitrang">
               </div>
               <div class="field">
                 <label for="cf-message">Message</label>
-                <textarea id="cf-message" name="message" rows="5" required></textarea>
+                <textarea id="cf-message" name="message" rows="5" maxlength="4000" required aria-describedby="cf-message-error"></textarea>
                 <p class="field-error" id="cf-message-error" hidden>Please add a short message.</p>
               </div>
-              <button class="btn btn-primary btn-block" type="submit">
-                Compose email
+              <button class="btn btn-tonal btn-block" type="submit">
+                Compose the email
                 <svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg>
               </button>
               <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
             </form>
           </div>
         </div>
-      </div>
-    </section>
-  </main>
 
-  <!-- ============================== FOOTER ============================== -->
-  <footer class="site-foot">
-    <div class="shell site-foot-inner">
-      <p class="foot-note">
-        <span class="foot-name">Chitrang Patel</span>
-        Built by hand — semantic HTML, one stylesheet, no framework.
-      </p>
-      <nav class="foot-nav" aria-label="Footer navigation">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#work">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#resume">Résumé</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <p class="foot-copy">© <span id="foot-year">2026</span> Chitrang Patel</p>
+        <div class="resume-block" id="resume">
+          <h3 class="band-title">Résumé and credentials</h3>
+          <div class="cols resume-grid">
+          <div class="resume-main col-l">
+            <h3 class="resume-title">Full résumé, PDF</h3>
+            <p class="resume-note">Experience, technical skills, key projects, education and recognition — two pages, no filler.</p>
+            <div class="btn-row">
+              <a class="btn btn-primary" href="assets/resume/Chitrang-Patel-Resume.pdf" download data-sfx="press">
+                Download résumé
+                <svg class="icon" aria-hidden="true"><use href="#i-download"></use></svg>
+              </a>
+              <a class="btn btn-tonal" href="assets/resume/Chitrang-Patel-Resume.pdf" target="_blank" rel="noopener" data-sfx="press">
+                Open the PDF
+                <svg class="icon" aria-hidden="true"><use href="#i-file"></use></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="credentials col-r">
+            <div class="cred">
+              <h3 class="cred-head"><svg class="icon" aria-hidden="true"><use href="#i-cap"></use></svg>Education</h3>
+              <p class="cred-main">Bachelor of Engineering, Computer Engineering</p>
+              <p class="cred-sub">Dr. D. Y. Patil College of Engineering, Pune · 2012 — 2016</p>
+              <p class="cred-note">Coursework: OOP, data structures and algorithms, database systems, operating systems, computer networks.</p>
+            </div>
+            <div class="cred">
+              <h3 class="cred-head"><svg class="icon" aria-hidden="true"><use href="#i-award"></use></svg>Recognition</h3>
+              <p class="cred-main">Entrant of the Quarter</p>
+              <p class="cred-sub">ViitorCloud Technologies</p>
+              <p class="cred-note">Awarded for engineering contribution and consistent delivery performance.</p>
+            </div>
+            <div class="cred">
+              <h3 class="cred-head"><svg class="icon" aria-hidden="true"><use href="#i-globe"></use></svg>Spoken languages</h3>
+              <p class="cred-main">English — professional</p>
+              <p class="cred-sub">Hindi — native · Gujarati — native</p>
+            </div>
+          </div>
+          </div>
+        </div>
+
+      <div class="foot-row cols">
+        <nav class="foot-nav col-l" aria-label="Footer">
+          <a href="#work">Work</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#resume">Résumé</a><a href="#contact">Contact</a>
+        </nav>
+        <p class="foot-copy col-r">© <span id="foot-year">2026</span> Chitrang Patel · Project media hosted on Cloudinary · Scroll moment from taste-skill (MIT)</p>
+      </div>
     </div>
   </footer>
 
   <!-- ============================== CASE STUDY MODAL ============================== -->
   <dialog class="case" id="case-modal" aria-labelledby="case-title">
-    <button class="case-close" id="case-close" type="button" aria-label="Close case study">
+    <button class="icon-btn case-close" id="case-close" type="button" aria-label="Close case study">
       <svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg>
     </button>
     <article class="case-inner" id="case-inner" tabindex="-1">
@@ -1289,20 +516,24 @@
   <!-- ============================== MEDIA LIGHTBOX ============================== -->
   <dialog class="lightbox" id="lightbox" aria-labelledby="lb-title">
     <h2 class="visually-hidden" id="lb-title">Media preview</h2>
-    <button class="lb-close" id="lb-close" type="button" aria-label="Close preview">
+    <button class="icon-btn lb-close" id="lb-close" type="button" aria-label="Close preview">
       <svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg>
     </button>
-    <button class="lb-nav lb-prev" id="lb-prev" type="button" aria-label="Previous item">
+    <button class="icon-btn lb-nav lb-prev" id="lb-prev" type="button" aria-label="Previous item">
       <svg class="icon" aria-hidden="true"><use href="#i-chevron-left"></use></svg>
     </button>
     <div class="lb-stage" id="lb-stage"></div>
-    <button class="lb-nav lb-next" id="lb-next" type="button" aria-label="Next item">
+    <button class="icon-btn lb-nav lb-next" id="lb-next" type="button" aria-label="Next item">
       <svg class="icon" aria-hidden="true"><use href="#i-chevron-right"></use></svg>
     </button>
-    <p class="lb-caption" id="lb-caption"></p>
+    <p class="lb-count" id="lb-count" aria-live="polite"></p>
   </dialog>
 
-  <script src="js/data.js" defer></script>
-  <script src="js/main.js" defer></script>
+  <script src="js/data.js?v=2026.11.12l" defer></script>
+  <script src="js/work.js?v=2026.11.12l" defer></script>
+  <script src="js/main.js?v=2026.11.12l" defer></script>
+  <script type="module" src="js/scene.js?v=2026.11.12l"></script>
+  <script type="module" src="js/sound.js?v=2026.11.12l"></script>
+  <script type="module" src="assets/moments/moments.js"></script>
 </body>
 </html>

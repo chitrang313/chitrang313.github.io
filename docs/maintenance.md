@@ -50,6 +50,80 @@ Possible Next Step: <Recommended follow-up>
 
 <!-- Add entries only for meaningful work. Do not create fictional history. -->
 
+### 2026-11-12 — Fresh redesign: dark/light immersive site, Cloudinary media, tasteskill system
+
+#### Request
+
+Fresh redesign of the portfolio (dark, immersive, 3D), project media from the client's Cloudinary
+folders (`Portfolio-Projects/*`), grid + modal for projects, uisfx interface sounds, tasteskill
+(github.com/Leonxlnx/taste-skill) design rules, a light/dark theme toggle, testing on every device
+class, industry-standard HTML/CSS. Portrait removed at the client's request. Local only: no commit or
+push until the client confirms on http://localhost:4173.
+
+#### Investigation
+
+- Cloudinary cloud `dpl3xzmwx`: 89 public assets mapped folder by folder (CSMVS 40, Sikh History
+  Museum 20, MAP 7, SoReal 27 feature captures in Windows + Android, incl. `360ImageCapture/*`).
+  Folders still empty: Adani Mining (VR), Cuenect, Varanasi Ropeway, all Internet-of-things and
+  Research-and-development sub-folders. The previous site's one Cloudinary image URL returned 404.
+- All 88+1 delivery URLs HEAD-checked (200). Some public IDs contain dots, so every URL carries an
+  explicit `.jpg`/`.mp4` extension; `f_auto,q_auto` still negotiates AVIF/WebP.
+- `js/data.js` (pulled from origin) already held real case studies for all 21 projects; reused as-is.
+
+#### Changes
+
+- `index.html` rewritten: kit shell (`header.nav`, `main > section`, `footer.closing`), product-stage
+  hero (CSMVS Trade Route video), project filters + grid, word-highlight statement moment, about,
+  experience, skills, résumé + contact in the closing. CSP meta (scripts: self + jsDelivr for uisfx;
+  media: Cloudinary). Versioned asset URLs (`?v=`) for cache busting.
+- `css/style.css` rewritten to tasteskill tokens (palette soot-pale-lime, type Instrument Sans, radius
+  soft, 12-col grid, `--margin` page edge / `--gutter` column gap). Light theme via
+  `html[data-theme]` + `prefers-color-scheme`. Passes stylelint-config-standard with classic
+  `max-width` media queries (kept for Safari < 16.4).
+- `js/work.js` (new): card copy (carried over from the old cards) + Cloudinary media per project key.
+- `js/main.js` rewritten: theme toggle, nav, stage video (pause button; rests under reduced motion),
+  grid/filters, case-study modal (deep link `#project-<key>`), lightbox, mailto contact form. All
+  injected text escaped; data links restricted to http(s).
+- `js/enter.js` (new, sync in head): applies stored theme before paint, arms the hero entrance.
+- `js/scene.js` (new): hero point field in raw WebGL (no three.js: ~4 KB vs ~690 KB), theme-aware,
+  pauses off-screen/hidden tab, still frame under reduced motion.
+- `js/sound.js` (new): uisfx@0.4.0 (MIT/CC0) from jsDelivr, OFF by default, header toggle, remembered.
+- `assets/moments/` (new): tasteskill word-highlight moment + loader, MIT licence file alongside.
+- `.gitignore`: `.taste-skill/` (local checker workspace).
+
+#### Validation
+
+- html-validate (CI config): 0 errors. stylelint-config-standard: 0. ESLint (CI rules): 0.
+- Browser QA at 320x568, 375x667, 390x844, 414x896, 768x1024, 820x1180, 1024x768, 1280x800,
+  1366x768, 1440x900, 1920x1080: no horizontal overflow, no clipped section, no card text overlap,
+  no broken images, no console errors. Light/dark toggle, persistence, mobile menu, modal, lightbox
+  and deep links exercised.
+- tasteskill gate: `GATE: OPEN 29` after its 3 rounds (rounds used up). Waived (in
+  `.taste-skill/waivers.json`): client-copy contrast frames, no portrait in About, portfolio
+  headings, one card recipe, contact list split. Afterwards sections were changed from fixed to
+  min-height (see Decisions) — the gate counts that as a deviation by design.
+
+#### Remaining Work
+
+- Client to supply media for the empty Cloudinary folders, then add entries to `js/work.js`.
+- Copy-lint notes on the client's own copy (6 "X, not Y" contrasts, 15 em dashes) left for the client.
+- Not committed or pushed — waiting for the client's confirmation.
+
+#### Follow-up (same day)
+
+- Hero video stage removed at the client's request; the WebGL point field now fills the hero and
+  the head row sits low on the screen.
+- `Walkthrough_Windows_upptvj` (99.5 MB) gets HTTP 423 from Cloudinary for on-the-fly transcodes.
+  Modal and lightbox videos now carry a second `<source>` with the untransformed original
+  (`cdn.videoOriginal`), and SoReal leads with the Android walkthrough. Generating an eager
+  transformation for that asset in the Cloudinary console would remove the 100 MB fallback load.
+
+#### Notes for Future Agents
+
+- Add media: `[kind, version, publicId, caption?]` in `js/work.js`; text lives in `js/data.js`.
+- Bump the `?v=` query on CSS/JS links when changing those files.
+- The Cloudinary console needs a real page load per folder; SPA back-navigation is unreliable.
+
 ### 2026-10-22 — Add TouchWall Interactive Projection Touch Installation
 
 #### Request
