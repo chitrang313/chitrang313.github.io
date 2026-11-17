@@ -50,6 +50,34 @@ Possible Next Step: <Recommended follow-up>
 
 <!-- Add entries only for meaningful work. Do not create fictional history. -->
 
+### 2026-11-17 — Update résumé PDF and assets
+
+#### Request
+
+Update the site's downloadable and viewable résumé PDF with the latest two-page version provided by the user, and push changes to the repository.
+
+#### Investigation
+
+- Inspected `index.html` lines 188, 464, and 468. Both download buttons (in the hero section and résumé block) and the "Open the PDF" link point to `assets/resume/Chitrang-Patel-Resume.pdf`.
+- Extracted and verified the uploaded PDF asset from the user session.
+
+#### Changes
+
+- Overwrote `assets/resume/Chitrang-Patel-Resume.pdf` with the updated 2-page résumé covering senior software engineer experience, AI & productivity tooling, key projects (SoReal, ICC Cricket Mobile, Ludo Multiplayer, Card Game Engine), and education.
+
+#### Validation
+
+- Verified file presence, size (122,404 bytes), and modification timestamp on disk.
+- Tested HTTP request via local dev server (`http://localhost:4173/assets/resume/Chitrang-Patel-Resume.pdf`), confirming HTTP 200 OK.
+
+#### Remaining Work
+
+- None.
+
+#### Notes for Future Agents
+
+- The download buttons in the hero section and closing résumé block automatically serve whatever file is placed at `assets/resume/Chitrang-Patel-Resume.pdf`.
+
 ### 2026-11-12 — Fresh redesign: dark/light immersive site, Cloudinary media, tasteskill system
 
 #### Request
